@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Plik źródłowy strings.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7ad25bca70c4d3d9103f75d82f41ef94.html">UI</a></li><li class="navelem"><a class="el" href="dir_4e6af703aa76ad4aa9f6277e6166a522.html">text_lib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">strings.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="strings_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef STRINGS_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define STRINGS_H</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="strings_8h.html#a214c717b2e51e1993a749ac99df7de58">   17</a></span>&#160;<span class="preprocessor">#define EQUAL 0</span></div><div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div><div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <span class="keywordtype">char</span> <a class="code" href="strings_8h.html#a28cbe8b756bb996cac67865ed35a2a7a">whiteSpaces</a>[7];</div><div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div><div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">unsigned</span> <a class="code" href="strings_8h.html#aabcce4ab1dc38c69351f01cb854ffd88">count_digits</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> x);</div><div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div><div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="strings_8h.html#a0ad1df10ed8b869b93c1c3cb7fbf9411">cat_strings</a>(<span class="keywordtype">char</span> *dest, <span class="keywordtype">char</span> *src, uint64_t start_point);</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="strings_8h.html#a70bda37aee114b1a9fe1f4a69a8059ea">get_strings</a>(<span class="keywordtype">int</span> strings_count, <span class="keywordtype">char</span> *strings[]);</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;</div><div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="strings_8h.html#ae28f141131d0367f52d4fa350509280c">string_to_ul</a>(<span class="keywordtype">char</span> *<span class="keywordtype">string</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> *dest);</div><div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div><div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="strings_8h.html#a8e8c9c5bae2e3a8354be651468b601b7">stringArr_to_ulArr</a>(<span class="keywordtype">int</span> strings_count, <span class="keywordtype">char</span> *strings[],</div><div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                               <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> numbers[]);</div><div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div><div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="strings_8h.html#a12261a5e1ad1a330f0acaefdee531098">ul_to_uint32_t</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> x, uint32_t *dest);</div><div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;</div><div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="strings_8h.html#aafe657a7e36bf7446d181605f93e1f06">ulArr_to_uintArr</a>(<span class="keywordtype">int</span> size, <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> x[], uint32_t dest[]);</div><div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div><div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* STRINGS_H */</span><span class="preprocessor"></span></div><div class="ttc" id="strings_8h_html_aabcce4ab1dc38c69351f01cb854ffd88"><div class="ttname"><a href="strings_8h.html#aabcce4ab1dc38c69351f01cb854ffd88">count_digits</a></div><div class="ttdeci">unsigned count_digits(unsigned long x)</div><div class="ttdoc">Liczy liczbę cyfr w liczbie x. </div><div class="ttdef"><b>Definition:</b> strings.c:11</div></div>
+<div class="ttc" id="strings_8h_html_a0ad1df10ed8b869b93c1c3cb7fbf9411"><div class="ttname"><a href="strings_8h.html#a0ad1df10ed8b869b93c1c3cb7fbf9411">cat_strings</a></div><div class="ttdeci">void cat_strings(char *dest, char *src, uint64_t start_point)</div><div class="ttdoc">Kopiuje napis src do dest zaczynając od indeksu o numerze start_point. </div><div class="ttdef"><b>Definition:</b> strings.c:23</div></div>
+<div class="ttc" id="strings_8h_html_a8e8c9c5bae2e3a8354be651468b601b7"><div class="ttname"><a href="strings_8h.html#a8e8c9c5bae2e3a8354be651468b601b7">stringArr_to_ulArr</a></div><div class="ttdeci">bool stringArr_to_ulArr(int strings_count, char *strings[], unsigned long numbers[])</div><div class="ttdoc">Konwertuje tablicę napisów na tablicę unsigned long. </div><div class="ttdef"><b>Definition:</b> strings.c:70</div></div>
+<div class="ttc" id="strings_8h_html_a70bda37aee114b1a9fe1f4a69a8059ea"><div class="ttname"><a href="strings_8h.html#a70bda37aee114b1a9fe1f4a69a8059ea">get_strings</a></div><div class="ttdeci">bool get_strings(int strings_count, char *strings[])</div><div class="ttdoc">Wypełnia tablicę strings stings_count słowami. </div><div class="ttdef"><b>Definition:</b> strings.c:36</div></div>
+<div class="ttc" id="strings_8h_html_a12261a5e1ad1a330f0acaefdee531098"><div class="ttname"><a href="strings_8h.html#a12261a5e1ad1a330f0acaefdee531098">ul_to_uint32_t</a></div><div class="ttdeci">bool ul_to_uint32_t(unsigned long x, uint32_t *dest)</div><div class="ttdoc">Konwertuje unsigned long na uint32_t. </div><div class="ttdef"><b>Definition:</b> strings.c:86</div></div>
+<div class="ttc" id="strings_8h_html_a28cbe8b756bb996cac67865ed35a2a7a"><div class="ttname"><a href="strings_8h.html#a28cbe8b756bb996cac67865ed35a2a7a">whiteSpaces</a></div><div class="ttdeci">const char whiteSpaces[7]</div><div class="ttdoc">Definicja białych znaków. </div><div class="ttdef"><b>Definition:</b> strings.c:9</div></div>
+<div class="ttc" id="strings_8h_html_ae28f141131d0367f52d4fa350509280c"><div class="ttname"><a href="strings_8h.html#ae28f141131d0367f52d4fa350509280c">string_to_ul</a></div><div class="ttdeci">bool string_to_ul(char *string, unsigned long *dest)</div><div class="ttdoc">Konwertuje napis na unsigned long. </div><div class="ttdef"><b>Definition:</b> strings.c:48</div></div>
+<div class="ttc" id="strings_8h_html_aafe657a7e36bf7446d181605f93e1f06"><div class="ttname"><a href="strings_8h.html#aafe657a7e36bf7446d181605f93e1f06">ulArr_to_uintArr</a></div><div class="ttdeci">bool ulArr_to_uintArr(int size, unsigned long x[], uint32_t dest[])</div><div class="ttdoc">Konwertuje tablicę unsigned long na tablicę uint32_t. </div><div class="ttdef"><b>Definition:</b> strings.c:92</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<map id="gamma_golden_possible" name="gamma_golden_possible">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="672,5,776,32"/>
+<area shape="rect" id="node3" href="$gamma_8c.html#a957a3e36aa6ac77f0dd605352dfd2c44" title="Wykonuje złoty ruch. " alt="" coords="457,31,624,57"/>
+<area shape="rect" id="node4" href="$gamma_8c.html#a301f50baa77d03c714005048c07af847" title="Odwraca skutki wykonania ruchu innego gracza na pole (x, y), zajęte przez gracza o numerze player..." alt="" coords="237,81,409,108"/>
+</map>

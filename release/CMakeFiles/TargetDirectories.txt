@@ -1,0 +1,5 @@
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/release/CMakeFiles/rebuild_cache.dir
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/release/CMakeFiles/edit_cache.dir
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/release/CMakeFiles/doc.dir
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/release/CMakeFiles/gamma.dir
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/release/CMakeFiles/test.dir

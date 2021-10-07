@@ -1,0 +1,4 @@
+<map id="push_neighbours" name="push_neighbours">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="185,5,312,32"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="222,56,275,83"/>
+</map>

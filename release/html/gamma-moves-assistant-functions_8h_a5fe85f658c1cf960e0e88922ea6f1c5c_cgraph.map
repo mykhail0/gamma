@@ -1,0 +1,5 @@
+<map id="gamma_move_possible" name="gamma_move_possible">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="245,5,349,32"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#a02d60f9a101ff3d185c26eb8f2578705" title="Sprawdza poprawność współrzędnych komórki. " alt="" coords="239,56,355,83"/>
+<area shape="rect" id="node4" href="$gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="231,107,364,133"/>
+</map>

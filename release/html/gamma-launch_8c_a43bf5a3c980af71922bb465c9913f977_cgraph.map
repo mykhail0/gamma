@@ -1,0 +1,7 @@
+<map id="load_game" name="load_game">
+<area shape="rect" id="node2" href="$strings_8h.html#a70bda37aee114b1a9fe1f4a69a8059ea" title="Wypełnia tablicę strings stings_count słowami. " alt="" coords="169,5,263,32"/>
+<area shape="rect" id="node3" href="$strings_8h.html#a8e8c9c5bae2e3a8354be651468b601b7" title="Konwertuje tablicę napisów na tablicę unsigned long. " alt="" coords="148,56,284,83"/>
+<area shape="rect" id="node4" href="$strings_8h.html#aafe657a7e36bf7446d181605f93e1f06" title="Konwertuje tablicę unsigned long na tablicę uint32_t. " alt="" coords="154,107,278,133"/>
+<area shape="rect" id="node5" href="$gamma-launch_8c.html#ad7f0fb1efc943967e17943a5f05cf69d" title="Przeprowadza rozgrywkę. " alt="" coords="169,157,263,184"/>
+<area shape="rect" id="node6" href="$error-handling_8c.html#a53333e230814905199aa927975f9a354" title="wypisuje &quot;ERROR line&quot; na standardowe wyjście diagnostyczne. " alt="" coords="177,208,255,235"/>
+</map>

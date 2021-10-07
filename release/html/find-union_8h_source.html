@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Plik źródłowy find-union.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8a63a06b97ec1e69eb6b2537b1056ef4.html">game_engine</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">find-union.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="find-union_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef FIND_UNION_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define FIND_UNION_H</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div><div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="structelem.html">   16</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structelem.html">elem</a> {</div><div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="structelem.html#a274747cfcaa878e9a01733bd53a80558">   17</a></span>&#160;    uint32_t <a class="code" href="structelem.html#a274747cfcaa878e9a01733bd53a80558">player</a>; </div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="structelem.html#af41271c0bc2f25feafe8e06d46c30cdb">   18</a></span>&#160;    uint64_t <a class="code" href="structelem.html#af41271c0bc2f25feafe8e06d46c30cdb">rank</a>; </div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structelem.html#a88f0f493502f6b492a934ea6001665c0">   24</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structelem.html">elem</a> *<a class="code" href="structelem.html#a88f0f493502f6b492a934ea6001665c0">parent</a>;</div><div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div><div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">   30</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structelem.html">elem</a> <a class="code" href="structelem.html">elem_t</a>;</div><div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">extern</span> <a class="code" href="structelem.html">elem_t</a> *<a class="code" href="find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b">make_set</a>(<a class="code" href="structelem.html">elem_t</a> *e, uint32_t <a class="code" href="structelem.html#a274747cfcaa878e9a01733bd53a80558">player</a>);</div><div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div><div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">extern</span> <a class="code" href="structelem.html">elem_t</a>* <a class="code" href="find-union_8h.html#a47d0874ddd9fa6dfef2d70810b1bdd6a">find</a>(<a class="code" href="structelem.html">elem_t</a> *e);</div><div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;</div><div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">extern</span> <a class="code" href="structelem.html">elem_t</a> *<a class="code" href="find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595">unite</a>(<a class="code" href="structelem.html">elem_t</a> *x, <a class="code" href="structelem.html">elem_t</a> *y);</div><div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* FIND_UNION_H */</span><span class="preprocessor"></span></div><div class="ttc" id="find-union_8h_html_a487d60ae78d7ff572420f058a7dd3c4b"><div class="ttname"><a href="find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b">make_set</a></div><div class="ttdeci">elem_t * make_set(elem_t *e, uint32_t player)</div><div class="ttdoc">Inicjuje obszar. </div><div class="ttdef"><b>Definition:</b> find-union.c:5</div></div>
+<div class="ttc" id="structelem_html_af41271c0bc2f25feafe8e06d46c30cdb"><div class="ttname"><a href="structelem.html#af41271c0bc2f25feafe8e06d46c30cdb">elem::rank</a></div><div class="ttdeci">uint64_t rank</div><div class="ttdoc">ogarniczenie górne wysokości drzewa obszaru. Ma znaczenie wtw parent jest adresem komórki...</div><div class="ttdef"><b>Definition:</b> find-union.h:18</div></div>
+<div class="ttc" id="find-union_8h_html_a47d0874ddd9fa6dfef2d70810b1bdd6a"><div class="ttname"><a href="find-union_8h.html#a47d0874ddd9fa6dfef2d70810b1bdd6a">find</a></div><div class="ttdeci">elem_t * find(elem_t *e)</div><div class="ttdoc">Zwraca reprezentanta zbioru do którego należy e. </div><div class="ttdef"><b>Definition:</b> find-union.c:13</div></div>
+<div class="ttc" id="structelem_html_a274747cfcaa878e9a01733bd53a80558"><div class="ttname"><a href="structelem.html#a274747cfcaa878e9a01733bd53a80558">elem::player</a></div><div class="ttdeci">uint32_t player</div><div class="ttdoc">numer gracza, czyj pionek stoi na tym polu. </div><div class="ttdef"><b>Definition:</b> find-union.h:17</div></div>
+<div class="ttc" id="structelem_html"><div class="ttname"><a href="structelem.html">elem</a></div><div class="ttdoc">Komórka planszy. </div><div class="ttdef"><b>Definition:</b> find-union.h:16</div></div>
+<div class="ttc" id="find-union_8h_html_aa74cedd2dde37f34a6f794cfe20fb595"><div class="ttname"><a href="find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595">unite</a></div><div class="ttdeci">elem_t * unite(elem_t *x, elem_t *y)</div><div class="ttdoc">Łączy dwa zbiory, których reprezentantami są x i y. </div><div class="ttdef"><b>Definition:</b> find-union.c:26</div></div>
+<div class="ttc" id="structelem_html_a88f0f493502f6b492a934ea6001665c0"><div class="ttname"><a href="structelem.html#a88f0f493502f6b492a934ea6001665c0">elem::parent</a></div><div class="ttdeci">struct elem * parent</div><div class="ttdoc">adres komórki która jest nadrzędna do tej. </div><div class="ttdef"><b>Definition:</b> find-union.h:24</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

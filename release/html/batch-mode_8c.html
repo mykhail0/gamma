@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Dokumentacja pliku batch-mode.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7ad25bca70c4d3d9103f75d82f41ef94.html">UI</a></li><li class="navelem"><a class="el" href="dir_4e0f27db3ea6584ed1a43abbff6909ad.html">batch_mode</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definicje</a> &#124;
+<a href="#enum-members">Wyliczenia</a> &#124;
+<a href="#func-members">Funkcje</a> &#124;
+<a href="#var-members">Zmienne</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku batch-mode.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementacja <a class="el" href="batch-mode_8h.html">batch-mode.h</a>.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="batch-mode_8h_source.html">batch-mode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gamma_8h_source.html">../../game_engine/gamma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="error-handling_8h_source.html">../error-handling.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="strings_8h_source.html">../text_lib/strings.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla batch-mode.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="batch-mode_8c__incl.png" border="0" usemap="#batch-mode_8c" alt=""/></div>
+<map name="batch-mode_8c" id="batch-mode_8c">
+<area shape="rect" id="node2" href="batch-mode_8h.html" title="Obsługa trybu wsadowego. " alt="" coords="5,80,117,107"/>
+<area shape="rect" id="node3" href="gamma_8h.html" title="Interfejs klasy przechowującej stan gry gamma. " alt="" coords="141,80,341,107"/>
+<area shape="rect" id="node4" href="error-handling_8h.html" title="Obsługa wyjścia diganostycznego. " alt="" coords="366,80,503,107"/>
+<area shape="rect" id="node5" href="strings_8h.html" title="Pomocnicze funkcje tekstowe. " alt="" coords="527,80,670,107"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a369266c24eacffb87046522897a570d5"><td class="memItemLeft" align="right" valign="top"><a id="a369266c24eacffb87046522897a570d5"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a369266c24eacffb87046522897a570d5">_GNU_SOURCE</a></td></tr>
+<tr class="memdesc:a369266c24eacffb87046522897a570d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">To dla getline. <br /></td></tr>
+<tr class="separator:a369266c24eacffb87046522897a570d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a78a06f837179e6f969336e137deccf7e"><td class="memItemLeft" align="right" valign="top"><a id="a78a06f837179e6f969336e137deccf7e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a78a06f837179e6f969336e137deccf7e">POSSIBLE_COMMANDS</a>&#160;&#160;&#160;8</td></tr>
+<tr class="memdesc:a78a06f837179e6f969336e137deccf7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba poleceń dla trybu wsadowego. <br /></td></tr>
+<tr class="separator:a78a06f837179e6f969336e137deccf7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9f7adb763d5df827a260d8ca41e0428"><td class="memItemLeft" align="right" valign="top"><a id="ab9f7adb763d5df827a260d8ca41e0428"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#ab9f7adb763d5df827a260d8ca41e0428">NO_COMMAND_PARAMS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ab9f7adb763d5df827a260d8ca41e0428"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia NO_COMMAND. <br /></td></tr>
+<tr class="separator:ab9f7adb763d5df827a260d8ca41e0428"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab310dc6847c3d557d0272eb04b97ac7c"><td class="memItemLeft" align="right" valign="top"><a id="ab310dc6847c3d557d0272eb04b97ac7c"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#ab310dc6847c3d557d0272eb04b97ac7c">INVALID_COMMAND_PARAMS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ab310dc6847c3d557d0272eb04b97ac7c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia INVALID_COMMAND. <br /></td></tr>
+<tr class="separator:ab310dc6847c3d557d0272eb04b97ac7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a523039ecc6c6ac3179d27ac9eb51383e"><td class="memItemLeft" align="right" valign="top"><a id="a523039ecc6c6ac3179d27ac9eb51383e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a523039ecc6c6ac3179d27ac9eb51383e">GAMMA_MOVE_PARAMS</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a523039ecc6c6ac3179d27ac9eb51383e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia GAMMA_MOVE. <br /></td></tr>
+<tr class="separator:a523039ecc6c6ac3179d27ac9eb51383e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6da1bb5a4ec09d541092805e3240b3cd"><td class="memItemLeft" align="right" valign="top"><a id="a6da1bb5a4ec09d541092805e3240b3cd"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a6da1bb5a4ec09d541092805e3240b3cd">GAMMA_GOLDEN_MOVE_PARAMS</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a6da1bb5a4ec09d541092805e3240b3cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia GAMMA_GOLDEN_MOVE. <br /></td></tr>
+<tr class="separator:a6da1bb5a4ec09d541092805e3240b3cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6835a6542ab6b4530044e35329fae496"><td class="memItemLeft" align="right" valign="top"><a id="a6835a6542ab6b4530044e35329fae496"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a6835a6542ab6b4530044e35329fae496">GAMMA_BUSY_FIELDS_PARAMS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a6835a6542ab6b4530044e35329fae496"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia GAMMA_BUSY_FIELDS. <br /></td></tr>
+<tr class="separator:a6835a6542ab6b4530044e35329fae496"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8bb3e69ee312cdbdec1a47931be93d2d"><td class="memItemLeft" align="right" valign="top"><a id="a8bb3e69ee312cdbdec1a47931be93d2d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a8bb3e69ee312cdbdec1a47931be93d2d">GAMMA_FREE_FIELDS_PARAMS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a8bb3e69ee312cdbdec1a47931be93d2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia GAMMA_FREE_FIELDS. <br /></td></tr>
+<tr class="separator:a8bb3e69ee312cdbdec1a47931be93d2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1798f0b063836348d0bb4d6482650ac2"><td class="memItemLeft" align="right" valign="top"><a id="a1798f0b063836348d0bb4d6482650ac2"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a1798f0b063836348d0bb4d6482650ac2">GAMMA_GOLDEN_POSSIBLE_PARAMS</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a1798f0b063836348d0bb4d6482650ac2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia GAMMA_GOLDEN_POSSIBLE. <br /></td></tr>
+<tr class="separator:a1798f0b063836348d0bb4d6482650ac2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0bd12e46034ab70f4a6e668834f6b1e"><td class="memItemLeft" align="right" valign="top"><a id="ae0bd12e46034ab70f4a6e668834f6b1e"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#ae0bd12e46034ab70f4a6e668834f6b1e">GAMMA_BOARD_PARAMS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ae0bd12e46034ab70f4a6e668834f6b1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba parametrów dla polecenia GAMMA_BOARD. <br /></td></tr>
+<tr class="separator:ae0bd12e46034ab70f4a6e668834f6b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad83b5ec5f8d43384c666cf26865aaea"><td class="memItemLeft" align="right" valign="top"><a id="aad83b5ec5f8d43384c666cf26865aaea"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#aad83b5ec5f8d43384c666cf26865aaea">PLAYER</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:aad83b5ec5f8d43384c666cf26865aaea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indeks odpowiedniego parametra w tablicy parametrów. <br /></td></tr>
+<tr class="separator:aad83b5ec5f8d43384c666cf26865aaea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a207fd5507206d307cd63f95374fcd00d"><td class="memItemLeft" align="right" valign="top"><a id="a207fd5507206d307cd63f95374fcd00d"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a207fd5507206d307cd63f95374fcd00d">X</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a207fd5507206d307cd63f95374fcd00d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indeks odpowiedniego parametra w tablicy parametrów. <br /></td></tr>
+<tr class="separator:a207fd5507206d307cd63f95374fcd00d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a798e4073d613ca5ba9618e1b3253df14"><td class="memItemLeft" align="right" valign="top"><a id="a798e4073d613ca5ba9618e1b3253df14"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a798e4073d613ca5ba9618e1b3253df14">Y</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a798e4073d613ca5ba9618e1b3253df14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indeks odpowiedniego parametra w tablicy parametrów. <br /></td></tr>
+<tr class="separator:a798e4073d613ca5ba9618e1b3253df14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Wyliczenia</h2></td></tr>
+<tr class="memitem:a2afce0a47a93eee73a314d53e4890153"><td class="memItemLeft" align="right" valign="top"><a id="a2afce0a47a93eee73a314d53e4890153"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a2afce0a47a93eee73a314d53e4890153">Command</a> { <br />
+&#160;&#160;<b>NO_COMMAND</b>, 
+<b>INVALID_COMMAND</b>, 
+<b>GAMMA_MOVE</b>, 
+<b>GAMMA_GOLDEN_MOVE</b>, 
+<br />
+&#160;&#160;<b>GAMMA_BUSY_FIELDS</b>, 
+<b>GAMMA_FREE_FIELDS</b>, 
+<b>GAMMA_GOLDEN_POSSIBLE</b>, 
+<b>GAMMA_BOARD</b>
+<br />
+ }<tr class="memdesc:a2afce0a47a93eee73a314d53e4890153"><td class="mdescLeft">&#160;</td><td class="mdescRight">Możliwe polecenia w trybie wsadowym. <br /></td></tr>
+</td></tr>
+<tr class="separator:a2afce0a47a93eee73a314d53e4890153"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a067f14db01191a0e74ac59e53f886f6a"><td class="memItemLeft" align="right" valign="top"><a id="a067f14db01191a0e74ac59e53f886f6a"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a067f14db01191a0e74ac59e53f886f6a">process_gamma_move</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t params[])</td></tr>
+<tr class="memdesc:a067f14db01191a0e74ac59e53f886f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie 'm'. <br /></td></tr>
+<tr class="separator:a067f14db01191a0e74ac59e53f886f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b49498736cdb677c0ba3086bd0c129"><td class="memItemLeft" align="right" valign="top"><a id="aa0b49498736cdb677c0ba3086bd0c129"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#aa0b49498736cdb677c0ba3086bd0c129">process_gamma_golden_move</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t params[])</td></tr>
+<tr class="memdesc:aa0b49498736cdb677c0ba3086bd0c129"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie 'g'. <br /></td></tr>
+<tr class="separator:aa0b49498736cdb677c0ba3086bd0c129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d2df970f2d003c48e1ac8bfee244b52"><td class="memItemLeft" align="right" valign="top"><a id="a8d2df970f2d003c48e1ac8bfee244b52"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a8d2df970f2d003c48e1ac8bfee244b52">process_gamma_busy_fields</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t params[])</td></tr>
+<tr class="memdesc:a8d2df970f2d003c48e1ac8bfee244b52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie 'b'. <br /></td></tr>
+<tr class="separator:a8d2df970f2d003c48e1ac8bfee244b52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dff63925198a4aaf4a82b97f747c5a8"><td class="memItemLeft" align="right" valign="top"><a id="a5dff63925198a4aaf4a82b97f747c5a8"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a5dff63925198a4aaf4a82b97f747c5a8">process_gamma_free_fields</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t params[])</td></tr>
+<tr class="memdesc:a5dff63925198a4aaf4a82b97f747c5a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie 'f'. <br /></td></tr>
+<tr class="separator:a5dff63925198a4aaf4a82b97f747c5a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7dae3ec081c16a765bf509600f61551"><td class="memItemLeft" align="right" valign="top"><a id="ad7dae3ec081c16a765bf509600f61551"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#ad7dae3ec081c16a765bf509600f61551">process_gamma_golden_possible</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t params[])</td></tr>
+<tr class="memdesc:ad7dae3ec081c16a765bf509600f61551"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie 'q'. <br /></td></tr>
+<tr class="separator:ad7dae3ec081c16a765bf509600f61551"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e86ecf05c1471333e155f96bc0d8fc3"><td class="memItemLeft" align="right" valign="top"><a id="a5e86ecf05c1471333e155f96bc0d8fc3"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a5e86ecf05c1471333e155f96bc0d8fc3">process_gamma_board</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:a5e86ecf05c1471333e155f96bc0d8fc3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie 'p'. <br /></td></tr>
+<tr class="separator:a5e86ecf05c1471333e155f96bc0d8fc3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b432abb16b69e92903c7a008107e0c6"><td class="memItemLeft" align="right" valign="top"><a id="a6b432abb16b69e92903c7a008107e0c6"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a6b432abb16b69e92903c7a008107e0c6">process_command</a> (enum <a class="el" href="batch-mode_8c.html#a2afce0a47a93eee73a314d53e4890153">Command</a> com, <a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t params[])</td></tr>
+<tr class="memdesc:a6b432abb16b69e92903c7a008107e0c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza polecenie <code>com</code> z zadanymi parametrami. <br /></td></tr>
+<tr class="separator:a6b432abb16b69e92903c7a008107e0c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fdb54d889db32e608ee9bca7138b355"><td class="memItemLeft" align="right" valign="top"><a id="a5fdb54d889db32e608ee9bca7138b355"></a>
+static enum <a class="el" href="batch-mode_8c.html#a2afce0a47a93eee73a314d53e4890153">Command</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a5fdb54d889db32e608ee9bca7138b355">checkCommand</a> (char *line)</td></tr>
+<tr class="memdesc:a5fdb54d889db32e608ee9bca7138b355"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dla danej linijki zwraca to, jakim jest poleceniem. <br /></td></tr>
+<tr class="separator:a5fdb54d889db32e608ee9bca7138b355"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa093b8516a9ac61fe99e3f0bb492d410"><td class="memItemLeft" align="right" valign="top"><a id="aa093b8516a9ac61fe99e3f0bb492d410"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#aa093b8516a9ac61fe99e3f0bb492d410">get_uints</a> (int uintCount, char *strings[], unsigned long numbers[], uint32_t uints[])</td></tr>
+<tr class="memdesc:aa093b8516a9ac61fe99e3f0bb492d410"><td class="mdescLeft">&#160;</td><td class="mdescRight">Łączy parę funkcji ze "string.h" dla wygody. <br /></td></tr>
+<tr class="separator:aa093b8516a9ac61fe99e3f0bb492d410"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadfe123f2e21e100f2f12cff7d27c48a"><td class="memItemLeft" align="right" valign="top"><a id="aadfe123f2e21e100f2f12cff7d27c48a"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#aadfe123f2e21e100f2f12cff7d27c48a">parse_line</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, unsigned long long *line)</td></tr>
+<tr class="memdesc:aadfe123f2e21e100f2f12cff7d27c48a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza linijkę. <br /></td></tr>
+<tr class="separator:aadfe123f2e21e100f2f12cff7d27c48a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9e2bc87b6faab6b11eca903d3162641"><td class="memItemLeft" align="right" valign="top"><a id="ac9e2bc87b6faab6b11eca903d3162641"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#ac9e2bc87b6faab6b11eca903d3162641">parse</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, unsigned long long *line)</td></tr>
+<tr class="memdesc:ac9e2bc87b6faab6b11eca903d3162641"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przetwarza całość. <br /></td></tr>
+<tr class="separator:ac9e2bc87b6faab6b11eca903d3162641"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af88bba432a878d05f190ddf2efbbbbcd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#af88bba432a878d05f190ddf2efbbbbcd">batch_mode</a> (unsigned long long *line, uint32_t width, uint32_t height, uint32_t players, uint32_t areas)</td></tr>
+<tr class="memdesc:af88bba432a878d05f190ddf2efbbbbcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puszcza tryb wsadowy dla zadanych parametrów.  <a href="#af88bba432a878d05f190ddf2efbbbbcd">Więcej...</a><br /></td></tr>
+<tr class="separator:af88bba432a878d05f190ddf2efbbbbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Zmienne</h2></td></tr>
+<tr class="memitem:a019fb4c5aa7d2aa41c7eaf006f3df2a7"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="batch-mode_8c.html#a019fb4c5aa7d2aa41c7eaf006f3df2a7">params_number</a> [<a class="el" href="batch-mode_8c.html#a78a06f837179e6f969336e137deccf7e">POSSIBLE_COMMANDS</a>]</td></tr>
+<tr class="memdesc:a019fb4c5aa7d2aa41c7eaf006f3df2a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">W params_number[i] liczba parametrów dla polecenia <code>i</code>.  <a href="#a019fb4c5aa7d2aa41c7eaf006f3df2a7">Więcej...</a><br /></td></tr>
+<tr class="separator:a019fb4c5aa7d2aa41c7eaf006f3df2a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Implementacja <a class="el" href="batch-mode_8h.html">batch-mode.h</a>. </p>
+<dl class="section author"><dt>Autor</dt><dd>Mykhailo Shevchenko <a href="#" onclick="location.href='mai'+'lto:'+'ms4'+'20'+'826'+'@s'+'tud'+'en'+'ts.'+'mi'+'muw'+'.e'+'du.'+'pl'; return false;">ms420<span style="display: none;">.nosp@m.</span>826@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>mimuw<span style="display: none;">.nosp@m.</span>.edu<span style="display: none;">.nosp@m.</span>.pl</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Uniwersytet Warszawski </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>17.05.2020 </dd></dl>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="af88bba432a878d05f190ddf2efbbbbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af88bba432a878d05f190ddf2efbbbbcd">&#9670;&nbsp;</a></span>batch_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool batch_mode </td>
+          <td>(</td>
+          <td class="paramtype">unsigned long long *&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>players</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>areas</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Puszcza tryb wsadowy dla zadanych parametrów. </p>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> wtw gdy gra zostałą przeprowadzona. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="batch-mode_8c_af88bba432a878d05f190ddf2efbbbbcd_cgraph.png" border="0" usemap="#batch-mode_8c_af88bba432a878d05f190ddf2efbbbbcd_cgraph" alt=""/></div>
+<map name="batch-mode_8c_af88bba432a878d05f190ddf2efbbbbcd_cgraph" id="batch-mode_8c_af88bba432a878d05f190ddf2efbbbbcd_cgraph">
+<area shape="rect" id="node2" href="gamma_8c.html#ae924a4dd60bbf992d534b67bc60e490e" title="Tworzy strukturę przechowującą stan gry. " alt="" coords="163,5,269,32"/>
+<area shape="rect" id="node3" href="batch-mode_8c.html#ac9e2bc87b6faab6b11eca903d3162641" title="Przetwarza całość. " alt="" coords="187,56,245,83"/>
+<area shape="rect" id="node4" href="gamma_8c.html#ade4b01ede66f2dba4d9185bac81f9846" title="Usuwa strukturę przechowującą stan gry. " alt="" coords="156,107,276,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Dokumentacja zmiennych</h2>
+<a id="a019fb4c5aa7d2aa41c7eaf006f3df2a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a019fb4c5aa7d2aa41c7eaf006f3df2a7">&#9670;&nbsp;</a></span>params_number</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int params_number[<a class="el" href="batch-mode_8c.html#a78a06f837179e6f969336e137deccf7e">POSSIBLE_COMMANDS</a>]</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Wartość początkowa:</b><div class="fragment"><div class="line">= {</div><div class="line">    <a class="code" href="batch-mode_8c.html#ab9f7adb763d5df827a260d8ca41e0428">NO_COMMAND_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#ab310dc6847c3d557d0272eb04b97ac7c">INVALID_COMMAND_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#a523039ecc6c6ac3179d27ac9eb51383e">GAMMA_MOVE_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#a6da1bb5a4ec09d541092805e3240b3cd">GAMMA_GOLDEN_MOVE_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#a6835a6542ab6b4530044e35329fae496">GAMMA_BUSY_FIELDS_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#a8bb3e69ee312cdbdec1a47931be93d2d">GAMMA_FREE_FIELDS_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#a1798f0b063836348d0bb4d6482650ac2">GAMMA_GOLDEN_POSSIBLE_PARAMS</a>,</div><div class="line">    <a class="code" href="batch-mode_8c.html#ae0bd12e46034ab70f4a6e668834f6b1e">GAMMA_BOARD_PARAMS</a></div><div class="line">}</div><div class="ttc" id="batch-mode_8c_html_a6da1bb5a4ec09d541092805e3240b3cd"><div class="ttname"><a href="batch-mode_8c.html#a6da1bb5a4ec09d541092805e3240b3cd">GAMMA_GOLDEN_MOVE_PARAMS</a></div><div class="ttdeci">#define GAMMA_GOLDEN_MOVE_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia GAMMA_GOLDEN_MOVE. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:50</div></div>
+<div class="ttc" id="batch-mode_8c_html_ab9f7adb763d5df827a260d8ca41e0428"><div class="ttname"><a href="batch-mode_8c.html#ab9f7adb763d5df827a260d8ca41e0428">NO_COMMAND_PARAMS</a></div><div class="ttdeci">#define NO_COMMAND_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia NO_COMMAND. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:41</div></div>
+<div class="ttc" id="batch-mode_8c_html_ab310dc6847c3d557d0272eb04b97ac7c"><div class="ttname"><a href="batch-mode_8c.html#ab310dc6847c3d557d0272eb04b97ac7c">INVALID_COMMAND_PARAMS</a></div><div class="ttdeci">#define INVALID_COMMAND_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia INVALID_COMMAND. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:44</div></div>
+<div class="ttc" id="batch-mode_8c_html_a6835a6542ab6b4530044e35329fae496"><div class="ttname"><a href="batch-mode_8c.html#a6835a6542ab6b4530044e35329fae496">GAMMA_BUSY_FIELDS_PARAMS</a></div><div class="ttdeci">#define GAMMA_BUSY_FIELDS_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia GAMMA_BUSY_FIELDS. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:53</div></div>
+<div class="ttc" id="batch-mode_8c_html_a8bb3e69ee312cdbdec1a47931be93d2d"><div class="ttname"><a href="batch-mode_8c.html#a8bb3e69ee312cdbdec1a47931be93d2d">GAMMA_FREE_FIELDS_PARAMS</a></div><div class="ttdeci">#define GAMMA_FREE_FIELDS_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia GAMMA_FREE_FIELDS. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:56</div></div>
+<div class="ttc" id="batch-mode_8c_html_a523039ecc6c6ac3179d27ac9eb51383e"><div class="ttname"><a href="batch-mode_8c.html#a523039ecc6c6ac3179d27ac9eb51383e">GAMMA_MOVE_PARAMS</a></div><div class="ttdeci">#define GAMMA_MOVE_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia GAMMA_MOVE. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:47</div></div>
+<div class="ttc" id="batch-mode_8c_html_ae0bd12e46034ab70f4a6e668834f6b1e"><div class="ttname"><a href="batch-mode_8c.html#ae0bd12e46034ab70f4a6e668834f6b1e">GAMMA_BOARD_PARAMS</a></div><div class="ttdeci">#define GAMMA_BOARD_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia GAMMA_BOARD. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:62</div></div>
+<div class="ttc" id="batch-mode_8c_html_a1798f0b063836348d0bb4d6482650ac2"><div class="ttname"><a href="batch-mode_8c.html#a1798f0b063836348d0bb4d6482650ac2">GAMMA_GOLDEN_POSSIBLE_PARAMS</a></div><div class="ttdeci">#define GAMMA_GOLDEN_POSSIBLE_PARAMS</div><div class="ttdoc">Liczba parametrów dla polecenia GAMMA_GOLDEN_POSSIBLE. </div><div class="ttdef"><b>Definition:</b> batch-mode.c:59</div></div>
+</div><!-- fragment -->
+<p>W params_number[i] liczba parametrów dla polecenia <code>i</code>. </p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

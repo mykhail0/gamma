@@ -1,0 +1,5 @@
+<map id="update_free_neighbours" name="update_free_neighbours">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="235,5,362,32"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="232,56,365,83"/>
+<area shape="rect" id="node4" href="$gamma-moves-assistant-functions_8c.html#a4edf21afa536f57cfb28fa395a3ee2fd" title="Sprawdza, czy jest w tablicy. " alt="" coords="252,107,345,133"/>
+</map>

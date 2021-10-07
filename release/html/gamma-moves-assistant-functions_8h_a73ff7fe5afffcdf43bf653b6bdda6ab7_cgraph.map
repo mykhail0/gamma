@@ -1,0 +1,5 @@
+<map id="clear_visited" name="clear_visited">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="377,26,431,53"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#aae76fdba3d0c3179e67f2c3e6f61a871" title="Zdejmuje element ze stosu. " alt="" coords="221,26,267,53"/>
+<area shape="rect" id="node4" href="$gamma-moves-assistant-functions_8c.html#af44a876937b4d1a8599716e2a46062b3" title="Dodaje zwiedzonych sąsiadów x do stosu. " alt="" coords="159,77,329,103"/>
+</map>

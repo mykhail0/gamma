@@ -1,0 +1,7 @@
+<map id="interact" name="interact">
+<area shape="rect" id="node2" href="$interactive-mode_8c.html#aa3ea3daf37d0dc0605b47b4e3f96218d" title="Ustawia stałe dla danej instancji planszy. " alt="" coords="132,5,240,32"/>
+<area shape="rect" id="node3" href="$interactive-mode_8c.html#a9b261da76d3b473773b21466db501a15" title="Przywraca kilka drobnych rzeczy terminalowi. " alt="" coords="133,56,239,83"/>
+<area shape="rect" id="node4" href="$interactive-mode_8c.html#aa9ba50ca6d53a1badfbf02da8fd4570c" title="Zwalnia pamięć po trybie interaktywnym. " alt="" coords="131,107,241,133"/>
+<area shape="rect" id="node5" href="$interactive-mode_8c.html#aeb0d06e5f2c1085e8cb214a87f13b3df" title="Obsługa kolejnych znaków ze strony graczy. " alt="" coords="161,157,211,184"/>
+<area shape="rect" id="node6" href="$interactive-mode_8c.html#a09d33b018f1e25dcea77bb18de366915" title="Wypisuje statystyki graczy na koniec rozgrywki. " alt="" coords="125,208,247,235"/>
+</map>

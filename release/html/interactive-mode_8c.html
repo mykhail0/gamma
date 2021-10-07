@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Dokumentacja pliku interactive-mode.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7ad25bca70c4d3d9103f75d82f41ef94.html">UI</a></li><li class="navelem"><a class="el" href="dir_b16254f30304c6ecee6ffff544c1a023.html">interactive_mode</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Struktury danych</a> &#124;
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a> &#124;
+<a href="#var-members">Zmienne</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku interactive-mode.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementacja <a class="el" href="interactive-mode_8h.html">interactive-mode.h</a>.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="interactive-mode_8h_source.html">interactive-mode.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gamma_8h_source.html">../../game_engine/gamma.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="strings_8h_source.html">../text_lib/strings.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
+<code>#include &lt;termios.h&gt;</code><br />
+<code>#include &lt;unistd.h&gt;</code><br />
+<code>#include &lt;sys/ioctl.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla interactive-mode.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="interactive-mode_8c__incl.png" border="0" usemap="#interactive-mode_8c" alt=""/></div>
+<map name="interactive-mode_8c" id="interactive-mode_8c">
+<area shape="rect" id="node2" href="interactive-mode_8h.html" title="Obsługa trybu interaktywnego. " alt="" coords="5,80,152,107"/>
+<area shape="rect" id="node3" href="gamma_8h.html" title="Interfejs klasy przechowującej stan gry gamma. " alt="" coords="176,80,376,107"/>
+<area shape="rect" id="node4" href="strings_8h.html" title="Pomocnicze funkcje tekstowe. " alt="" coords="399,80,542,107"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Struktury danych</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structcursor.html">cursor</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rekord opisujący położenie kursora.  <a href="structcursor.html#details">Więcej...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:ae571f0b1462856f859501fff7e2f3b44"><td class="memItemLeft" align="right" valign="top"><a id="ae571f0b1462856f859501fff7e2f3b44"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:ae571f0b1462856f859501fff7e2f3b44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Liczba współrzędnych na planszy, kursora. <br /></td></tr>
+<tr class="separator:ae571f0b1462856f859501fff7e2f3b44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a2d169653e67d21a5e5daec2af9ec1136"><td class="memItemLeft" align="right" valign="top"><a id="a2d169653e67d21a5e5daec2af9ec1136"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a2d169653e67d21a5e5daec2af9ec1136">move_cursor</a> (struct <a class="el" href="structcursor.html">cursor</a> x)</td></tr>
+<tr class="memdesc:a2d169653e67d21a5e5daec2af9ec1136"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przesuwa kursor na daną pozycję na ekranie. <br /></td></tr>
+<tr class="separator:a2d169653e67d21a5e5daec2af9ec1136"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c7eb775ea0285416e6a70643db5714"><td class="memItemLeft" align="right" valign="top"><a id="a68c7eb775ea0285416e6a70643db5714"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a68c7eb775ea0285416e6a70643db5714">cursor_to_pos</a> (uint32_t *x, uint32_t *y)</td></tr>
+<tr class="memdesc:a68c7eb775ea0285416e6a70643db5714"><td class="mdescLeft">&#160;</td><td class="mdescRight">Konwertuje współrzędne kursora na współrzędne planszy dla <a class="el" href="gamma_8h.html#a393107e99247f4068e2a2c8a0af70e43">gamma_move</a>. <br /></td></tr>
+<tr class="separator:a68c7eb775ea0285416e6a70643db5714"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af27206906f39a07869bd69efccafcb1f"><td class="memItemLeft" align="right" valign="top"><a id="af27206906f39a07869bd69efccafcb1f"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#af27206906f39a07869bd69efccafcb1f">cursorBack</a> ()</td></tr>
+<tr class="memdesc:af27206906f39a07869bd69efccafcb1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przesuwa kursor do tyłu. <br /></td></tr>
+<tr class="separator:af27206906f39a07869bd69efccafcb1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5f82fb4f24fa623cc8d49322f956002"><td class="memItemLeft" align="right" valign="top"><a id="ad5f82fb4f24fa623cc8d49322f956002"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#ad5f82fb4f24fa623cc8d49322f956002">cursorDown</a> ()</td></tr>
+<tr class="memdesc:ad5f82fb4f24fa623cc8d49322f956002"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przesuwa kursor w dół. <br /></td></tr>
+<tr class="separator:ad5f82fb4f24fa623cc8d49322f956002"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada41393749fbee5428248a78c39f4b71"><td class="memItemLeft" align="right" valign="top"><a id="ada41393749fbee5428248a78c39f4b71"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#ada41393749fbee5428248a78c39f4b71">cursorUp</a> ()</td></tr>
+<tr class="memdesc:ada41393749fbee5428248a78c39f4b71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przesuwa kursor do góry. <br /></td></tr>
+<tr class="separator:ada41393749fbee5428248a78c39f4b71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19213e52088b67d17f066a44762c6350"><td class="memItemLeft" align="right" valign="top"><a id="a19213e52088b67d17f066a44762c6350"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a19213e52088b67d17f066a44762c6350">cursorForward</a> ()</td></tr>
+<tr class="memdesc:a19213e52088b67d17f066a44762c6350"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przesuwa kursor do przodu. <br /></td></tr>
+<tr class="separator:a19213e52088b67d17f066a44762c6350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5cc5147bdf88806558c65173f8dc808"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#ae5cc5147bdf88806558c65173f8dc808">update_player</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:ae5cc5147bdf88806558c65173f8dc808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktualizuje linijkę zachęcającą do grania.  <a href="#ae5cc5147bdf88806558c65173f8dc808">Więcej...</a><br /></td></tr>
+<tr class="separator:ae5cc5147bdf88806558c65173f8dc808"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc3a43da6dd7aad6e20b1e4b8a4152d4"><td class="memItemLeft" align="right" valign="top"><a id="abc3a43da6dd7aad6e20b1e4b8a4152d4"></a>
+static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#abc3a43da6dd7aad6e20b1e4b8a4152d4">increment_player</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:abc3a43da6dd7aad6e20b1e4b8a4152d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwraca numer następnego gracza. <br /></td></tr>
+<tr class="separator:abc3a43da6dd7aad6e20b1e4b8a4152d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ea3daf37d0dc0605b47b4e3f96218d"><td class="memItemLeft" align="right" valign="top"><a id="aa3ea3daf37d0dc0605b47b4e3f96218d"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#aa3ea3daf37d0dc0605b47b4e3f96218d">initialize_seq</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:aa3ea3daf37d0dc0605b47b4e3f96218d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia stałe dla danej instancji planszy. <br /></td></tr>
+<tr class="separator:aa3ea3daf37d0dc0605b47b4e3f96218d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affb8f638a36729214aafe57352b1e70d"><td class="memItemLeft" align="right" valign="top"><a id="affb8f638a36729214aafe57352b1e70d"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#affb8f638a36729214aafe57352b1e70d">print_player_stats</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:affb8f638a36729214aafe57352b1e70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypisuje statystykę gracza. <br /></td></tr>
+<tr class="separator:affb8f638a36729214aafe57352b1e70d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae161962adfa7ab6754e4fba0174dc079"><td class="memItemLeft" align="right" valign="top"><a id="ae161962adfa7ab6754e4fba0174dc079"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#ae161962adfa7ab6754e4fba0174dc079">print_board</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:ae161962adfa7ab6754e4fba0174dc079"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypisuje planszę i zachętę dla gracza <code>player</code>. <br /></td></tr>
+<tr class="separator:ae161962adfa7ab6754e4fba0174dc079"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfbcd494363d930659ce9980f740963b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#adfbcd494363d930659ce9980f740963b">make_move</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t *player, int *ch, bool *EOT_reached, bool *unfinishedANSI)</td></tr>
+<tr class="memdesc:adfbcd494363d930659ce9980f740963b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługuje strzałkę, albo inne polecenie od gracza.  <a href="#adfbcd494363d930659ce9980f740963b">Więcej...</a><br /></td></tr>
+<tr class="separator:adfbcd494363d930659ce9980f740963b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb0d06e5f2c1085e8cb214a87f13b3df"><td class="memItemLeft" align="right" valign="top"><a id="aeb0d06e5f2c1085e8cb214a87f13b3df"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#aeb0d06e5f2c1085e8cb214a87f13b3df">play</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:aeb0d06e5f2c1085e8cb214a87f13b3df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obsługa kolejnych znaków ze strony graczy. <br /></td></tr>
+<tr class="separator:aeb0d06e5f2c1085e8cb214a87f13b3df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09d33b018f1e25dcea77bb18de366915"><td class="memItemLeft" align="right" valign="top"><a id="a09d33b018f1e25dcea77bb18de366915"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a09d33b018f1e25dcea77bb18de366915">print_summary</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:a09d33b018f1e25dcea77bb18de366915"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wypisuje statystyki graczy na koniec rozgrywki. <br /></td></tr>
+<tr class="separator:a09d33b018f1e25dcea77bb18de366915"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9ba50ca6d53a1badfbf02da8fd4570c"><td class="memItemLeft" align="right" valign="top"><a id="aa9ba50ca6d53a1badfbf02da8fd4570c"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#aa9ba50ca6d53a1badfbf02da8fd4570c">free_memory</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:aa9ba50ca6d53a1badfbf02da8fd4570c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zwalnia pamięć po trybie interaktywnym. <br /></td></tr>
+<tr class="separator:aa9ba50ca6d53a1badfbf02da8fd4570c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9b261da76d3b473773b21466db501a15"><td class="memItemLeft" align="right" valign="top"><a id="a9b261da76d3b473773b21466db501a15"></a>
+static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a9b261da76d3b473773b21466db501a15">finishing_seq</a> ()</td></tr>
+<tr class="memdesc:a9b261da76d3b473773b21466db501a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Przywraca kilka drobnych rzeczy terminalowi. <br /></td></tr>
+<tr class="separator:a9b261da76d3b473773b21466db501a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abba1bd561044e55b98c8ac47155ead86"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#abba1bd561044e55b98c8ac47155ead86">interact</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:abba1bd561044e55b98c8ac47155ead86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Uruchamia <code>interactive</code>.  <a href="#abba1bd561044e55b98c8ac47155ead86">Więcej...</a><br /></td></tr>
+<tr class="separator:abba1bd561044e55b98c8ac47155ead86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a227239889358f7b83dd25aa445af4cbe"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a227239889358f7b83dd25aa445af4cbe">interactive_mode</a> (uint32_t width, uint32_t height, uint32_t players, uint32_t areas)</td></tr>
+<tr class="memdesc:a227239889358f7b83dd25aa445af4cbe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Puszcza tryb interaktywny.  <a href="#a227239889358f7b83dd25aa445af4cbe">Więcej...</a><br /></td></tr>
+<tr class="separator:a227239889358f7b83dd25aa445af4cbe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Zmienne</h2></td></tr>
+<tr class="memitem:a5c19f7053c1165c8efa2a26378c4671b"><td class="memItemLeft" align="right" valign="top"><a id="a5c19f7053c1165c8efa2a26378c4671b"></a>
+static struct <a class="el" href="structcursor.html">cursor</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a5c19f7053c1165c8efa2a26378c4671b">cursor</a></td></tr>
+<tr class="memdesc:a5c19f7053c1165c8efa2a26378c4671b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Współrzędne kursora. <br /></td></tr>
+<tr class="separator:a5c19f7053c1165c8efa2a26378c4671b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a156565e41116b4df401d1c8c89f567f7"><td class="memItemLeft" align="right" valign="top"><a id="a156565e41116b4df401d1c8c89f567f7"></a>
+static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a156565e41116b4df401d1c8c89f567f7">HEIGHT</a></td></tr>
+<tr class="memdesc:a156565e41116b4df401d1c8c89f567f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wysokość planszy. <br /></td></tr>
+<tr class="separator:a156565e41116b4df401d1c8c89f567f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a743b1f33c938b9bc0223471862adc920"><td class="memItemLeft" align="right" valign="top"><a id="a743b1f33c938b9bc0223471862adc920"></a>
+static unsigned long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a743b1f33c938b9bc0223471862adc920">WIDTH</a></td></tr>
+<tr class="memdesc:a743b1f33c938b9bc0223471862adc920"><td class="mdescLeft">&#160;</td><td class="mdescRight">Szerokość planszy. <br /></td></tr>
+<tr class="separator:a743b1f33c938b9bc0223471862adc920"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e49e103604c91190ac47fe42e68a49e"><td class="memItemLeft" align="right" valign="top"><a id="a2e49e103604c91190ac47fe42e68a49e"></a>
+static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#a2e49e103604c91190ac47fe42e68a49e">COLUMN_WIDTH</a></td></tr>
+<tr class="memdesc:a2e49e103604c91190ac47fe42e68a49e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Szerokość kolumny. <br /></td></tr>
+<tr class="separator:a2e49e103604c91190ac47fe42e68a49e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff2566f4c366b48d73479bef43ee4d2e"><td class="memItemLeft" align="right" valign="top"><a id="aff2566f4c366b48d73479bef43ee4d2e"></a>
+char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="interactive-mode_8c.html#aff2566f4c366b48d73479bef43ee4d2e">buffer</a></td></tr>
+<tr class="memdesc:aff2566f4c366b48d73479bef43ee4d2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pomocniczy buforek do nadpisywania komórek planszy. <br /></td></tr>
+<tr class="separator:aff2566f4c366b48d73479bef43ee4d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Implementacja <a class="el" href="interactive-mode_8h.html">interactive-mode.h</a>. </p>
+<dl class="section author"><dt>Autor</dt><dd>Mykhailo Shevchenko <a href="#" onclick="location.href='mai'+'lto:'+'ms4'+'20'+'826'+'@s'+'tud'+'en'+'ts.'+'mi'+'muw'+'.e'+'du.'+'pl'; return false;">ms420<span style="display: none;">.nosp@m.</span>826@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>mimuw<span style="display: none;">.nosp@m.</span>.edu<span style="display: none;">.nosp@m.</span>.pl</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Uniwersytet Warszawski </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>17.05.2020 </dd></dl>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="abba1bd561044e55b98c8ac47155ead86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abba1bd561044e55b98c8ac47155ead86">&#9670;&nbsp;</a></span>interact()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool interact </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Uruchamia <code>interactive</code>. </p>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> wtw gdy się udało przeprowadzić rozgrywkę. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interactive-mode_8c_abba1bd561044e55b98c8ac47155ead86_cgraph.png" border="0" usemap="#interactive-mode_8c_abba1bd561044e55b98c8ac47155ead86_cgraph" alt=""/></div>
+<map name="interactive-mode_8c_abba1bd561044e55b98c8ac47155ead86_cgraph" id="interactive-mode_8c_abba1bd561044e55b98c8ac47155ead86_cgraph">
+<area shape="rect" id="node2" href="interactive-mode_8c.html#aa3ea3daf37d0dc0605b47b4e3f96218d" title="Ustawia stałe dla danej instancji planszy. " alt="" coords="132,5,240,32"/>
+<area shape="rect" id="node3" href="interactive-mode_8c.html#a9b261da76d3b473773b21466db501a15" title="Przywraca kilka drobnych rzeczy terminalowi. " alt="" coords="133,56,239,83"/>
+<area shape="rect" id="node4" href="interactive-mode_8c.html#aa9ba50ca6d53a1badfbf02da8fd4570c" title="Zwalnia pamięć po trybie interaktywnym. " alt="" coords="131,107,241,133"/>
+<area shape="rect" id="node5" href="interactive-mode_8c.html#aeb0d06e5f2c1085e8cb214a87f13b3df" title="Obsługa kolejnych znaków ze strony graczy. " alt="" coords="161,157,211,184"/>
+<area shape="rect" id="node6" href="interactive-mode_8c.html#a09d33b018f1e25dcea77bb18de366915" title="Wypisuje statystyki graczy na koniec rozgrywki. " alt="" coords="125,208,247,235"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a227239889358f7b83dd25aa445af4cbe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a227239889358f7b83dd25aa445af4cbe">&#9670;&nbsp;</a></span>interactive_mode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool interactive_mode </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>players</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>areas</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Puszcza tryb interaktywny. </p>
+<p>Jeśli został zwrócony <code>false</code> to errno informuje o błędzie. </p>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interactive-mode_8c_a227239889358f7b83dd25aa445af4cbe_cgraph.png" border="0" usemap="#interactive-mode_8c_a227239889358f7b83dd25aa445af4cbe_cgraph" alt=""/></div>
+<map name="interactive-mode_8c_a227239889358f7b83dd25aa445af4cbe_cgraph" id="interactive-mode_8c_a227239889358f7b83dd25aa445af4cbe_cgraph">
+<area shape="rect" id="node2" href="gamma_8c.html#ae924a4dd60bbf992d534b67bc60e490e" title="Tworzy strukturę przechowującą stan gry. " alt="" coords="196,5,303,32"/>
+<area shape="rect" id="node3" href="gamma_8c.html#ade4b01ede66f2dba4d9185bac81f9846" title="Usuwa strukturę przechowującą stan gry. " alt="" coords="189,56,309,83"/>
+<area shape="rect" id="node4" href="interactive-mode_8c.html#abba1bd561044e55b98c8ac47155ead86" title="Uruchamia interactive. " alt="" coords="213,107,285,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="adfbcd494363d930659ce9980f740963b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfbcd494363d930659ce9980f740963b">&#9670;&nbsp;</a></span>make_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool make_move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>ch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>EOT_reached</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool *&#160;</td>
+          <td class="paramname"><em>unfinishedANSI</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Obsługuje strzałkę, albo inne polecenie od gracza. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>- wskaźnik na numer gracza wykonującego ruch, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ch</td><td>- wskaźnik na kod znaku, który trzeba zinterpretować, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">EOT_reached</td><td>- tu zapisywana informacja, czy ctrl+D zostało napotkane, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">unfinishedANSI</td><td>- tu zapisywana informacja, czy <code>ch</code> trzeba aktualizować, po wywołaniu <code>make_move</code>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> wtw gdy zaktualizowany po wywołaniu tej funkcji <code>player</code> może wykonać ruch. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interactive-mode_8c_adfbcd494363d930659ce9980f740963b_cgraph.png" border="0" usemap="#interactive-mode_8c_adfbcd494363d930659ce9980f740963b_cgraph" alt=""/></div>
+<map name="interactive-mode_8c_adfbcd494363d930659ce9980f740963b_cgraph" id="interactive-mode_8c_adfbcd494363d930659ce9980f740963b_cgraph">
+<area shape="rect" id="node2" href="interactive-mode_8c.html#a68c7eb775ea0285416e6a70643db5714" title="Konwertuje współrzędne kursora na współrzędne planszy dla gamma_move. " alt="" coords="183,5,295,32"/>
+<area shape="rect" id="node3" href="interactive-mode_8c.html#abc3a43da6dd7aad6e20b1e4b8a4152d4" title="Zwraca numer następnego gracza. " alt="" coords="171,56,307,83"/>
+<area shape="rect" id="node4" href="interactive-mode_8c.html#ae5cc5147bdf88806558c65173f8dc808" title="Aktualizuje linijkę zachęcającą do grania. " alt="" coords="182,107,297,133"/>
+<area shape="rect" id="node5" href="gamma_8c.html#a957a3e36aa6ac77f0dd605352dfd2c44" title="Wykonuje złoty ruch. " alt="" coords="156,157,323,184"/>
+<area shape="rect" id="node6" href="gamma_8c.html#a26e46122ea947dae38bcefe9808cad96" title="Wykonuje ruch. " alt="" coords="371,183,487,209"/>
+<area shape="rect" id="node7" href="interactive-mode_8c.html#ada41393749fbee5428248a78c39f4b71" title="Przesuwa kursor do góry. " alt="" coords="199,259,279,285"/>
+<area shape="rect" id="node8" href="interactive-mode_8c.html#ad5f82fb4f24fa623cc8d49322f956002" title="Przesuwa kursor w dół. " alt="" coords="190,309,289,336"/>
+<area shape="rect" id="node9" href="interactive-mode_8c.html#a19213e52088b67d17f066a44762c6350" title="Przesuwa kursor do przodu. " alt="" coords="182,360,297,387"/>
+<area shape="rect" id="node10" href="interactive-mode_8c.html#af27206906f39a07869bd69efccafcb1f" title="Przesuwa kursor do tyłu. " alt="" coords="192,411,287,437"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae5cc5147bdf88806558c65173f8dc808"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5cc5147bdf88806558c65173f8dc808">&#9670;&nbsp;</a></span>update_player()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool update_player </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Aktualizuje linijkę zachęcającą do grania. </p>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> wtw gdy linijka zaktualizowana, czyli gracza <code>player</code> może wykonać ruch. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="interactive-mode_8c_ae5cc5147bdf88806558c65173f8dc808_cgraph.png" border="0" usemap="#interactive-mode_8c_ae5cc5147bdf88806558c65173f8dc808_cgraph" alt=""/></div>
+<map name="interactive-mode_8c_ae5cc5147bdf88806558c65173f8dc808_cgraph" id="interactive-mode_8c_ae5cc5147bdf88806558c65173f8dc808_cgraph">
+<area shape="rect" id="node2" href="gamma_8c.html#aa94d7501acaf540b67bc45061492fbc5" title="Sprawdza, czy gracz może wykonać złoty ruch. " alt="" coords="168,5,352,32"/>
+<area shape="rect" id="node3" href="gamma_8c.html#a07f193f5947c044de39455c545073e3d" title="Podaje liczbę pól, jakie jeszcze gracz może zająć. " alt="" coords="187,56,333,83"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

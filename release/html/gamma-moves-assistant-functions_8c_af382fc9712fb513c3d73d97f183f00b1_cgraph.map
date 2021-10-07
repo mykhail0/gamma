@@ -1,0 +1,4 @@
+<map id="unite_with_neighbours" name="unite_with_neighbours">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a92a2e38a8d82cff80e804944a620bf1d" title="Sprawdza, czy jest w tablicy. " alt="" coords="223,5,356,32"/>
+<area shape="rect" id="node3" href="$find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595" title="Łączy dwa zbiory, których reprezentantami są x i y. " alt="" coords="262,56,317,83"/>
+</map>

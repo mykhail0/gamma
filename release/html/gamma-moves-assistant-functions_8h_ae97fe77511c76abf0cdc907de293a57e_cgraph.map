@@ -1,0 +1,9 @@
+<map id="remake_subset" name="remake_subset">
+<area shape="rect" id="node2" href="$find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b" title="Inicjuje obszar. " alt="" coords="199,5,285,32"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="356,259,409,285"/>
+<area shape="rect" id="node4" href="$gamma-moves-assistant-functions_8c.html#aae76fdba3d0c3179e67f2c3e6f61a871" title="Zdejmuje element ze stosu. " alt="" coords="359,81,406,108"/>
+<area shape="rect" id="node5" href="$gamma-moves-assistant-functions_8c.html#a11997fa3417c556854a7c42686327408" title="Sprawdza, czy komórka należy do tablicy dest. " alt="" coords="195,157,289,184"/>
+<area shape="rect" id="node6" href="$find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595" title="Łączy dwa zbiory, których reprezentantami są x i y. " alt="" coords="215,208,269,235"/>
+<area shape="rect" id="node7" href="$gamma-moves-assistant-functions_8c.html#a40708361e0c47cb0b1445e67215cee51" title="Dodaje niezwiedzonych sąsiadów do stosu. " alt="" coords="176,309,308,336"/>
+<area shape="rect" id="node8" href="$gamma-moves-assistant-functions_8c.html#a73ff7fe5afffcdf43bf653b6bdda6ab7" title="Ustawia wszystkie zwiedzone komórki wokół start na niezwiedzone. " alt="" coords="189,107,295,133"/>
+</map>

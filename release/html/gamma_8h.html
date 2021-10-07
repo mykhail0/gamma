@@ -1,0 +1,554 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Dokumentacja pliku gamma.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8a63a06b97ec1e69eb6b2537b1056ef4.html">game_engine</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku gamma.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Interfejs klasy przechowującej stan gry gamma.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="find-union_8h_source.html">find-union.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gamma-struct_8h_source.html">gamma-struct.h</a>&quot;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla gamma.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h__incl.png" border="0" usemap="#gamma_8h" alt=""/></div>
+<map name="gamma_8h" id="gamma_8h">
+<area shape="rect" id="node2" href="find-union_8h.html" title="Implementacja struktury Find&#45;Union. " alt="" coords="35,155,134,181"/>
+<area shape="rect" id="node4" href="gamma-struct_8h.html" title="Definicja rekordu, który przechowuje stan gry. " alt="" coords="87,80,213,107"/>
+</map>
+</div>
+</div><div class="textblock"><div class="dynheader">
+Ten wykres pokazuje, które pliki bezpośrednio lub pośrednio załączają ten plik:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h__dep__incl.png" border="0" usemap="#gamma_8hdep" alt=""/></div>
+<map name="gamma_8hdep" id="gamma_8hdep">
+<area shape="rect" id="node2" href="gamma_8c.html" title="Implementacja gamma.h. " alt="" coords="5,80,88,107"/>
+<area shape="rect" id="node3" href="batch-mode_8c.html" title="Implementacja batch&#45;mode.h. " alt="" coords="113,80,223,107"/>
+<area shape="rect" id="node4" href="interactive-mode_8c.html" title="Implementacja interactive&#45;mode.h. " alt="" coords="247,80,393,107"/>
+</map>
+</div>
+</div>
+<p><a href="gamma_8h_source.html">Idź do kodu źródłowego tego pliku.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:ae924a4dd60bbf992d534b67bc60e490e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a> (uint32_t width, uint32_t height, uint32_t players, uint32_t areas)</td></tr>
+<tr class="memdesc:ae924a4dd60bbf992d534b67bc60e490e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tworzy strukturę przechowującą stan gry.  <a href="#ae924a4dd60bbf992d534b67bc60e490e">Więcej...</a><br /></td></tr>
+<tr class="separator:ae924a4dd60bbf992d534b67bc60e490e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade4b01ede66f2dba4d9185bac81f9846"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#ade4b01ede66f2dba4d9185bac81f9846">gamma_delete</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:ade4b01ede66f2dba4d9185bac81f9846"><td class="mdescLeft">&#160;</td><td class="mdescRight">Usuwa strukturę przechowującą stan gry.  <a href="#ade4b01ede66f2dba4d9185bac81f9846">Więcej...</a><br /></td></tr>
+<tr class="separator:ade4b01ede66f2dba4d9185bac81f9846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a393107e99247f4068e2a2c8a0af70e43"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#a393107e99247f4068e2a2c8a0af70e43">gamma_move</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t x, uint32_t y)</td></tr>
+<tr class="memdesc:a393107e99247f4068e2a2c8a0af70e43"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wykonuje ruch.  <a href="#a393107e99247f4068e2a2c8a0af70e43">Więcej...</a><br /></td></tr>
+<tr class="separator:a393107e99247f4068e2a2c8a0af70e43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbc00e267aa73e496b21366cbf3abcea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#acbc00e267aa73e496b21366cbf3abcea">gamma_golden_move</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t x, uint32_t y)</td></tr>
+<tr class="memdesc:acbc00e267aa73e496b21366cbf3abcea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wykonuje złoty ruch.  <a href="#acbc00e267aa73e496b21366cbf3abcea">Więcej...</a><br /></td></tr>
+<tr class="separator:acbc00e267aa73e496b21366cbf3abcea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c4703a5387a725bade3b52441fc6246"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#a6c4703a5387a725bade3b52441fc6246">gamma_busy_fields</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:a6c4703a5387a725bade3b52441fc6246"><td class="mdescLeft">&#160;</td><td class="mdescRight">Podaje liczbę pól zajętych przez gracza.  <a href="#a6c4703a5387a725bade3b52441fc6246">Więcej...</a><br /></td></tr>
+<tr class="separator:a6c4703a5387a725bade3b52441fc6246"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07f193f5947c044de39455c545073e3d"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#a07f193f5947c044de39455c545073e3d">gamma_free_fields</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:a07f193f5947c044de39455c545073e3d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Podaje liczbę pól, jakie jeszcze gracz może zająć.  <a href="#a07f193f5947c044de39455c545073e3d">Więcej...</a><br /></td></tr>
+<tr class="separator:a07f193f5947c044de39455c545073e3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa94d7501acaf540b67bc45061492fbc5"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#aa94d7501acaf540b67bc45061492fbc5">gamma_golden_possible</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:aa94d7501acaf540b67bc45061492fbc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy gracz może wykonać złoty ruch.  <a href="#aa94d7501acaf540b67bc45061492fbc5">Więcej...</a><br /></td></tr>
+<tr class="separator:aa94d7501acaf540b67bc45061492fbc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f1816b0623d5cfb2b869430197bb4a2"><td class="memItemLeft" align="right" valign="top">char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma_8h.html#a7f1816b0623d5cfb2b869430197bb4a2">gamma_board</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g)</td></tr>
+<tr class="memdesc:a7f1816b0623d5cfb2b869430197bb4a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Daje napis opisujący stan planszy.  <a href="#a7f1816b0623d5cfb2b869430197bb4a2">Więcej...</a><br /></td></tr>
+<tr class="separator:a7f1816b0623d5cfb2b869430197bb4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Interfejs klasy przechowującej stan gry gamma. </p>
+<dl class="section author"><dt>Autor</dt><dd>Marcin Peczarski <a href="#" onclick="location.href='mai'+'lto:'+'mar'+'pe'+'@mi'+'mu'+'w.e'+'du'+'.pl'; return false;">marpe<span style="display: none;">.nosp@m.</span>@mim<span style="display: none;">.nosp@m.</span>uw.ed<span style="display: none;">.nosp@m.</span>u.pl</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Uniwersytet Warszawski </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>18.03.2020 </dd></dl>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a7f1816b0623d5cfb2b869430197bb4a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f1816b0623d5cfb2b869430197bb4a2">&#9670;&nbsp;</a></span>gamma_board()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* gamma_board </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Daje napis opisujący stan planszy. </p>
+<p>Alokuje w pamięci bufor, w którym umieszcza napis zawierający tekstowy opis aktualnego stanu planszy. Przykład znajduje się w pliku gamma_test.c. Funkcja wywołująca musi zwolnić ten bufor. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>– wskaźnik na strukturę przechowującą stan gry. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wskaźnik na zaalokowany bufor zawierający napis opisujący stan planszy lub NULL, jeśli nie udało się zaalokować pamięci. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_a7f1816b0623d5cfb2b869430197bb4a2_cgraph.png" border="0" usemap="#gamma_8h_a7f1816b0623d5cfb2b869430197bb4a2_cgraph" alt=""/></div>
+<map name="gamma_8h_a7f1816b0623d5cfb2b869430197bb4a2_cgraph" id="gamma_8h_a7f1816b0623d5cfb2b869430197bb4a2_cgraph">
+<area shape="rect" id="node2" href="strings_8h.html#aabcce4ab1dc38c69351f01cb854ffd88" title="Liczy liczbę cyfr w liczbie x. " alt="" coords="169,5,271,32"/>
+<area shape="rect" id="node3" href="strings_8h.html#a0ad1df10ed8b869b93c1c3cb7fbf9411" title="Kopiuje napis src do dest zaczynając od indeksu o numerze start_point. " alt="" coords="173,56,267,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6c4703a5387a725bade3b52441fc6246"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c4703a5387a725bade3b52441fc6246">&#9670;&nbsp;</a></span>gamma_busy_fields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t gamma_busy_fields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Podaje liczbę pól zajętych przez gracza. </p>
+<p>Podaje liczbę pól zajętych przez gracza <code>player</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>– wskaźnik na strukturę przechowującą stan gry, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>– numer gracza, liczba dodatnia niewiększa od wartości <code>players</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Liczba pól zajętych przez gracza lub zero, jeśli któryś z parametrów jest niepoprawny. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_a6c4703a5387a725bade3b52441fc6246_cgraph.png" border="0" usemap="#gamma_8h_a6c4703a5387a725bade3b52441fc6246_cgraph" alt=""/></div>
+<map name="gamma_8h_a6c4703a5387a725bade3b52441fc6246_cgraph" id="gamma_8h_a6c4703a5387a725bade3b52441fc6246_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="205,5,309,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ade4b01ede66f2dba4d9185bac81f9846"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4b01ede66f2dba4d9185bac81f9846">&#9670;&nbsp;</a></span>gamma_delete()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void gamma_delete </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Usuwa strukturę przechowującą stan gry. </p>
+<p>Usuwa z pamięci strukturę wskazywaną przez <code>g</code>. Nic nie robi, jeśli wskaźnik ten ma wartość NULL. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>– wskaźnik na usuwaną strukturę. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_ade4b01ede66f2dba4d9185bac81f9846_cgraph.png" border="0" usemap="#gamma_8h_ade4b01ede66f2dba4d9185bac81f9846_cgraph" alt=""/></div>
+<map name="gamma_8h_ade4b01ede66f2dba4d9185bac81f9846_cgraph" id="gamma_8h_ade4b01ede66f2dba4d9185bac81f9846_cgraph">
+<area shape="rect" id="node2" href="gamma-delete_8h.html#a1ea8f66e0714fbade68f78cd1eccdf66" title="Zwalnia pamięć po &#39;g&#45;&gt;board`. " alt="" coords="177,5,284,32"/>
+<area shape="rect" id="node3" href="gamma-delete_8h.html#ae37f910ac95784c5ae41187d9aa8cf29" title="Zwalnia pamięć po g&#45;&gt;visited. " alt="" coords="173,56,288,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a07f193f5947c044de39455c545073e3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07f193f5947c044de39455c545073e3d">&#9670;&nbsp;</a></span>gamma_free_fields()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t gamma_free_fields </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Podaje liczbę pól, jakie jeszcze gracz może zająć. </p>
+<p>Podaje liczbę wolnych pól, na których w danym stanie gry gracz <code>player</code> może postawić swój pionek w następnym ruchu. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>– wskaźnik na strukturę przechowującą stan gry, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>– numer gracza, liczba dodatnia niewiększa od wartości <code>players</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Liczba pól, jakie jeszcze może zająć gracz lub zero, jeśli któryś z parametrów jest niepoprawny. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_a07f193f5947c044de39455c545073e3d_cgraph.png" border="0" usemap="#gamma_8h_a07f193f5947c044de39455c545073e3d_cgraph" alt=""/></div>
+<map name="gamma_8h_a07f193f5947c044de39455c545073e3d_cgraph" id="gamma_8h_a07f193f5947c044de39455c545073e3d_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="200,5,304,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="acbc00e267aa73e496b21366cbf3abcea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbc00e267aa73e496b21366cbf3abcea">&#9670;&nbsp;</a></span>gamma_golden_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gamma_golden_move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wykonuje złoty ruch. </p>
+<p>Ustawia pionek gracza <code>player</code> na polu (<code>x</code>, <code>y</code>) zajętym przez innego gracza, usuwając pionek innego gracza. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>– wskaźnik na strukturę przechowującą stan gry, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>– numer gracza, liczba dodatnia niewiększa od wartości <code>players</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>– numer kolumny, liczba nieujemna mniejsza od wartości <code>width</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>– numer wiersza, liczba nieujemna mniejsza od wartości <code>height</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wartość <code>true</code>, jeśli ruch został wykonany, a <code>false</code>, gdy gracz wykorzystał już swój złoty ruch, ruch jest nielegalny lub któryś z parametrów jest niepoprawny. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_acbc00e267aa73e496b21366cbf3abcea_cgraph.png" border="0" usemap="#gamma_8h_acbc00e267aa73e496b21366cbf3abcea_cgraph" alt=""/></div>
+<map name="gamma_8h_acbc00e267aa73e496b21366cbf3abcea_cgraph" id="gamma_8h_acbc00e267aa73e496b21366cbf3abcea_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="678,17,782,44"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#a02d60f9a101ff3d185c26eb8f2578705" title="Sprawdza poprawność współrzędnych komórki. " alt="" coords="672,177,788,204"/>
+<area shape="rect" id="node4" href="find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b" title="Inicjuje obszar. " alt="" coords="492,144,579,171"/>
+<area shape="rect" id="node5" href="gamma-moves-assistant-functions_8c.html#a5fe85f658c1cf960e0e88922ea6f1c5c" title="Sprawdza, czy gamma_move się powiedzie. " alt="" coords="447,68,624,95"/>
+<area shape="rect" id="node6" href="gamma-moves-assistant-functions_8c.html#a3ba80ad885cbece05bc1c1d78ffa9374" title="Reorganizuje obszary wokół usuwanej komórki. " alt="" coords="251,195,367,221"/>
+<area shape="rect" id="node7" href="find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595" title="Łączy dwa zbiory, których reprezentantami są x i y. " alt="" coords="282,245,337,272"/>
+<area shape="rect" id="node8" href="gamma-moves-assistant-functions_8c.html#a58a4408391bbde70b2f8179f61079f1b" title="Aktualizuje free_neighbours dla wszystkich graczy w okolicy, tak jakby na polu (col, line) zamiast former_player pojawił się pusty obszar. " alt="" coords="220,297,399,338"/>
+<area shape="rect" id="node9" href="gamma_8c.html#a26e46122ea947dae38bcefe9808cad96" title="Wykonuje ruch. " alt="" coords="251,93,367,120"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa94d7501acaf540b67bc45061492fbc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa94d7501acaf540b67bc45061492fbc5">&#9670;&nbsp;</a></span>gamma_golden_possible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gamma_golden_possible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza, czy gracz może wykonać złoty ruch. </p>
+<p>Sprawdza, czy gracz <code>player</code> jeszcze nie wykonał w tej rozgrywce złotego ruchu i jest przynajmniej jedno pole zajęte przez innego gracza. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>– wskaźnik na strukturę przechowującą stan gry, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>– numer gracza, liczba dodatnia niewiększa od wartości <code>players</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wartość <code>true</code>, jeśli gracz jeszcze nie wykonał w tej rozgrywce złotego ruchu i jest przynajmniej jedno pole zajęte przez innego gracza, a <code>false</code> w przeciwnym przypadku. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_aa94d7501acaf540b67bc45061492fbc5_cgraph.png" border="0" usemap="#gamma_8h_aa94d7501acaf540b67bc45061492fbc5_cgraph" alt=""/></div>
+<map name="gamma_8h_aa94d7501acaf540b67bc45061492fbc5_cgraph" id="gamma_8h_aa94d7501acaf540b67bc45061492fbc5_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="672,5,776,32"/>
+<area shape="rect" id="node3" href="gamma_8c.html#a957a3e36aa6ac77f0dd605352dfd2c44" title="Wykonuje złoty ruch. " alt="" coords="457,31,624,57"/>
+<area shape="rect" id="node4" href="gamma_8c.html#a301f50baa77d03c714005048c07af847" title="Odwraca skutki wykonania ruchu innego gracza na pole (x, y), zajęte przez gracza o numerze player..." alt="" coords="237,81,409,108"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a393107e99247f4068e2a2c8a0af70e43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a393107e99247f4068e2a2c8a0af70e43">&#9670;&nbsp;</a></span>gamma_move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gamma_move </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>y</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wykonuje ruch. </p>
+<p>Ustawia pionek gracza <code>player</code> na polu (<code>x</code>, <code>y</code>). </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">g</td><td>– wskaźnik na strukturę przechowującą stan gry, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>– numer gracza, liczba dodatnia niewiększa od wartości <code>players</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>– numer kolumny, liczba nieujemna mniejsza od wartości <code>width</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">y</td><td>– numer wiersza, liczba nieujemna mniejsza od wartości <code>height</code> z funkcji <a class="el" href="gamma_8h.html#ae924a4dd60bbf992d534b67bc60e490e">gamma_new</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>Wartość <code>true</code>, jeśli ruch został wykonany, a <code>false</code>, gdy ruch jest nielegalny lub któryś z parametrów jest niepoprawny. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_a393107e99247f4068e2a2c8a0af70e43_cgraph.png" border="0" usemap="#gamma_8h_a393107e99247f4068e2a2c8a0af70e43_cgraph" alt=""/></div>
+<map name="gamma_8h_a393107e99247f4068e2a2c8a0af70e43_cgraph" id="gamma_8h_a393107e99247f4068e2a2c8a0af70e43_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a5fe85f658c1cf960e0e88922ea6f1c5c" title="Sprawdza, czy gamma_move się powiedzie. " alt="" coords="170,5,347,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="396,56,529,83"/>
+<area shape="rect" id="node4" href="gamma-moves-assistant-functions_8c.html#a9330c9d6da2fabe22f9ba60fa22d6c4a" title="Aktualizuje liczbę wolnych pól wszystkich graczy po wykonaniu ruchu. " alt="" coords="169,107,348,133"/>
+<area shape="rect" id="node5" href="find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b" title="Inicjuje obszar. " alt="" coords="215,157,302,184"/>
+<area shape="rect" id="node6" href="gamma-moves-assistant-functions_8c.html#a442faa2dc43284bb4d441b49de7f8c21" title="Inicjuje tablicę reprezentantów obszarów do jakich należą sąsiedzi pola. " alt="" coords="198,208,319,235"/>
+<area shape="rect" id="node7" href="gamma-moves-assistant-functions_8c.html#af382fc9712fb513c3d73d97f183f00b1" title="Łączy pole z sąsiednimi obszarami. " alt="" coords="174,259,343,285"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae924a4dd60bbf992d534b67bc60e490e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae924a4dd60bbf992d534b67bc60e490e">&#9670;&nbsp;</a></span>gamma_new()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a>* gamma_new </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>width</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>height</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>players</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>areas</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tworzy strukturę przechowującą stan gry. </p>
+<p>Alokuje pamięć na nową strukturę przechowującą stan gry. Inicjuje tę strukturę tak, aby reprezentowała początkowy stan gry. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">width</td><td>– szerokość planszy, liczba dodatnia, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">height</td><td>– wysokość planszy, liczba dodatnia, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">players</td><td>– liczba graczy, liczba dodatnia, </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">areas</td><td>– maksymalna liczba obszarów, jakie może zająć jeden gracz, liczba dodatnia. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>wskaźnik na utworzoną strukturę lub <code>NULL</code>, jeśli się nie powiodło. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma_8h_ae924a4dd60bbf992d534b67bc60e490e_cgraph.png" border="0" usemap="#gamma_8h_ae924a4dd60bbf992d534b67bc60e490e_cgraph" alt=""/></div>
+<map name="gamma_8h_ae924a4dd60bbf992d534b67bc60e490e_cgraph" id="gamma_8h_ae924a4dd60bbf992d534b67bc60e490e_cgraph">
+<area shape="rect" id="node2" href="gamma_8c.html#aed4f77ea7c6b6aa48d5c274fbda183f0" title="Wstępnie alokuje pamięć i ustawia wartości. " alt="" coords="166,5,253,32"/>
+<area shape="rect" id="node3" href="gamma_8c.html#a08d47f74888965e259f62abf0c8dc626" title="Alokuje pamięć dla informacji o graczach i ustawia początkowe wartości. " alt="" coords="160,56,259,83"/>
+<area shape="rect" id="node4" href="gamma_8c.html#a06e701f37c38473361991872761b0a02" title="Alokuje planszę i ustawia wszystkie pola na puste. " alt="" coords="166,107,253,133"/>
+<area shape="rect" id="node5" href="gamma_8c.html#a801bbff395931e813ee985259fc856b5" title="Alokacja i inicjalizacja &#39;visited&#39;. " alt="" coords="162,157,257,184"/>
+<area shape="rect" id="node6" href="gamma_8c.html#af1f3ca82a858d90e172bb887317b2990" title="Alokuje stos na potrzeby DFS przy gamma_golden_move. " alt="" coords="167,208,252,235"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

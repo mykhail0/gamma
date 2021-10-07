@@ -1,0 +1,1196 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Dokumentacja pliku gamma-moves-assistant-functions.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8a63a06b97ec1e69eb6b2537b1056ef4.html">game_engine</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#define-members">Definicje</a> &#124;
+<a href="#func-members">Funkcje</a>  </div>
+  <div class="headertitle">
+<div class="title">Dokumentacja pliku gamma-moves-assistant-functions.c</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementacja <a class="el" href="gamma-moves-assistant-functions_8h.html">gamma-moves-assistant-functions.h</a>.  
+<a href="#details">Więcej...</a></p>
+<div class="textblock"><code>#include &quot;<a class="el" href="gamma-struct_8h_source.html">gamma-struct.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="gamma-moves-assistant-functions_8h_source.html">gamma-moves-assistant-functions.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="find-union_8h_source.html">find-union.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="strings_8h_source.html">strings.h</a>&quot;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
+<code>#include &lt;stdint.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Wykres zależności załączania dla gamma-moves-assistant-functions.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c__incl.png" border="0" usemap="#gamma-moves-assistant-functions_8c" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c" id="gamma-moves-assistant-functions_8c">
+<area shape="rect" id="node2" href="gamma-struct_8h.html" title="Definicja rekordu, który przechowuje stan gry. " alt="" coords="312,184,439,211"/>
+<area shape="rect" id="node3" href="find-union_8h.html" title="Implementacja struktury Find&#45;Union. " alt="" coords="294,259,393,285"/>
+<area shape="rect" id="node6" href="gamma-moves-assistant-functions_8h.html" title="Pomocnicze funkcje do gamma_move i gamma_golden_move. " alt="" coords="171,95,356,136"/>
+<area shape="rect" id="node7" href="strings_8h.html" title="Pomocnicze funkcje tekstowe. " alt="" coords="5,184,84,211"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
+Definicje</h2></td></tr>
+<tr class="memitem:a437ef08681e7210d6678427030446a54"><td class="memItemLeft" align="right" valign="top"><a id="a437ef08681e7210d6678427030446a54"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a437ef08681e7210d6678427030446a54">LEFT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:a437ef08681e7210d6678427030446a54"><td class="mdescLeft">&#160;</td><td class="mdescRight">konwencja co do numeracji sąsiadów. <br /></td></tr>
+<tr class="separator:a437ef08681e7210d6678427030446a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4193cd1c8c2e6ebd0e056fa2364a663f"><td class="memItemLeft" align="right" valign="top"><a id="a4193cd1c8c2e6ebd0e056fa2364a663f"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a4193cd1c8c2e6ebd0e056fa2364a663f">DOWN</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:a4193cd1c8c2e6ebd0e056fa2364a663f"><td class="mdescLeft">&#160;</td><td class="mdescRight">konwencja co do numeracji sąsiadów. <br /></td></tr>
+<tr class="separator:a4193cd1c8c2e6ebd0e056fa2364a663f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1965eaca47dbf3f87acdafc2208f04eb"><td class="memItemLeft" align="right" valign="top"><a id="a1965eaca47dbf3f87acdafc2208f04eb"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a1965eaca47dbf3f87acdafc2208f04eb">UP</a>&#160;&#160;&#160;2</td></tr>
+<tr class="memdesc:a1965eaca47dbf3f87acdafc2208f04eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">konwencja co do numeracji sąsiadów. <br /></td></tr>
+<tr class="separator:a1965eaca47dbf3f87acdafc2208f04eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80fb826a684cf3f0d306b22aa100ddac"><td class="memItemLeft" align="right" valign="top"><a id="a80fb826a684cf3f0d306b22aa100ddac"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a80fb826a684cf3f0d306b22aa100ddac">RIGHT</a>&#160;&#160;&#160;3</td></tr>
+<tr class="memdesc:a80fb826a684cf3f0d306b22aa100ddac"><td class="mdescLeft">&#160;</td><td class="mdescRight">konwencja co do numeracji sąsiadów. <br /></td></tr>
+<tr class="separator:a80fb826a684cf3f0d306b22aa100ddac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab00f2b8e8bad4307cf0775a5520cf663"><td class="memItemLeft" align="right" valign="top"><a id="ab00f2b8e8bad4307cf0775a5520cf663"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#ab00f2b8e8bad4307cf0775a5520cf663">COL</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memdesc:ab00f2b8e8bad4307cf0775a5520cf663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeśli komórka przechowywana w uint32_t x[COORDS_COUNT] to x[COL] == col. <br /></td></tr>
+<tr class="separator:ab00f2b8e8bad4307cf0775a5520cf663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af94cfb03461685fead1fe045d5c96f01"><td class="memItemLeft" align="right" valign="top"><a id="af94cfb03461685fead1fe045d5c96f01"></a>
+#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#af94cfb03461685fead1fe045d5c96f01">LINE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memdesc:af94cfb03461685fead1fe045d5c96f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Jeśli komórka przechowywana w uint32_t x[COORDS_COUNT] to x[LINE] == line. <br /></td></tr>
+<tr class="separator:af94cfb03461685fead1fe045d5c96f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Funkcje</h2></td></tr>
+<tr class="memitem:a16a66666aa4c442652cceb9557bfb085"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085">player_is_ok</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player)</td></tr>
+<tr class="memdesc:a16a66666aa4c442652cceb9557bfb085"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza poprawność numeru gracza.  <a href="#a16a66666aa4c442652cceb9557bfb085">Więcej...</a><br /></td></tr>
+<tr class="separator:a16a66666aa4c442652cceb9557bfb085"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02d60f9a101ff3d185c26eb8f2578705"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a02d60f9a101ff3d185c26eb8f2578705">coords_are_ok</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t col, uint32_t line)</td></tr>
+<tr class="memdesc:a02d60f9a101ff3d185c26eb8f2578705"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza poprawność współrzędnych komórki.  <a href="#a02d60f9a101ff3d185c26eb8f2578705">Więcej...</a><br /></td></tr>
+<tr class="separator:a02d60f9a101ff3d185c26eb8f2578705"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab7cdebd638550b1c948fe7fb6cf8b421"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421">exists_neighbour</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t col, uint32_t line)</td></tr>
+<tr class="memdesc:ab7cdebd638550b1c948fe7fb6cf8b421"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy pole sąsiaduje z pionkiem gracza.  <a href="#ab7cdebd638550b1c948fe7fb6cf8b421">Więcej...</a><br /></td></tr>
+<tr class="separator:ab7cdebd638550b1c948fe7fb6cf8b421"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a442faa2dc43284bb4d441b49de7f8c21"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a442faa2dc43284bb4d441b49de7f8c21">set_neighbours</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t col, uint32_t line, <a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *neighbours[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>])</td></tr>
+<tr class="memdesc:a442faa2dc43284bb4d441b49de7f8c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicjuje tablicę reprezentantów obszarów do jakich należą sąsiedzi pola.  <a href="#a442faa2dc43284bb4d441b49de7f8c21">Więcej...</a><br /></td></tr>
+<tr class="separator:a442faa2dc43284bb4d441b49de7f8c21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5fe85f658c1cf960e0e88922ea6f1c5c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a5fe85f658c1cf960e0e88922ea6f1c5c">gamma_move_possible</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t col, uint32_t line)</td></tr>
+<tr class="memdesc:a5fe85f658c1cf960e0e88922ea6f1c5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy <a class="el" href="gamma_8h.html#a393107e99247f4068e2a2c8a0af70e43">gamma_move</a> się powiedzie.  <a href="#a5fe85f658c1cf960e0e88922ea6f1c5c">Więcej...</a><br /></td></tr>
+<tr class="separator:a5fe85f658c1cf960e0e88922ea6f1c5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a2e38a8d82cff80e804944a620bf1d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a92a2e38a8d82cff80e804944a620bf1d">elem_is_in_array</a> (<a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *e, <a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> **arr, int size)</td></tr>
+<tr class="memdesc:a92a2e38a8d82cff80e804944a620bf1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy jest w tablicy.  <a href="#a92a2e38a8d82cff80e804944a620bf1d">Więcej...</a><br /></td></tr>
+<tr class="separator:a92a2e38a8d82cff80e804944a620bf1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af382fc9712fb513c3d73d97f183f00b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#af382fc9712fb513c3d73d97f183f00b1">unite_with_neighbours</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, <a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *neighbours[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>], <a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *e)</td></tr>
+<tr class="memdesc:af382fc9712fb513c3d73d97f183f00b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Łączy pole z sąsiednimi obszarami.  <a href="#af382fc9712fb513c3d73d97f183f00b1">Więcej...</a><br /></td></tr>
+<tr class="separator:af382fc9712fb513c3d73d97f183f00b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30b0ef5064fcbd9a61fff40d3c1ea576"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576">calc_neighbours</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t neighbours[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>][<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>], bool legit_neighbours[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>], uint32_t x[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>])</td></tr>
+<tr class="memdesc:a30b0ef5064fcbd9a61fff40d3c1ea576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki.  <a href="#a30b0ef5064fcbd9a61fff40d3c1ea576">Więcej...</a><br /></td></tr>
+<tr class="separator:a30b0ef5064fcbd9a61fff40d3c1ea576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4edf21afa536f57cfb28fa395a3ee2fd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a4edf21afa536f57cfb28fa395a3ee2fd">is_in_array</a> (uint32_t x, uint32_t *arr, uint64_t size)</td></tr>
+<tr class="memdesc:a4edf21afa536f57cfb28fa395a3ee2fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy jest w tablicy.  <a href="#a4edf21afa536f57cfb28fa395a3ee2fd">Więcej...</a><br /></td></tr>
+<tr class="separator:a4edf21afa536f57cfb28fa395a3ee2fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9330c9d6da2fabe22f9ba60fa22d6c4a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a9330c9d6da2fabe22f9ba60fa22d6c4a">update_free_neighbours</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t col, uint32_t line)</td></tr>
+<tr class="memdesc:a9330c9d6da2fabe22f9ba60fa22d6c4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktualizuje liczbę wolnych pól wszystkich graczy po wykonaniu ruchu.  <a href="#a9330c9d6da2fabe22f9ba60fa22d6c4a">Więcej...</a><br /></td></tr>
+<tr class="separator:a9330c9d6da2fabe22f9ba60fa22d6c4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c27435a38cad87dd7e9c21c5ac26ffe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe">push</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint64_t *top, uint32_t x[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>])</td></tr>
+<tr class="memdesc:a2c27435a38cad87dd7e9c21c5ac26ffe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje element do stosu.  <a href="#a2c27435a38cad87dd7e9c21c5ac26ffe">Więcej...</a><br /></td></tr>
+<tr class="separator:a2c27435a38cad87dd7e9c21c5ac26ffe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae76fdba3d0c3179e67f2c3e6f61a871"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#aae76fdba3d0c3179e67f2c3e6f61a871">pop</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint64_t *top, uint32_t x[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>])</td></tr>
+<tr class="memdesc:aae76fdba3d0c3179e67f2c3e6f61a871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zdejmuje element ze stosu.  <a href="#aae76fdba3d0c3179e67f2c3e6f61a871">Więcej...</a><br /></td></tr>
+<tr class="separator:aae76fdba3d0c3179e67f2c3e6f61a871"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40708361e0c47cb0b1445e67215cee51"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a40708361e0c47cb0b1445e67215cee51">push_neighbours</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint64_t *top, uint32_t x[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>])</td></tr>
+<tr class="memdesc:a40708361e0c47cb0b1445e67215cee51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje niezwiedzonych sąsiadów do stosu.  <a href="#a40708361e0c47cb0b1445e67215cee51">Więcej...</a><br /></td></tr>
+<tr class="separator:a40708361e0c47cb0b1445e67215cee51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11997fa3417c556854a7c42686327408"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a11997fa3417c556854a7c42686327408">check_dest</a> (uint32_t x[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>], uint32_t dest[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>][<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>], bool legit_dest[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>], bool dest_visited[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>])</td></tr>
+<tr class="memdesc:a11997fa3417c556854a7c42686327408"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sprawdza, czy komórka należy do tablicy <code>dest</code>.  <a href="#a11997fa3417c556854a7c42686327408">Więcej...</a><br /></td></tr>
+<tr class="separator:a11997fa3417c556854a7c42686327408"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af44a876937b4d1a8599716e2a46062b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#af44a876937b4d1a8599716e2a46062b3">push_neighbours_clear</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint64_t *top, uint32_t x[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>])</td></tr>
+<tr class="memdesc:af44a876937b4d1a8599716e2a46062b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dodaje zwiedzonych sąsiadów <code>x</code> do stosu.  <a href="#af44a876937b4d1a8599716e2a46062b3">Więcej...</a><br /></td></tr>
+<tr class="separator:af44a876937b4d1a8599716e2a46062b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73ff7fe5afffcdf43bf653b6bdda6ab7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a73ff7fe5afffcdf43bf653b6bdda6ab7">clear_visited</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t start[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>])</td></tr>
+<tr class="memdesc:a73ff7fe5afffcdf43bf653b6bdda6ab7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ustawia wszystkie zwiedzone komórki wokół <code>start</code> na niezwiedzone.  <a href="#a73ff7fe5afffcdf43bf653b6bdda6ab7">Więcej...</a><br /></td></tr>
+<tr class="separator:a73ff7fe5afffcdf43bf653b6bdda6ab7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae97fe77511c76abf0cdc907de293a57e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#ae97fe77511c76abf0cdc907de293a57e">remake_subset</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t start[<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>], uint32_t dest[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>][<a class="el" href="interactive-mode_8c.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>], bool legit_dest[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>], bool dest_visited[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>])</td></tr>
+<tr class="memdesc:ae97fe77511c76abf0cdc907de293a57e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorganizuje obszar.  <a href="#ae97fe77511c76abf0cdc907de293a57e">Więcej...</a><br /></td></tr>
+<tr class="separator:ae97fe77511c76abf0cdc907de293a57e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ba80ad885cbece05bc1c1d78ffa9374"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a3ba80ad885cbece05bc1c1d78ffa9374">make_subsets</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t player, uint32_t col, uint32_t line, <a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *subsets[<a class="el" href="gamma-moves-assistant-functions_8h.html#a48a41c3c69ced97a530d1019c8ae8d2a">NEIGHBOURS_COUNT</a>])</td></tr>
+<tr class="memdesc:a3ba80ad885cbece05bc1c1d78ffa9374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reorganizuje obszary wokół usuwanej komórki.  <a href="#a3ba80ad885cbece05bc1c1d78ffa9374">Więcej...</a><br /></td></tr>
+<tr class="separator:a3ba80ad885cbece05bc1c1d78ffa9374"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58a4408391bbde70b2f8179f61079f1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="gamma-moves-assistant-functions_8c.html#a58a4408391bbde70b2f8179f61079f1b">update_free_neighbours_golden</a> (<a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *g, uint32_t former_player, uint32_t col, uint32_t line)</td></tr>
+<tr class="memdesc:a58a4408391bbde70b2f8179f61079f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Aktualizuje <code>free_neighbours</code> dla wszystkich graczy w okolicy, tak jakby na polu (<code>col</code>, <code>line</code>) zamiast <code>former_player</code> pojawił się pusty obszar.  <a href="#a58a4408391bbde70b2f8179f61079f1b">Więcej...</a><br /></td></tr>
+<tr class="separator:a58a4408391bbde70b2f8179f61079f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Opis szczegółowy</h2>
+<div class="textblock"><p>Implementacja <a class="el" href="gamma-moves-assistant-functions_8h.html">gamma-moves-assistant-functions.h</a>. </p>
+<dl class="section author"><dt>Autor</dt><dd>Mykhailo Shevchenko <a href="#" onclick="location.href='mai'+'lto:'+'ms4'+'20'+'826'+'@s'+'tud'+'en'+'ts.'+'mi'+'muw'+'.e'+'du.'+'pl'; return false;">ms420<span style="display: none;">.nosp@m.</span>826@<span style="display: none;">.nosp@m.</span>stude<span style="display: none;">.nosp@m.</span>nts.<span style="display: none;">.nosp@m.</span>mimuw<span style="display: none;">.nosp@m.</span>.edu<span style="display: none;">.nosp@m.</span>.pl</a> </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Uniwersytet Warszawski </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>18.04.2020 </dd></dl>
+</div><h2 class="groupheader">Dokumentacja funkcji</h2>
+<a id="a30b0ef5064fcbd9a61fff40d3c1ea576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30b0ef5064fcbd9a61fff40d3c1ea576">&#9670;&nbsp;</a></span>calc_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void calc_neighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>neighbours</em>[NEIGHBOURS_COUNT][COORDS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>legit_neighbours</em>[NEIGHBOURS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>[COORDS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">neighbours</td><td>- współrzędne sąsiadów. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">legit_neighbours</td><td>- w <code>legit_neighbours[i]</code> <code>true</code> wtw <code>neighbours[i]</code> zawiera prawdziwą informację. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- w <code>x[LINE]</code> jest <code>line</code> jak w innych funkcjach, w <code>x[COL]</code> jest <code>col</code> jak w innych funkcjach. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11997fa3417c556854a7c42686327408"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11997fa3417c556854a7c42686327408">&#9670;&nbsp;</a></span>check_dest()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void check_dest </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>[COORDS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>dest</em>[NEIGHBOURS_COUNT][COORDS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>legit_dest</em>[NEIGHBOURS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dest_visited</em>[NEIGHBOURS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza, czy komórka należy do tablicy <code>dest</code>. </p>
+<p>(z poprawką na to że niektóre elementy <code>dest</code> nie mają znaczenia). </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- w <code>x[LINE]</code> jest <code>line</code> jak w innych funkcjach, w <code>x[COL]</code> jest <code>col</code> jak w innych funkcjach. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">dest</td><td>- gdzie szukamy. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">legit_dest</td><td>- poprawka. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">dest_visited</td><td>- wynik. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a73ff7fe5afffcdf43bf653b6bdda6ab7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ff7fe5afffcdf43bf653b6bdda6ab7">&#9670;&nbsp;</a></span>clear_visited()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void clear_visited </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>start</em>[COORDS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ustawia wszystkie zwiedzone komórki wokół <code>start</code> na niezwiedzone. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">start</td><td>- współrzędne komórki startowej. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a73ff7fe5afffcdf43bf653b6bdda6ab7_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a73ff7fe5afffcdf43bf653b6bdda6ab7_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a73ff7fe5afffcdf43bf653b6bdda6ab7_cgraph" id="gamma-moves-assistant-functions_8c_a73ff7fe5afffcdf43bf653b6bdda6ab7_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="377,26,431,53"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#aae76fdba3d0c3179e67f2c3e6f61a871" title="Zdejmuje element ze stosu. " alt="" coords="221,26,267,53"/>
+<area shape="rect" id="node4" href="gamma-moves-assistant-functions_8c.html#af44a876937b4d1a8599716e2a46062b3" title="Dodaje zwiedzonych sąsiadów x do stosu. " alt="" coords="159,77,329,103"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a02d60f9a101ff3d185c26eb8f2578705"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02d60f9a101ff3d185c26eb8f2578705">&#9670;&nbsp;</a></span>coords_are_ok()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool coords_are_ok </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza poprawność współrzędnych komórki. </p>
+<p>Zwraca 'false' jeśli plansza jest pusta. </p>
+
+</div>
+</div>
+<a id="a92a2e38a8d82cff80e804944a620bf1d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a2e38a8d82cff80e804944a620bf1d">&#9670;&nbsp;</a></span>elem_is_in_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool elem_is_in_array </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> **&#160;</td>
+          <td class="paramname"><em>arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sprawdza, czy jest w tablicy. </p>
+<p>Sprawdza, czy <code>e</code> jest w tablicy <code>arr</code> o rozmiarze <code>size</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>- puszukiwany klucz. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arr</td><td>- tablica, gdzie jest poszukiwany klucz. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>- rozmiar tablicy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 jeśli <code>e</code> jest w tablicy i 0 w przeciwnym przypadku. </dd></dl>
+
+</div>
+</div>
+<a id="ab7cdebd638550b1c948fe7fb6cf8b421"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7cdebd638550b1c948fe7fb6cf8b421">&#9670;&nbsp;</a></span>exists_neighbour()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool exists_neighbour </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza, czy pole sąsiaduje z pionkiem gracza. </p>
+<p>Zakłada poprawność argumentów. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>- numer gracza. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>- kolumna <code>g-&gt;board</code> w jakiej znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>- wiersz <code>g-&gt;board</code> w jakim znajduje się pole. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> jeśli komórka o danych współrzędnych. sąsiaduje z pionkiem gracza <code>player</code>. </dd></dl>
+
+</div>
+</div>
+<a id="a5fe85f658c1cf960e0e88922ea6f1c5c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fe85f658c1cf960e0e88922ea6f1c5c">&#9670;&nbsp;</a></span>gamma_move_possible()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gamma_move_possible </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza, czy <a class="el" href="gamma_8h.html#a393107e99247f4068e2a2c8a0af70e43">gamma_move</a> się powiedzie. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>- numer gracza. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>- kolumna <code>g-&gt;board</code> w jakiej znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>- wiersz <code>g-&gt;board</code> w jakim znajduje się pole. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd><code>true</code> jeśli ruch jest możliwy i <code>false</code> w przeciwnym przypadku. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a5fe85f658c1cf960e0e88922ea6f1c5c_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a5fe85f658c1cf960e0e88922ea6f1c5c_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a5fe85f658c1cf960e0e88922ea6f1c5c_cgraph" id="gamma-moves-assistant-functions_8c_a5fe85f658c1cf960e0e88922ea6f1c5c_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="245,5,349,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#a02d60f9a101ff3d185c26eb8f2578705" title="Sprawdza poprawność współrzędnych komórki. " alt="" coords="239,56,355,83"/>
+<area shape="rect" id="node4" href="gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="231,107,364,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4edf21afa536f57cfb28fa395a3ee2fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4edf21afa536f57cfb28fa395a3ee2fd">&#9670;&nbsp;</a></span>is_in_array()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool is_in_array </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t *&#160;</td>
+          <td class="paramname"><em>arr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza, czy jest w tablicy. </p>
+<p>Sprawdza, czy <code>x</code> jest w tablicy <code>arr</code> o rozmiarze <code>size</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- puszukiwany klucz. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arr</td><td>- tablica, gdzie jest poszukiwany klucz. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>- rozmiar tablicy. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>1 jeśli <code>x</code> jest w tablicy i 0 w przeciwnym przypadku. </dd></dl>
+
+</div>
+</div>
+<a id="a3ba80ad885cbece05bc1c1d78ffa9374"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ba80ad885cbece05bc1c1d78ffa9374">&#9670;&nbsp;</a></span>make_subsets()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int make_subsets </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *&#160;</td>
+          <td class="paramname"><em>subsets</em>[NEIGHBOURS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reorganizuje obszary wokół usuwanej komórki. </p>
+<p>Pomocnicza do <code><a class="el" href="gamma_8c.html#a957a3e36aa6ac77f0dd605352dfd2c44" title="Wykonuje złoty ruch. ">gamma_golden_move()</a></code>. Po zamianie pionka <code>player</code> na polu (<code>col</code>, <code>line</code>) na puste pole aktualizuje reprezentantów ziorów sąsiadujących obszarów i umieszcza ich w <code>subsets</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>- nr gracza, pionek którego usunięto. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>- kolumna <code>g-&gt;board</code> w jakiej znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>- wiersz <code>g-&gt;board</code> w jakim znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">subsets</td><td>- reprezentanci powstałych obszarów. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Zwraca</dt><dd>liczbę powstałych obszarów. </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a3ba80ad885cbece05bc1c1d78ffa9374_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a3ba80ad885cbece05bc1c1d78ffa9374_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a3ba80ad885cbece05bc1c1d78ffa9374_cgraph" id="gamma-moves-assistant-functions_8c_a3ba80ad885cbece05bc1c1d78ffa9374_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="169,5,296,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#ae97fe77511c76abf0cdc907de293a57e" title="Reorganizuje obszar. " alt="" coords="171,56,294,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a16a66666aa4c442652cceb9557bfb085"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16a66666aa4c442652cceb9557bfb085">&#9670;&nbsp;</a></span>player_is_ok()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool player_is_ok </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sprawdza poprawność numeru gracza. </p>
+<p>Zwraca 'false' jeśli plansza jest pusta. </p>
+
+</div>
+</div>
+<a id="aae76fdba3d0c3179e67f2c3e6f61a871"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae76fdba3d0c3179e67f2c3e6f61a871">&#9670;&nbsp;</a></span>pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void pop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t *&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>[COORDS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Zdejmuje element ze stosu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">top</td><td>- wskaźnik na indeks pierwszego pustego miejsca na stosie. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- w <code>x[LINE]</code> jest <code>line</code> jak w innych funkcjach, w <code>x[COL]</code> jest <code>col</code> jak w innych funkcjach. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2c27435a38cad87dd7e9c21c5ac26ffe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c27435a38cad87dd7e9c21c5ac26ffe">&#9670;&nbsp;</a></span>push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t *&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>[COORDS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje element do stosu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">top</td><td>- wskaźnik na indeks pierwszego pustego miejsca na stosie. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- w <code>x[LINE]</code> jest <code>line</code> jak w innych funkcjach, w <code>x[COL]</code> jest <code>col</code> jak w innych funkcjach. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a40708361e0c47cb0b1445e67215cee51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40708361e0c47cb0b1445e67215cee51">&#9670;&nbsp;</a></span>push_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_neighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t *&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>[COORDS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje niezwiedzonych sąsiadów do stosu. </p>
+<p>Dodaje niezwiedzonych sąsiadów <code>x</code> do stosu takich, że pionek stojący na sąsiedzie jest taki sam jak na <code>x</code>. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">top</td><td>- wskaźnik na indeks pierwszego pustego miejsca na stosie. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- w <code>x[LINE]</code> jest <code>line</code> jak w innych funkcjach, w <code>x[COL]</code> jest <code>col</code> jak w innych funkcjach. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a40708361e0c47cb0b1445e67215cee51_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a40708361e0c47cb0b1445e67215cee51_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a40708361e0c47cb0b1445e67215cee51_cgraph" id="gamma-moves-assistant-functions_8c_a40708361e0c47cb0b1445e67215cee51_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="185,5,312,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="222,56,275,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af44a876937b4d1a8599716e2a46062b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af44a876937b4d1a8599716e2a46062b3">&#9670;&nbsp;</a></span>push_neighbours_clear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void push_neighbours_clear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint64_t *&#160;</td>
+          <td class="paramname"><em>top</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>x</em>[COORDS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dodaje zwiedzonych sąsiadów <code>x</code> do stosu. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">top</td><td>- wskaźnik na indeks pierwszego pustego miejsca na stosie. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">x</td><td>- w <code>x[LINE]</code> jest <code>line</code> jak w innych funkcjach, w <code>x[COL]</code> jest <code>col</code> jak w innych funkcjach. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_af44a876937b4d1a8599716e2a46062b3_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_af44a876937b4d1a8599716e2a46062b3_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_af44a876937b4d1a8599716e2a46062b3_cgraph" id="gamma-moves-assistant-functions_8c_af44a876937b4d1a8599716e2a46062b3_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="224,5,351,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="261,56,314,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae97fe77511c76abf0cdc907de293a57e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae97fe77511c76abf0cdc907de293a57e">&#9670;&nbsp;</a></span>remake_subset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a>* remake_subset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>start</em>[COORDS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>dest</em>[NEIGHBOURS_COUNT][COORDS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>legit_dest</em>[NEIGHBOURS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>dest_visited</em>[NEIGHBOURS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reorganizuje obszar. </p>
+<p>DFS startuje z pola <code>start</code>. W <code>dest_visited[i]</code> zapisuje czy pole <code>dest[i]</code> było zwiedzone. (Jeśli <code>legit_dest[i]</code> jest ustawione na <code>true</code>). </p><dl class="section return"><dt>Zwraca</dt><dd>reprezentanta obszaru, który powstał </dd></dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_ae97fe77511c76abf0cdc907de293a57e_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_ae97fe77511c76abf0cdc907de293a57e_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_ae97fe77511c76abf0cdc907de293a57e_cgraph" id="gamma-moves-assistant-functions_8c_ae97fe77511c76abf0cdc907de293a57e_cgraph">
+<area shape="rect" id="node2" href="find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b" title="Inicjuje obszar. " alt="" coords="199,5,285,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#a2c27435a38cad87dd7e9c21c5ac26ffe" title="Dodaje element do stosu. " alt="" coords="356,259,409,285"/>
+<area shape="rect" id="node4" href="gamma-moves-assistant-functions_8c.html#aae76fdba3d0c3179e67f2c3e6f61a871" title="Zdejmuje element ze stosu. " alt="" coords="359,81,406,108"/>
+<area shape="rect" id="node5" href="gamma-moves-assistant-functions_8c.html#a11997fa3417c556854a7c42686327408" title="Sprawdza, czy komórka należy do tablicy dest. " alt="" coords="195,157,289,184"/>
+<area shape="rect" id="node6" href="find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595" title="Łączy dwa zbiory, których reprezentantami są x i y. " alt="" coords="215,208,269,235"/>
+<area shape="rect" id="node7" href="gamma-moves-assistant-functions_8c.html#a40708361e0c47cb0b1445e67215cee51" title="Dodaje niezwiedzonych sąsiadów do stosu. " alt="" coords="176,309,308,336"/>
+<area shape="rect" id="node8" href="gamma-moves-assistant-functions_8c.html#a73ff7fe5afffcdf43bf653b6bdda6ab7" title="Ustawia wszystkie zwiedzone komórki wokół start na niezwiedzone. " alt="" coords="189,107,295,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a442faa2dc43284bb4d441b49de7f8c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a442faa2dc43284bb4d441b49de7f8c21">&#9670;&nbsp;</a></span>set_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void set_neighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *&#160;</td>
+          <td class="paramname"><em>neighbours</em>[NEIGHBOURS_COUNT]&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicjuje tablicę reprezentantów obszarów do jakich należą sąsiedzi pola. </p>
+<p>Niech i należy do {0, 1, 2, 3}. Liczby oznaczają odpowiedno: lewy dolny górny prawy sąsiad. <code>neighbours[i]</code> jest ustawiany na <code>NULL</code> jeśli i-ty sąsiad nie istnieje lub na tym polu nie stoi pionek gracza nr <code>player</code>. W przeciwnym przypadku jest ustawiany na reprezentanta zbioru, do którego należy i-ty sąsiad komórki. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>- numer gracza. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>- kolumna <code>g-&gt;board</code> w jakiej znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>- wiersz <code>g-&gt;board</code> w jakim znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">neighbours</td><td>- tu są zapisywani reprezentanci. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a442faa2dc43284bb4d441b49de7f8c21_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a442faa2dc43284bb4d441b49de7f8c21_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a442faa2dc43284bb4d441b49de7f8c21_cgraph" id="gamma-moves-assistant-functions_8c_a442faa2dc43284bb4d441b49de7f8c21_cgraph">
+<area shape="rect" id="node2" href="find-union_8h.html#a47d0874ddd9fa6dfef2d70810b1bdd6a" title="Zwraca reprezentanta zbioru do którego należy e. " alt="" coords="175,5,221,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af382fc9712fb513c3d73d97f183f00b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af382fc9712fb513c3d73d97f183f00b1">&#9670;&nbsp;</a></span>unite_with_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void unite_with_neighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *&#160;</td>
+          <td class="paramname"><em>neighbours</em>[NEIGHBOURS_COUNT], </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="find-union_8h.html#a5d0ef5de7a1991e76e12603eaa90e2ff">elem_t</a> *&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Łączy pole z sąsiednimi obszarami. </p>
+<p>Jeśli <code>neighbours</code> to reprezentanty sąsiedzkich obszarów do <code>e</code>, to wszystkie są łączone z <code>e</code> a liczba obszarów jest zaktualizowana. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">neighbours</td><td>- reprezentanci sąsidzkich obszarów co do <code>e</code>. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">e</td><td>- pole. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_af382fc9712fb513c3d73d97f183f00b1_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_af382fc9712fb513c3d73d97f183f00b1_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_af382fc9712fb513c3d73d97f183f00b1_cgraph" id="gamma-moves-assistant-functions_8c_af382fc9712fb513c3d73d97f183f00b1_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a92a2e38a8d82cff80e804944a620bf1d" title="Sprawdza, czy jest w tablicy. " alt="" coords="223,5,356,32"/>
+<area shape="rect" id="node3" href="find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595" title="Łączy dwa zbiory, których reprezentantami są x i y. " alt="" coords="262,56,317,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a9330c9d6da2fabe22f9ba60fa22d6c4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9330c9d6da2fabe22f9ba60fa22d6c4a">&#9670;&nbsp;</a></span>update_free_neighbours()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_free_neighbours </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aktualizuje liczbę wolnych pól wszystkich graczy po wykonaniu ruchu. </p>
+<p>Trzeba wywołać w <a class="el" href="gamma_8h.html#a393107e99247f4068e2a2c8a0af70e43">gamma_move</a> przed zmianą pola z 0 na player. </p><dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">player</td><td>- numer gracza, który będzie na tym polu, wokół którego aktualizujemy. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>- kolumna <code>g-&gt;board</code> w jakiej znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>- wiersz <code>g-&gt;board</code> w jakim znajduje się pole. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a9330c9d6da2fabe22f9ba60fa22d6c4a_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a9330c9d6da2fabe22f9ba60fa22d6c4a_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a9330c9d6da2fabe22f9ba60fa22d6c4a_cgraph" id="gamma-moves-assistant-functions_8c_a9330c9d6da2fabe22f9ba60fa22d6c4a_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="235,5,362,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="232,56,365,83"/>
+<area shape="rect" id="node4" href="gamma-moves-assistant-functions_8c.html#a4edf21afa536f57cfb28fa395a3ee2fd" title="Sprawdza, czy jest w tablicy. " alt="" coords="252,107,345,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a58a4408391bbde70b2f8179f61079f1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58a4408391bbde70b2f8179f61079f1b">&#9670;&nbsp;</a></span>update_free_neighbours_golden()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void update_free_neighbours_golden </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">gamma_t</a> *&#160;</td>
+          <td class="paramname"><em>g</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>former_player</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>col</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Aktualizuje <code>free_neighbours</code> dla wszystkich graczy w okolicy, tak jakby na polu (<code>col</code>, <code>line</code>) zamiast <code>former_player</code> pojawił się pusty obszar. </p>
+<dl class="params"><dt>Parametry</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">g</td><td>- stan gry. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">former_player</td><td>- numer gracza, którego <code>free_neighbours</code> muszą być zaktualizowane inaczej niż u reszty sąsiadów. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">col</td><td>- kolumna <code>g-&gt;board</code> w jakiej znajduje się pole. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">line</td><td>- wiersz <code>g-&gt;board</code> w jakim znajduje się pole. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Oto graf wywołań dla tej funkcji:</div>
+<div class="dyncontent">
+<div class="center"><img src="gamma-moves-assistant-functions_8c_a58a4408391bbde70b2f8179f61079f1b_cgraph.png" border="0" usemap="#gamma-moves-assistant-functions_8c_a58a4408391bbde70b2f8179f61079f1b_cgraph" alt=""/></div>
+<map name="gamma-moves-assistant-functions_8c_a58a4408391bbde70b2f8179f61079f1b_cgraph" id="gamma-moves-assistant-functions_8c_a58a4408391bbde70b2f8179f61079f1b_cgraph">
+<area shape="rect" id="node2" href="gamma-moves-assistant-functions_8c.html#a30b0ef5064fcbd9a61fff40d3c1ea576" title="Wylicza i zapisuje w tablicy współrzędne sąsiadów komórki. " alt="" coords="235,5,362,32"/>
+<area shape="rect" id="node3" href="gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="232,56,365,83"/>
+<area shape="rect" id="node4" href="gamma-moves-assistant-functions_8c.html#a4edf21afa536f57cfb28fa395a3ee2fd" title="Sprawdza, czy jest w tablicy. " alt="" coords="252,107,345,133"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

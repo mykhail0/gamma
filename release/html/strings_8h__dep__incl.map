@@ -1,0 +1,8 @@
+<map id="strings.h" name="strings.h">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8h.html" title="Pomocnicze funkcje do gamma_move i gamma_golden_move. " alt="" coords="85,80,271,121"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html" title="Implementacja gamma&#45;moves&#45;assistant&#45;functions.h. " alt="" coords="5,169,191,211"/>
+<area shape="rect" id="node4" href="$gamma_8c.html" title="Implementacja gamma.h. " alt="" coords="241,177,323,203"/>
+<area shape="rect" id="node5" href="$gamma-launch_8c.html" title="Implementacja gamma&#45;launch.h. " alt="" coords="346,87,477,114"/>
+<area shape="rect" id="node6" href="$batch-mode_8c.html" title="Implementacja batch&#45;mode.h. " alt="" coords="501,87,612,114"/>
+<area shape="rect" id="node7" href="$interactive-mode_8c.html" title="Implementacja interactive&#45;mode.h. " alt="" coords="636,87,781,114"/>
+</map>

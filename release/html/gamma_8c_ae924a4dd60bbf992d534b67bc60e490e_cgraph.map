@@ -1,0 +1,7 @@
+<map id="gamma_new" name="gamma_new">
+<area shape="rect" id="node2" href="$gamma_8c.html#aed4f77ea7c6b6aa48d5c274fbda183f0" title="Wstępnie alokuje pamięć i ustawia wartości. " alt="" coords="166,5,253,32"/>
+<area shape="rect" id="node3" href="$gamma_8c.html#a08d47f74888965e259f62abf0c8dc626" title="Alokuje pamięć dla informacji o graczach i ustawia początkowe wartości. " alt="" coords="160,56,259,83"/>
+<area shape="rect" id="node4" href="$gamma_8c.html#a06e701f37c38473361991872761b0a02" title="Alokuje planszę i ustawia wszystkie pola na puste. " alt="" coords="166,107,253,133"/>
+<area shape="rect" id="node5" href="$gamma_8c.html#a801bbff395931e813ee985259fc856b5" title="Alokacja i inicjalizacja &#39;visited&#39;. " alt="" coords="162,157,257,184"/>
+<area shape="rect" id="node6" href="$gamma_8c.html#af1f3ca82a858d90e172bb887317b2990" title="Alokuje stos na potrzeby DFS przy gamma_golden_move. " alt="" coords="167,208,252,235"/>
+</map>

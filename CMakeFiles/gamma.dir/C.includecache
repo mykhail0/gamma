@@ -1,0 +1,218 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/batch_mode/batch-mode.c
+batch-mode.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/batch_mode/batch-mode.h
+../../game_engine/gamma.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma.h
+../error-handling.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/error-handling.h
+../text_lib/strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.h
+stdlib.h
+-
+string.h
+-
+stdio.h
+-
+errno.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/batch_mode/batch-mode.h
+stdint.h
+-
+stdbool.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/error-handling.c
+error-handling.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/error-handling.h
+stdio.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/error-handling.h
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/interactive_mode/interactive-mode.c
+interactive-mode.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/interactive_mode/interactive-mode.h
+../../game_engine/gamma.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma.h
+../text_lib/strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.h
+stdlib.h
+-
+stdio.h
+-
+errno.h
+-
+termios.h
+-
+unistd.h
+-
+sys/ioctl.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/interactive_mode/interactive-mode.h
+stdint.h
+-
+stdbool.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.c
+strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.h
+string.h
+-
+stdlib.h
+-
+stdint.h
+-
+stdbool.h
+-
+stdio.h
+-
+errno.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.h
+stdint.h
+-
+stdbool.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.c
+find-union.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+stdint.h
+-
+stdlib.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+stdint.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-delete.c
+gamma-struct.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+gamma-delete.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-delete.h
+stdlib.h
+-
+stdint.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-delete.h
+gamma-struct.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+stdint.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-moves-assistant-functions.c
+gamma-struct.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+gamma-moves-assistant-functions.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-moves-assistant-functions.h
+find-union.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/strings.h
+stdlib.h
+-
+stdbool.h
+-
+stdint.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-moves-assistant-functions.h
+gamma-struct.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+find-union.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/strings.h
+stdlib.h
+-
+stdbool.h
+-
+stdint.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+find-union.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+stdbool.h
+-
+inttypes.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma.c
+gamma.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma.h
+gamma-struct.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+gamma-delete.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-delete.h
+gamma-moves-assistant-functions.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-moves-assistant-functions.h
+find-union.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+../UI/text_lib/strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.h
+stdlib.h
+-
+stdio.h
+-
+stdbool.h
+-
+stdint.h
+-
+inttypes.h
+-
+errno.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma.h
+find-union.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/find-union.h
+gamma-struct.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/game_engine/gamma-struct.h
+stdbool.h
+-
+stdint.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/gamma-launch.c
+gamma-launch.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/gamma-launch.h
+UI/error-handling.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/error-handling.h
+UI/batch_mode/batch-mode.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/batch_mode/batch-mode.h
+UI/interactive_mode/interactive-mode.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/interactive_mode/interactive-mode.h
+UI/text_lib/strings.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/UI/text_lib/strings.h
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+errno.h
+-
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/gamma-launch.h
+
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/gamma_main.c
+gamma-launch.h
+/home/misza/studia/2sem/IPP/duzy projekt/gamma/src/gamma-launch.h
+stdlib.h
+-
+

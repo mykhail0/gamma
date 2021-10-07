@@ -1,0 +1,10 @@
+<map id="gamma_golden_move" name="gamma_golden_move">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a16a66666aa4c442652cceb9557bfb085" title="Sprawdza poprawność numeru gracza. " alt="" coords="678,17,782,44"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#a02d60f9a101ff3d185c26eb8f2578705" title="Sprawdza poprawność współrzędnych komórki. " alt="" coords="672,177,788,204"/>
+<area shape="rect" id="node4" href="$find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b" title="Inicjuje obszar. " alt="" coords="492,144,579,171"/>
+<area shape="rect" id="node5" href="$gamma-moves-assistant-functions_8c.html#a5fe85f658c1cf960e0e88922ea6f1c5c" title="Sprawdza, czy gamma_move się powiedzie. " alt="" coords="447,68,624,95"/>
+<area shape="rect" id="node6" href="$gamma-moves-assistant-functions_8c.html#a3ba80ad885cbece05bc1c1d78ffa9374" title="Reorganizuje obszary wokół usuwanej komórki. " alt="" coords="251,195,367,221"/>
+<area shape="rect" id="node7" href="$find-union_8h.html#aa74cedd2dde37f34a6f794cfe20fb595" title="Łączy dwa zbiory, których reprezentantami są x i y. " alt="" coords="282,245,337,272"/>
+<area shape="rect" id="node8" href="$gamma-moves-assistant-functions_8c.html#a58a4408391bbde70b2f8179f61079f1b" title="Aktualizuje free_neighbours dla wszystkich graczy w okolicy, tak jakby na polu (col, line) zamiast former_player pojawił się pusty obszar. " alt="" coords="220,297,399,338"/>
+<area shape="rect" id="node9" href="$gamma_8c.html#a26e46122ea947dae38bcefe9808cad96" title="Wykonuje ruch. " alt="" coords="251,93,367,120"/>
+</map>

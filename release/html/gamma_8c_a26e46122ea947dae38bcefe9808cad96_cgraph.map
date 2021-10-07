@@ -1,0 +1,8 @@
+<map id="gamma_move" name="gamma_move">
+<area shape="rect" id="node2" href="$gamma-moves-assistant-functions_8c.html#a5fe85f658c1cf960e0e88922ea6f1c5c" title="Sprawdza, czy gamma_move się powiedzie. " alt="" coords="170,5,347,32"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html#ab7cdebd638550b1c948fe7fb6cf8b421" title="Sprawdza, czy pole sąsiaduje z pionkiem gracza. " alt="" coords="396,56,529,83"/>
+<area shape="rect" id="node4" href="$gamma-moves-assistant-functions_8c.html#a9330c9d6da2fabe22f9ba60fa22d6c4a" title="Aktualizuje liczbę wolnych pól wszystkich graczy po wykonaniu ruchu. " alt="" coords="169,107,348,133"/>
+<area shape="rect" id="node5" href="$find-union_8h.html#a487d60ae78d7ff572420f058a7dd3c4b" title="Inicjuje obszar. " alt="" coords="215,157,302,184"/>
+<area shape="rect" id="node6" href="$gamma-moves-assistant-functions_8c.html#a442faa2dc43284bb4d441b49de7f8c21" title="Inicjuje tablicę reprezentantów obszarów do jakich należą sąsiedzi pola. " alt="" coords="198,208,319,235"/>
+<area shape="rect" id="node7" href="$gamma-moves-assistant-functions_8c.html#af382fc9712fb513c3d73d97f183f00b1" title="Łączy pole z sąsiednimi obszarami. " alt="" coords="174,259,343,285"/>
+</map>

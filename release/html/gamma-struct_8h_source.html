@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Gamma: Plik źródłowy gamma-struct.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    extensions: ["tex2jax.js"],
+    jax: ["input/TeX","output/HTML-CSS"],
+});
+</script><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Gamma
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Wygenerowano przez Doxygen 1.8.13 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Szukaj');
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Szukaj');
+  $(document).ready(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8a63a06b97ec1e69eb6b2537b1056ef4.html">game_engine</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gamma-struct.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gamma-struct_8h.html">Idź do dokumentacji tego pliku.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div><div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef GAMMA_STRUCT_H</span></div><div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define GAMMA_STRUCT_H</span></div><div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div><div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="find-union_8h.html">find-union.h</a>&quot;</span></div><div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div><div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &lt;inttypes.h&gt;</span></div><div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div><div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="gamma-struct_8h.html#ae571f0b1462856f859501fff7e2f3b44">   18</a></span>&#160;<span class="preprocessor">#define COORDS_COUNT 2</span></div><div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div><div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structgamma.html">   22</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structgamma.html">gamma</a> {</div><div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="structgamma.html#a0078e99ec25be5e46e188f6a989b3605">   23</a></span>&#160;    uint32_t <a class="code" href="structgamma.html#a0078e99ec25be5e46e188f6a989b3605">width</a>; </div><div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="structgamma.html#a861b4c6669d5ec47c847a92e20cbb85e">   24</a></span>&#160;    uint32_t <a class="code" href="structgamma.html#a861b4c6669d5ec47c847a92e20cbb85e">height</a>; </div><div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="structgamma.html#a9b7a517e7eaeb354f529e90ed74671f6">   25</a></span>&#160;    uint32_t <a class="code" href="structgamma.html#a9b7a517e7eaeb354f529e90ed74671f6">areas_number</a>; </div><div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structgamma.html#af8c9b4c4e14aa4c63c697bc597661743">   26</a></span>&#160;    uint32_t <a class="code" href="structgamma.html#af8c9b4c4e14aa4c63c697bc597661743">players_number</a>; </div><div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="structgamma.html#a1d4133e336db89878762497af8511d32">   27</a></span>&#160;    uint64_t <a class="code" href="structgamma.html#a1d4133e336db89878762497af8511d32">free_fields</a>; </div><div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structgamma.html#a773e3333697362578f097553c20cee94">   28</a></span>&#160;    uint64_t *<a class="code" href="structgamma.html#a773e3333697362578f097553c20cee94">free_neighbours</a>; </div><div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="structgamma.html#a821eb9b7d7db32d287023ce1210cc67e">   29</a></span>&#160;    uint64_t *<a class="code" href="structgamma.html#a821eb9b7d7db32d287023ce1210cc67e">busy_fields</a>; </div><div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="structgamma.html#a64cd5cf3544d2e8dc28fc8cc2ac2c98d">   30</a></span>&#160;    uint32_t *<a class="code" href="structgamma.html#a64cd5cf3544d2e8dc28fc8cc2ac2c98d">areas</a>; </div><div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structgamma.html#a00b806e636f2c5fa5c05dff501f7adaf">   31</a></span>&#160;    <span class="keywordtype">bool</span> *<a class="code" href="structgamma.html#a00b806e636f2c5fa5c05dff501f7adaf">golden_not_used</a>; </div><div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div><div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="structgamma.html#a6c816944426d7d9545ea41c667162b1f">   37</a></span>&#160;    <a class="code" href="structelem.html">elem_t</a> ***<a class="code" href="structgamma.html#a6c816944426d7d9545ea41c667162b1f">board</a>;</div><div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="structgamma.html#ad65a42c1828e87a702f474ecb9c86be3">   42</a></span>&#160;    <span class="keywordtype">bool</span> **<a class="code" href="structgamma.html#ad65a42c1828e87a702f474ecb9c86be3">visited</a>;</div><div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structgamma.html#ab1d657c99755d368eb6e44ed2b6da8f3">   46</a></span>&#160;    uint32_t (*<a class="code" href="structgamma.html#ab1d657c99755d368eb6e44ed2b6da8f3">stack</a>)[<a class="code" href="gamma-struct_8h.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a>];</div><div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div><div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;</div><div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="gamma-struct_8h.html#aabce6c58ff1bc57d08c9144f13c8580f">   51</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code" href="structgamma.html">gamma</a> <a class="code" href="structgamma.html">gamma_t</a>;</div><div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;</div><div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* GAMMA_STRUCT_H */</span><span class="preprocessor"></span></div><div class="ttc" id="structgamma_html_a773e3333697362578f097553c20cee94"><div class="ttname"><a href="structgamma.html#a773e3333697362578f097553c20cee94">gamma::free_neighbours</a></div><div class="ttdeci">uint64_t * free_neighbours</div><div class="ttdoc">w i-tym indeksie liczba wolnych pól stycznych dla gracza i + 1 </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:28</div></div>
+<div class="ttc" id="structgamma_html_a64cd5cf3544d2e8dc28fc8cc2ac2c98d"><div class="ttname"><a href="structgamma.html#a64cd5cf3544d2e8dc28fc8cc2ac2c98d">gamma::areas</a></div><div class="ttdeci">uint32_t * areas</div><div class="ttdoc">w i-tym indeksie liczba obszarów gracza i + 1 </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:30</div></div>
+<div class="ttc" id="structgamma_html_ab1d657c99755d368eb6e44ed2b6da8f3"><div class="ttname"><a href="structgamma.html#ab1d657c99755d368eb6e44ed2b6da8f3">gamma::stack</a></div><div class="ttdeci">uint32_t(* stack)[COORDS_COUNT]</div><div class="ttdoc">stos zaimplementowany tablicowo na potrzeby DFS&amp;#39;a, który reorganizuje obszary podczas złotego ruchu...</div><div class="ttdef"><b>Definition:</b> gamma-struct.h:46</div></div>
+<div class="ttc" id="gamma-struct_8h_html_ae571f0b1462856f859501fff7e2f3b44"><div class="ttname"><a href="gamma-struct_8h.html#ae571f0b1462856f859501fff7e2f3b44">COORDS_COUNT</a></div><div class="ttdeci">#define COORDS_COUNT</div><div class="ttdoc">Liczba współrzędnych komórki. </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:18</div></div>
+<div class="ttc" id="structgamma_html"><div class="ttname"><a href="structgamma.html">gamma</a></div><div class="ttdoc">Stan gry. </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:22</div></div>
+<div class="ttc" id="structgamma_html_a00b806e636f2c5fa5c05dff501f7adaf"><div class="ttname"><a href="structgamma.html#a00b806e636f2c5fa5c05dff501f7adaf">gamma::golden_not_used</a></div><div class="ttdeci">bool * golden_not_used</div><div class="ttdoc">w i-tym indeksie true jeśli gracz i + 1 nie wykonał złotego ruchu </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:31</div></div>
+<div class="ttc" id="structgamma_html_a821eb9b7d7db32d287023ce1210cc67e"><div class="ttname"><a href="structgamma.html#a821eb9b7d7db32d287023ce1210cc67e">gamma::busy_fields</a></div><div class="ttdeci">uint64_t * busy_fields</div><div class="ttdoc">w i-tym indeksie liczba pól zajętych przez gracza i + 1 </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:29</div></div>
+<div class="ttc" id="structgamma_html_a0078e99ec25be5e46e188f6a989b3605"><div class="ttname"><a href="structgamma.html#a0078e99ec25be5e46e188f6a989b3605">gamma::width</a></div><div class="ttdeci">uint32_t width</div><div class="ttdoc">szerokość planszy </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:23</div></div>
+<div class="ttc" id="structgamma_html_a6c816944426d7d9545ea41c667162b1f"><div class="ttname"><a href="structgamma.html#a6c816944426d7d9545ea41c667162b1f">gamma::board</a></div><div class="ttdeci">elem_t *** board</div><div class="ttdoc">w i-tym wierszu i-tej kolumnie tablicy jest element drzewa zbioru jakim jest obszar gracza...</div><div class="ttdef"><b>Definition:</b> gamma-struct.h:37</div></div>
+<div class="ttc" id="structgamma_html_a1d4133e336db89878762497af8511d32"><div class="ttname"><a href="structgamma.html#a1d4133e336db89878762497af8511d32">gamma::free_fields</a></div><div class="ttdeci">uint64_t free_fields</div><div class="ttdoc">liczba wolnych pól </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:27</div></div>
+<div class="ttc" id="find-union_8h_html"><div class="ttname"><a href="find-union_8h.html">find-union.h</a></div><div class="ttdoc">Implementacja struktury Find-Union. </div></div>
+<div class="ttc" id="structgamma_html_a9b7a517e7eaeb354f529e90ed74671f6"><div class="ttname"><a href="structgamma.html#a9b7a517e7eaeb354f529e90ed74671f6">gamma::areas_number</a></div><div class="ttdeci">uint32_t areas_number</div><div class="ttdoc">maksymalna liczba obszarów dla dowolnego gracza </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:25</div></div>
+<div class="ttc" id="structelem_html"><div class="ttname"><a href="structelem.html">elem</a></div><div class="ttdoc">Komórka planszy. </div><div class="ttdef"><b>Definition:</b> find-union.h:16</div></div>
+<div class="ttc" id="structgamma_html_a861b4c6669d5ec47c847a92e20cbb85e"><div class="ttname"><a href="structgamma.html#a861b4c6669d5ec47c847a92e20cbb85e">gamma::height</a></div><div class="ttdeci">uint32_t height</div><div class="ttdoc">wysokość planszy </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:24</div></div>
+<div class="ttc" id="structgamma_html_af8c9b4c4e14aa4c63c697bc597661743"><div class="ttname"><a href="structgamma.html#af8c9b4c4e14aa4c63c697bc597661743">gamma::players_number</a></div><div class="ttdeci">uint32_t players_number</div><div class="ttdoc">liczba graczy </div><div class="ttdef"><b>Definition:</b> gamma-struct.h:26</div></div>
+<div class="ttc" id="structgamma_html_ad65a42c1828e87a702f474ecb9c86be3"><div class="ttname"><a href="structgamma.html#ad65a42c1828e87a702f474ecb9c86be3">gamma::visited</a></div><div class="ttdeci">bool ** visited</div><div class="ttdoc">przechowuje informacje o odwiedzonych komórkach przy reorganizacji obszarów w trakcie wykonania złote...</div><div class="ttdef"><b>Definition:</b> gamma-struct.h:42</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Wygenerowano N, 28 cze 2020 17:25:09 dla Gamma programem &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.13
+</small></address>
+</body>
+</html>

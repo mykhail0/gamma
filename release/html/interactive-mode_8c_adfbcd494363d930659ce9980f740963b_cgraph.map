@@ -1,0 +1,11 @@
+<map id="make_move" name="make_move">
+<area shape="rect" id="node2" href="$interactive-mode_8c.html#a68c7eb775ea0285416e6a70643db5714" title="Konwertuje współrzędne kursora na współrzędne planszy dla gamma_move. " alt="" coords="183,5,295,32"/>
+<area shape="rect" id="node3" href="$interactive-mode_8c.html#abc3a43da6dd7aad6e20b1e4b8a4152d4" title="Zwraca numer następnego gracza. " alt="" coords="171,56,307,83"/>
+<area shape="rect" id="node4" href="$interactive-mode_8c.html#ae5cc5147bdf88806558c65173f8dc808" title="Aktualizuje linijkę zachęcającą do grania. " alt="" coords="182,107,297,133"/>
+<area shape="rect" id="node5" href="$gamma_8c.html#a957a3e36aa6ac77f0dd605352dfd2c44" title="Wykonuje złoty ruch. " alt="" coords="156,157,323,184"/>
+<area shape="rect" id="node6" href="$gamma_8c.html#a26e46122ea947dae38bcefe9808cad96" title="Wykonuje ruch. " alt="" coords="371,183,487,209"/>
+<area shape="rect" id="node7" href="$interactive-mode_8c.html#ada41393749fbee5428248a78c39f4b71" title="Przesuwa kursor do góry. " alt="" coords="199,259,279,285"/>
+<area shape="rect" id="node8" href="$interactive-mode_8c.html#ad5f82fb4f24fa623cc8d49322f956002" title="Przesuwa kursor w dół. " alt="" coords="190,309,289,336"/>
+<area shape="rect" id="node9" href="$interactive-mode_8c.html#a19213e52088b67d17f066a44762c6350" title="Przesuwa kursor do przodu. " alt="" coords="182,360,297,387"/>
+<area shape="rect" id="node10" href="$interactive-mode_8c.html#af27206906f39a07869bd69efccafcb1f" title="Przesuwa kursor do tyłu. " alt="" coords="192,411,287,437"/>
+</map>

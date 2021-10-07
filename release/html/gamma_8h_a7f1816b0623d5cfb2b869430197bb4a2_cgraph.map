@@ -1,0 +1,4 @@
+<map id="gamma_board" name="gamma_board">
+<area shape="rect" id="node2" href="$strings_8h.html#aabcce4ab1dc38c69351f01cb854ffd88" title="Liczy liczbę cyfr w liczbie x. " alt="" coords="169,5,271,32"/>
+<area shape="rect" id="node3" href="$strings_8h.html#a0ad1df10ed8b869b93c1c3cb7fbf9411" title="Kopiuje napis src do dest zaczynając od indeksu o numerze start_point. " alt="" coords="173,56,267,83"/>
+</map>

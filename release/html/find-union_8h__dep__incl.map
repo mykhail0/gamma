@@ -1,0 +1,7 @@
+<map id="find&#45;union.h" name="find&#45;union.h">
+<area shape="rect" id="node2" href="$gamma-struct_8h.html" title="Definicja rekordu, który przechowuje stan gry. " alt="" coords="191,80,318,107"/>
+<area shape="rect" id="node3" href="$gamma-moves-assistant-functions_8c.html" title="Implementacja gamma&#45;moves&#45;assistant&#45;functions.h. " alt="" coords="25,244,210,285"/>
+<area shape="rect" id="node4" href="$gamma-moves-assistant-functions_8h.html" title="Pomocnicze funkcje do gamma_move i gamma_golden_move. " alt="" coords="25,155,210,196"/>
+<area shape="rect" id="node5" href="$gamma_8c.html" title="Implementacja gamma.h. " alt="" coords="297,251,380,278"/>
+<area shape="rect" id="node6" href="$gamma_8h.html" title="Interfejs klasy przechowującej stan gry gamma. " alt="" coords="337,162,421,189"/>
+</map>
