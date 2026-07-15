@@ -1,0 +1,18 @@
+Testy modułu gamma są w pliku gamma_test_3.c, który w celu wykonania testów
+zostaje skopiowany na plik src/gamma_test.c w rozwiązaniu, po czym rozwiązanie
+jest kompilowane za pomocą polecenia make test.
+Limit czasu na większość testów wynosi 2 s, z wyjątkiem memory_alloc – 10 s,
+big_board i middle_board po 600 s (na maszynie students).
+
+Testy trybu wsadowego są w plikach *.in*, *.out*, *.err*.
+Testy, które są w plikach z rozszerzeniem .in12, są dwuwariantowe: akceptowane
+wyjście programu jest plikach .out oraz .err1 i .err2 lub w parach plików
+.out1, .err1 i .out2, .err2.
+Limit czasu na każdy test wynosi 2 s (na maszynie students).
+
+Test trybu interaktywnego
+
+cat broken.input | timeout 2s PATH/gamma
+
+Napis PATH to ścieżka do miejsca, gdzie znajduje się plik wykonywalny gamma.
+Oczekiwanym wynikiem tego testu jest zakończenie programu z kodem 1.
