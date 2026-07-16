@@ -1,15 +1,15 @@
 /** @file
- * Obsługa wyjścia diganostycznego.
+ * Error printing to stderr.
  *
- * @author Mykhailo Shevchenko <ms420826@students.mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.05.2020
  */
 
 #ifndef ERROR_HANDLING_H
 #define ERROR_HANDLING_H
 
-/** @brief wypisuje "ERROR line" na standardowe wyjście diagnostyczne.
+/** @brief prints "ERROR line" to stderr.
  */
 void printERR(unsigned long long line);
 

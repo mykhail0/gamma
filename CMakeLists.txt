@@ -24,20 +24,18 @@ set(SOURCE_FILES
     src/game_engine/find-union.h
     src/game_engine/find-union.c
     src/game_engine/gamma-struct.h
-    src/game_engine/gamma-delete.h
-    src/game_engine/gamma-delete.c
     src/game_engine/gamma-moves-assistant-functions.h
     src/game_engine/gamma-moves-assistant-functions.c
     src/game_engine/gamma.h
     src/game_engine/gamma.c
     src/UI/error-handling.h
     src/UI/error-handling.c
-    src/UI/text_lib/strings.h
-    src/UI/text_lib/strings.c
-    src/UI/batch_mode/batch-mode.h
-    src/UI/batch_mode/batch-mode.c
-    src/UI/interactive_mode/interactive-mode.h
-    src/UI/interactive_mode/interactive-mode.c
+    src/UI/strings.h
+    src/UI/strings.c
+    src/UI/batch-mode.h
+    src/UI/batch-mode.c
+    src/UI/interactive-mode.h
+    src/UI/interactive-mode.c
     src/gamma-launch.h
     src/gamma-launch.c
     src/gamma_main.c)
@@ -50,14 +48,12 @@ set(TEST_SOURCE_FILES
     src/game_engine/find-union.h
     src/game_engine/find-union.c
     src/game_engine/gamma-struct.h
-    src/game_engine/gamma-delete.h
-    src/game_engine/gamma-delete.c
     src/game_engine/gamma-moves-assistant-functions.h
     src/game_engine/gamma-moves-assistant-functions.c
     src/game_engine/gamma.h
     src/game_engine/gamma.c
-    src/UI/text_lib/strings.h
-    src/UI/text_lib/strings.c
+    src/UI/strings.h
+    src/UI/strings.c
     src/gamma_test.c)
 
 # Wskazujemy plik wykonywalny dla testów silnika.

@@ -1,39 +1,41 @@
 /** @file
- * Pomocnicze funkcje tekstowe.
+ * Auxilary strings functions.
  *
- * @author Mykhailo Shevchenko <ms420826@students.mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.05.2020
  */
 
 #ifndef STRINGS_H
 #define STRINGS_H
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
-/** @brief Makro dla wyniku strcmp().
+/** @brief Constant for a result of `strcmp`.
  */
-#define EQUAL 0
+extern const int EQUAL;
 
-/** @brief Definicja białych znaków.
+/** @brief Definition of white spaces.
  */
-extern const char whiteSpaces[7];
+extern const char WHITE_SPACE[7];
 
-/** @brief Liczy liczbę cyfr w liczbie `x`.
- * @param[in] x - liczba, której cyfry są do policzenia.
- * @return Liczba cyfr podanej liczby.
+/** @brief Count number of digits in a given number.
+ * @param[in] x - number whose digits need counting.
+ * @return Number of digits in the given number.
  */
 extern unsigned count_digits(unsigned long x);
 
-/** @brief Kopiuje napis `src` do `dest` zaczynając od indeksu o numerze `start_point`.
+/** @brief Kopiuje napis `src` do `dest` zaczynając od indeksu o numerze
+ * `start_point`.
  * '\0' na końcu `src` nie jest kopiowany.
  * @param[in] dest        - W `dest` powinno byc wystarczajaco miejsca,
  *                          zaczynając od `start_point`.
- * @param[in] src         - powinien być zakończony `'\0'` i nie może być `NULL`.
+ * @param[in] src         - powinien być zakończony `'\0'` i nie może być
+ * `NULL`.
  * @param[in] start_point - indeks, od którego zaczyna się kopiowanie.
  */
-extern void cat_strings(char *dest, char *src, uint64_t start_point);
+extern void cat_strings(char* dest, char* src, uint64_t start_point);
 
 /** @brief Wypełnia tablicę `strings` `stings_count` słowami.
  * Wypełnia tablicę słowami.
@@ -45,7 +47,7 @@ extern void cat_strings(char *dest, char *src, uint64_t start_point);
  * @return `true` wtw gdy wczyta nie mniej i nie więcej niż `strings_count`
  * słow.
  */
-extern bool get_strings(int strings_count, char *strings[]);
+extern bool get_strings(int strings_count, char* strings[]);
 
 /** @brief Konwertuje napis na unsigned long.
  * Może się nie udać z powodu braku pamięci. Wtedy ustawia errno na ENOMEM.
@@ -53,7 +55,7 @@ extern bool get_strings(int strings_count, char *strings[]);
  * @param[in] dest   - wskaźnik na zmienną, gdzie będzie zapisany wynik.
  * @return `true` wtw gdy konwersja się udała.
  */
-extern bool string_to_ul(char *string, unsigned long *dest);
+extern bool string_to_ul(char* string, unsigned long* dest);
 
 /** @brief Konwertuje tablicę napisów na tablicę unsigned long.
  * Zapisuje w tablicy wyniki konwersji.
@@ -63,7 +65,7 @@ extern bool string_to_ul(char *string, unsigned long *dest);
  * @param[in] numbers       - tablica, gdzie będzie zapisany wynik.
  * @return `true` wtw gdy konwersja się uda dla każdego napisu.
  */
-extern bool stringArr_to_ulArr(int strings_count, char *strings[],
+extern bool stringArr_to_ulArr(int strings_count, char* strings[],
                                unsigned long numbers[]);
 
 /** @brief Konwertuje unsigned long na uint32_t.
@@ -71,7 +73,7 @@ extern bool stringArr_to_ulArr(int strings_count, char *strings[],
  * @param[in] dest - wskaźnik na zmienną, gdzie będzie zapisany wynik.
  * @return `true` wtw gdy konwersja się uda.
  */
-extern bool ul_to_uint32_t(unsigned long x, uint32_t *dest);
+extern bool ul_to_uint32_t(unsigned long x, uint32_t* dest);
 
 /** @brief Konwertuje tablicę unsigned long na tablicę uint32_t.
  * Zapisuje w tablicy wyniki konwersji.

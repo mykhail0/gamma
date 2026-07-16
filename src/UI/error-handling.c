@@ -1,15 +1,15 @@
 /** @file
- * Implementacja @ref error-handling.h.
+ * Implementation of @ref error-handling.h.
  *
- * @author Mykhailo Shevchenko <ms420826@students.mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.05.2020
  */
 
 #include "error-handling.h"
+
 #include <stdio.h>
 
-void printERR(unsigned long long line)
-{
-    fprintf(stderr, "ERROR %llu\n", line);
+void printERR(unsigned long long line) {
+  fprintf(stderr, "ERROR %llu\n", line);
 }

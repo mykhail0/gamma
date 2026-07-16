@@ -1,15 +1,15 @@
 /** @file
- * @brief Początkowe parsowanie.
+ * @brief Initial parsing.
  *
- * @author Mykhailo Shevchenko <ms420826@students.mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.05.2020
  */
 
 #ifndef GAMMA_LAUNCH_H
 #define GAMMA_LAUNCH_H
 
-/** @brief Uruchamia grę.
+/** @brief Launch the game.
  */
 extern void launch_game();
 

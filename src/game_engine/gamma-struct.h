@@ -1,52 +1,51 @@
 /** @file
- * Definicja rekordu, który przechowuje stan gry.
+ * Game's state object.
  *
- * @author Mykhailo Shevchenko <ms420826@mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.04.2020
  */
 
 #ifndef GAMMA_STRUCT_H
 #define GAMMA_STRUCT_H
 
-#include "find-union.h"
-#include <stdbool.h>
 #include <inttypes.h>
+#include <stdbool.h>
 
-/** @brief Liczba współrzędnych komórki.
+#include "find-union.h"
+
+/** @brief Board's dimensionality.
  */
 #define COORDS_COUNT 2
 
-/** Stan gry.
-*/
+/** Game's state.
+ */
 struct gamma {
-    uint32_t width; ///< szerokość planszy
-    uint32_t height; ///< wysokość planszy
-    uint32_t areas_number; ///< maksymalna liczba obszarów dla dowolnego gracza
-    uint32_t players_number; ///< liczba graczy
-    uint64_t free_fields; ///< liczba wolnych pól
-    uint64_t *free_neighbours; ///< w i-tym indeksie liczba wolnych pól stycznych dla gracza `i + 1`
-    uint64_t *busy_fields; ///< w i-tym indeksie liczba pól zajętych przez gracza `i + 1`
-    uint32_t *areas; ///< w i-tym indeksie liczba obszarów gracza `i + 1`
-    bool *golden_not_used; ///< w i-tym indeksie `true` jeśli gracz `i + 1` nie wykonał złotego ruchu
-/** w i-tym wierszu i-tej kolumnie tablicy
- * jest element drzewa zbioru
- * jakim jest obszar gracza,
- * do którego należy komórka o danych współrzędnych
- */
-    elem_t ***board;
-/** przechowuje informacje o odwiedzonych komórkach
- * przy reorganizacji obszarów
- * w trakcie wykonania złotego ruchu.
- */
-    bool **visited;
-/** stos zaimplementowany tablicowo na potrzeby DFS'a,
- * który reorganizuje obszary podczas złotego ruchu.
- */
-    uint32_t (*stack)[COORDS_COUNT];
+  uint32_t width;             ///< board's width,
+  uint32_t height;            ///< board's height,
+  uint32_t areas_number;      ///< maximal number of areas, which one player can
+                              /// possess,
+  uint32_t players_number;    ///< number of players,
+  uint64_t free_fields;       ///< number of free fields,
+  uint64_t* free_neighbours;  ///< for a given player, number of free fields
+                              /// adjacent to their fields,
+  uint64_t* busy_fields;      ///< for a given player, number of fields taken by
+                              /// them,
+  uint32_t* areas;        ///< for a given player, number of areas they have,
+  bool* golden_not_used;  ///< for a given player, information on whether
+                          /// they have used their golden move.
+
+  /** Find-Union object to represent fields on the board and their ownership by
+   * players.
+   */
+  elem_t*** board;
+  /// Auxilary array for checking area changes during golden move DFS.
+  bool** visited;
+  /// Auxilary stack for checking area changes during golden move DFS.
+  uint32_t (*stack)[COORDS_COUNT];
 };
 
-/** @brief Rekord przechowujący stan gry.
+/** @brief Game's state object.
  */
 typedef struct gamma gamma_t;
 

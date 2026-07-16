@@ -1,8 +1,8 @@
 /** @file
- * Implementacja struktury Find-Union
+ * Find-Union data structure.
  *
- * @author Mykhailo Shevchenko <ms420826@students.mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.04.2020
  */
 
@@ -11,41 +11,46 @@
 
 #include <stdint.h>
 
-/** Komórka planszy
+/** A field on the board.
  */
 struct elem {
-    uint32_t player; ///< numer gracza, czyj pionek stoi na tym polu.
-    uint64_t rank; ///< ogarniczenie górne wysokości drzewa obszaru. Ma znaczenie wtw parent jest adresem komórki.
-/** adres komórki która jest nadrzędna do tej.
- * Jeśli komórka jest nadrzędna samej sobie
- * to jest korzeniem obszaru
- * o identyfikatorze równym adresie tej komórki.
- */
-    struct elem *parent;
+  uint32_t player;  ///< a player's index, who owns the piece on this field,
+  uint64_t rank;    ///< upper limit on height of the area's tree. Meaningful
+                    /// only if parent is equal to the address of this field.
+
+  /** Address of the field parental to this one.
+   * If the address is equal to the address of this field then it is the root of
+   * the area, which has id equal to this address.
+   */
+  struct elem* parent;
 };
 
-/** @brief Pomocniczy rekord do struktury danych "Find-Union".
- * Reprezentuje komórkę planszy.
+/** @brief Auxilary struct for the Find-Union data structure.
+ * Represents a field on the board.
  */
 typedef struct elem elem_t;
 
-/** @brief Inicjuje obszar.
- * Tworzy z `e` zbiór (obszar) z polem `player` o wartości `player`.
- * @param[in] e      - nie jest `NULL` i ma zaalokowane pole `parent`.
- * @param[in] player - numer gracza, dla którego jest tworzony ten obszar.
+/** @brief Initialize an area.
+ * Initialize area @p e as the root with @p player as the owner.
+ * @param[in,out] e  - is not `NULL`,
+ * @param[in] player - player's index, for whom this area is initialized.
+ * @return Pointer to the initialized area.
  */
-extern elem_t *make_set(elem_t *e, uint32_t player);
+extern elem_t* make_set(elem_t* e, uint32_t player);
 
-/** @brief Zwraca reprezentanta zbioru do którego należy `e`.
- * @param[in] e - pole planszy, nie jest `NULL`.
- *                Dodatkowo kompresuje ścieżkę.
+/** @brief Return the representative of the area which contains the field.
+ * Return the representative of the area which contains the field @p e. Uses
+ * path compression in the implementation.
+ * @param[in] e - non-NULL field on the board.
+ * @return The representative of the area which contains the given field.
  */
-extern elem_t* find(elem_t *e);
+extern elem_t* find(elem_t* e);
 
-/** @brief Łączy dwa zbiory, których reprezentantami są `x` i `y`.
- * @param[in] x - reprezentant pewnego obszaru.
- * @param[in] y - reprezentant pewnego obszaru.
+/** @brief Merges two areas represented by given fields.
+ * @param[in] x - representative of some area,
+ * @param[in] y - representative of some area.
+ * @return The representative of the united area.
  */
-extern elem_t *unite(elem_t *x, elem_t *y);
+extern elem_t* unite(elem_t* x, elem_t* y);
 
 #endif /* FIND_UNION_H */
