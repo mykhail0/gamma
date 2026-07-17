@@ -114,7 +114,7 @@ static void initialize_seq(gamma_t* g) {
   // Wyłącza możliwość skrolowania w terminalu dla użytkownika.
   printf("\033[?1049h");
 
-  COLUMN_WIDTH = count_digits((unsigned long)g->players_number);
+  COLUMN_WIDTH = count_digits(g->players_number);
   if (COLUMN_WIDTH > 1) COLUMN_WIDTH += 1;
 
   HEIGHT = g->height;

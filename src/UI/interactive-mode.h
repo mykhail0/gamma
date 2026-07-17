@@ -17,8 +17,8 @@
  * @param[in] height  - board's height,
  * @param[in] players - number of players,
  * @param[in] areas   – maximum number of areas, which one player can possess.
- * @return @p true iff launched successfully, if returned @p false, `errno`
- * informs about the error.
+ * @return @p true iff game was played successfully, if returned @p false,
+ * `errno` informs about the error.
  */
 extern bool interactive_mode(uint32_t width, uint32_t height, uint32_t players,
                              uint32_t areas);

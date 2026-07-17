@@ -16,7 +16,9 @@
 #include "find-union.h"
 #include "gamma-struct.h"
 
+/// Index of the line integer in a 2 element field array.
 static const int LINE = 0;
+/// Index of the column integer in a 2 element field array.
 static const int COL = 1;
 
 const uint32_t NOPLAYER = 0;
@@ -50,7 +52,7 @@ static bool move_is_valid(gamma_t* g, size_t adj_i,
                        ADJACENT_DIFFS[adj_i][LINE] + field[LINE]);
 }
 
-/** @brief Find neighbouring fields of a given field.
+/** @brief Find fields neighbouring a given field.
  * @param[in] g           - game's state,
  * @param[out] neighbours - coordinates of the neighbours,
  * @param[in] field       - coordinates of the field whose neighbours we find.
@@ -70,6 +72,28 @@ static size_t find_neighbours(
   return i;
 }
 
+/** Find fields neighbouring a given field, that belong to the given player.
+ * @param[in] g           - game's state,
+ * @param[out] neighbours - coordinates of the neighbours,
+ * @param[in] field       - coordinates of the field whose neighbours we find,
+ * @param[in] player      - player we are looking for.
+ * @return The number of neighbours.
+ */
+static size_t find_neighbour_player(
+    gamma_t* g, uint32_t neighbours[NEIGHBOURS_COUNT][COORDS_COUNT],
+    uint32_t field[COORDS_COUNT], uint32_t player) {
+  size_t i = 0;
+  for (size_t j = 0; j < NEIGHBOURS_COUNT; ++j) {
+    if (move_is_valid(g, j, field)) {
+      for (size_t k = 0; k < COORDS_COUNT; ++k)
+        neighbours[i][k] = ADJACENT_DIFFS[j][k] + field[k];
+      if (g->board[neighbours[i][LINE]][neighbours[i][COL]]->player == player)
+        ++i;
+    }
+  }
+  return i;
+}
+
 bool exists_neighbour(gamma_t* g, uint32_t player, uint32_t field[]) {
   bool exists = false;
   for (size_t j = 0; !exists && j < NEIGHBOURS_COUNT; ++j) {
@@ -82,8 +106,8 @@ bool exists_neighbour(gamma_t* g, uint32_t player, uint32_t field[]) {
   return exists;
 }
 
-void set_neighbours(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
-                    elem_t* neighbours[NEIGHBOURS_COUNT]) {
+size_t set_neighbours(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
+                      elem_t* neighbours[NEIGHBOURS_COUNT]) {
   for (size_t i = 0; i < NEIGHBOURS_COUNT; ++i) neighbours[i] = NULL;
 
   uint32_t field[COORDS_COUNT];
@@ -102,6 +126,7 @@ void set_neighbours(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
       }
     }
   }
+  return i;
 }
 
 bool gamma_move_possible(gamma_t* g, uint32_t player, uint32_t col,
@@ -112,20 +137,6 @@ bool gamma_move_possible(gamma_t* g, uint32_t player, uint32_t col,
          g->board[line][col]->player == NOPLAYER &&
          (g->areas[player - 1] < g->areas_number ||
           exists_neighbour(g, player, field));
-}
-
-void unite_with_neighbours(gamma_t* g, elem_t* neighbours[NEIGHBOURS_COUNT],
-                           elem_t* e) {
-  elem_t* united = e;
-  for (size_t i = 0; i < NEIGHBOURS_COUNT; ++i) {
-    if (neighbours[i] != NULL) {
-      --(g->areas[united->player - 1]);
-      united = unite(united, neighbours[i]);
-    }
-  }
-
-  // To compensate for subtractions of area count in the loop above.
-  ++(g->areas[united->player - 1]);
 }
 
 void update_free_neighbours(gamma_t* g, uint32_t player, uint32_t col,
@@ -157,158 +168,128 @@ void update_free_neighbours(gamma_t* g, uint32_t player, uint32_t col,
   }
 }
 
-/** @brief Dodaje element do stosu.
- * @param[in] g   - stan gry.
- * @param[in] top - wskaźnik na indeks pierwszego pustego miejsca na stosie.
- * @param[in] x   - w `x[LINE]` jest `line` jak w innych funkcjach,
- *                  w `x[COL]` jest `col` jak w innych funkcjach.
+/** @brief Push a field onto the stack.
+ * @param[in] g - game's state,
+ * @param[in] x - field's coordinates.
  */
-static void push(gamma_t* g, uint64_t* top, uint32_t x[COORDS_COUNT]) {
-  for (int i = 0; i < COORDS_COUNT; ++i) g->stack[*top][i] = x[i];
-  ++(*top);
+static void push(gamma_t* g, uint32_t x[COORDS_COUNT]) {
+  for (size_t i = 0; i < COORDS_COUNT; ++i) g->stack[g->top][i] = x[i];
+  ++(g->top);
 }
 
-/** @brief Zdejmuje element ze stosu.
- * @param[in] g   - stan gry.
- * @param[in] top - wskaźnik na indeks pierwszego pustego miejsca na stosie.
- * @param[in] x   - w `x[LINE]` jest `line` jak w innych funkcjach,
- *                  w `x[COL]` jest `col` jak w innych funkcjach.
+/** @brief Pop a field off the stack.
+ * @param[in] g - game's state,
+ * @param[in] x - field's coordinates.
  */
-static void pop(gamma_t* g, uint64_t* top, uint32_t x[COORDS_COUNT]) {
-  --(*top);
-  for (int i = 0; i < COORDS_COUNT; ++i) x[i] = g->stack[*top][i];
+static void pop(gamma_t* g, uint32_t x[COORDS_COUNT]) {
+  --(g->top);
+  for (size_t i = 0; i < COORDS_COUNT; ++i) x[i] = g->stack[g->top][i];
 }
 
-/** @brief Dodaje niezwiedzonych sąsiadów do stosu.
- * Dodaje niezwiedzonych sąsiadów `x` do stosu
- * takich, że pionek stojący na sąsiedzie jest taki sam jak na `x`.
- * @param[in] g   - stan gry.
- * @param[in] top - wskaźnik na indeks pierwszego pustego miejsca na stosie.
- * @param[in] x   - w `x[LINE]` jest `line` jak w innych funkcjach,
- *                  w `x[COL]` jest `col` jak w innych funkcjach.
+/** @brief Push not visited neighbours on the stack.
+ * Push not visited neighbours of @p field such that belong to the same player
+ * as on @p field on the stack.
+ * @param[in] g     - game's state,
+ * @param[in] field - field of interest.
  */
-static void push_neighbours(gamma_t* g, uint64_t* top,
-                            uint32_t x[COORDS_COUNT]) {
+static void push_neighbours(gamma_t* g, uint32_t field[COORDS_COUNT]) {
   uint32_t neighbours[NEIGHBOURS_COUNT][COORDS_COUNT];
-  size_t neighbours_num = find_neighbours(g, neighbours, x);
+  size_t neighbours_num = find_neighbour_player(
+      g, neighbours, field, g->board[field[LINE]][field[COL]]->player);
 
   for (size_t i = 0; i < neighbours_num; ++i) {
-    if (!(g->visited[neighbours[i][LINE]][neighbours[i][COL]]) &&
-        g->board[neighbours[i][LINE]][neighbours[i][COL]]->player ==
-            g->board[x[LINE]][x[COL]]->player) {
+    if (!g->visited[neighbours[i][LINE]][neighbours[i][COL]]) {
       g->visited[neighbours[i][LINE]][neighbours[i][COL]] = true;
-      push(g, top, neighbours[i]);
+      push(g, neighbours[i]);
     }
   }
 }
 
-/** @brief Sprawdza, czy komórka należy do tablicy `dest`.
- * (z poprawką na to że niektóre elementy `dest` nie mają znaczenia).
- * @param[in] x             - w `x[LINE]` jest `line` jak w innych funkcjach,
- *                            w `x[COL]` jest `col` jak w innych funkcjach.
- * @param[in] dest          - gdzie szukamy.
- * @param[in] legit_dest    - poprawka.
- * @param[out] dest_visited - wynik.
+/** @brief Add visited neighbours of @p field on the stack.
+ * @param[in] g     - game's state,
+ * @param[in] field - field of interest.
  */
-static void check_dest(uint32_t x[COORDS_COUNT], size_t neighbours_num,
-                       uint32_t dest[NEIGHBOURS_COUNT][COORDS_COUNT],
-                       bool legit_dest[NEIGHBOURS_COUNT],
-                       bool dest_visited[NEIGHBOURS_COUNT]) {
-  for (size_t i = 0; i < neighbours_num; ++i) {
-    if (legit_dest[i] && dest[i][LINE] == x[LINE] && dest[i][COL] == x[COL])
-
-      dest_visited[i] = true;
-  }
-}
-
-/** @brief Dodaje zwiedzonych sąsiadów `x` do stosu.
- * @param[in] g   - stan gry.
- * @param[in] top - wskaźnik na indeks pierwszego pustego miejsca na stosie.
- * @param[in] x   - w `x[LINE]` jest `line` jak w innych funkcjach,
- *                  w `x[COL]` jest `col` jak w innych funkcjach.
- */
-static void push_neighbours_clear(gamma_t* g, uint64_t* top,
-                                  uint32_t x[COORDS_COUNT]) {
+static void push_neighbours_clear(gamma_t* g, uint32_t field[COORDS_COUNT]) {
   uint32_t neighbours[NEIGHBOURS_COUNT][COORDS_COUNT];
-  size_t neighbours_num = find_neighbours(g, neighbours, x);
+  size_t neighbours_num = find_neighbours(g, neighbours, field);
 
   for (size_t i = 0; i < neighbours_num; ++i) {
     if (g->visited[neighbours[i][LINE]][neighbours[i][COL]]) {
       g->visited[neighbours[i][LINE]][neighbours[i][COL]] = false;
-      push(g, top, neighbours[i]);
+      push(g, neighbours[i]);
     }
   }
 }
 
-/** @brief Ustawia wszystkie zwiedzone komórki wokół `start` na niezwiedzone.
- * @param[in] g     - stan gry.
- * @param[in] start - współrzędne komórki startowej.
+/** @brief Set all fields connected to @p start as not visited.
+ * @param[in] g     - game's state,
+ * @param[in] start - starting field's coordinates.
  */
 static void clear_visited(gamma_t* g, uint32_t start[COORDS_COUNT]) {
-  uint64_t top = 0;
+  g->top = 0;
   g->visited[start[LINE]][start[COL]] = false;
-  push(g, &top, start);
-  while (top != 0) {
+  push(g, start);
+  while (g->top != 0) {
     uint32_t current[COORDS_COUNT];
-    pop(g, &top, current);
-    push_neighbours_clear(g, &top, current);
+    pop(g, current);
+    push_neighbours_clear(g, current);
   }
 }
 
-/** @brief Reorganizuje obszar.
- * DFS startuje z pola `start`.
- * W `dest_visited[i]` zapisuje czy pole `dest[i]` było zwiedzone.
- * (Jeśli `legit_dest[i]` jest ustawione na `true`).
- * @return reprezentanta obszaru, który powstał
+/** @brief Updates a player's area given a starting field using DFS.
+ * @param[in] g - game's state,
+ * @param[in] start - DFS starting point,
+ * @param[in] neighbours_num - number of fields belonging to the player
+ *                             adjacent to the removed piece,
+ * @param[in] neighbours     - fields belonging to the player adjacent to the
+ *                             removed piece,
+ * @param[out] visited       - if a given neighbour was visited during this DFS.
+ * @return Representative of a newly created/updated area.
  */
-static elem_t* remake_subset(gamma_t* g, uint32_t start[COORDS_COUNT],
-                             size_t neighbours_num,
-                             uint32_t dest[NEIGHBOURS_COUNT][COORDS_COUNT],
-                             bool legit_dest[NEIGHBOURS_COUNT],
-                             bool dest_visited[NEIGHBOURS_COUNT]) {
-  elem_t* new_area = make_set(g->board[start[LINE]][start[COL]],
-                              g->board[start[LINE]][start[COL]]->player);
-  uint64_t top = 0;
-  push(g, &top, start);
+static elem_t* update_area(gamma_t* g, uint32_t start[COORDS_COUNT],
+                           size_t neighbours_num,
+                           uint32_t neighbours[NEIGHBOURS_COUNT][COORDS_COUNT],
+                           bool visited[NEIGHBOURS_COUNT]) {
+  elem_t* updated_area_rep =
+      make_set(g->board[start[LINE]][start[COL]],
+               g->board[start[LINE]][start[COL]]->player);
+  g->top = 0;
+  push(g, start);
   g->visited[start[LINE]][start[COL]] = true;
-  while (top != 0) {
+  while (g->top != 0) {
     uint32_t current[COORDS_COUNT];
-    pop(g, &top, current);
-    check_dest(current, neighbours_num, dest, legit_dest, dest_visited);
+    pop(g, current);
 
-    new_area = unite(new_area,
-                     make_set(g->board[current[LINE]][current[COL]],
-                              g->board[current[LINE]][current[COL]]->player));
+    updated_area_rep =
+        unite(updated_area_rep,
+              make_set(g->board[current[LINE]][current[COL]],
+                       g->board[current[LINE]][current[COL]]->player));
 
-    push_neighbours(g, &top, current);
+    push_neighbours(g, current);
+  }
+
+  for (size_t i = 0; i < neighbours_num; ++i) {
+    if (!visited[i])
+      visited[i] = g->visited[neighbours[i][LINE]][neighbours[i][COL]];
   }
   clear_visited(g, start);
-  return new_area;
+
+  return updated_area_rep;
 }
 
-size_t make_subsets(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
-                    elem_t* subsets[NEIGHBOURS_COUNT]) {
-  uint32_t field[COORDS_COUNT], dest[NEIGHBOURS_COUNT][COORDS_COUNT];
+uint32_t make_areas(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
+                    elem_t* areas[NEIGHBOURS_COUNT]) {
+  uint32_t areas_count = 0, neighbours[NEIGHBOURS_COUNT][COORDS_COUNT],
+           field[COORDS_COUNT];
   init_field(field, col, line);
-  size_t neighbours_num = find_neighbours(g, dest, field), areas_count = 0;
-  bool legit_dest[NEIGHBOURS_COUNT], dest_visited[NEIGHBOURS_COUNT];
-  for (size_t i = 0; i < neighbours_num; ++i) {
-    dest_visited[i] = false;
-    legit_dest[i] = true;
-  }
+  size_t neighbours_num = find_neighbour_player(g, neighbours, field, player);
+  bool visited[NEIGHBOURS_COUNT];
+  for (size_t i = 0; i < neighbours_num; ++i) visited[i] = false;
 
   for (size_t i = 0; i < neighbours_num; ++i) {
-    if (g->board[dest[i][LINE]][dest[i][COL]]->player != player)
-      legit_dest[i] = false;
-  }
-
-  for (int i = 0; i < NEIGHBOURS_COUNT; ++i) subsets[i] = NULL;
-  for (size_t i = 0; i < neighbours_num; ++i) {
-    if (legit_dest[i] && !dest_visited[i]) {
-      subsets[i] = remake_subset(g, dest[i], neighbours_num, dest, legit_dest,
-                                 dest_visited);
-
-      ++areas_count;
+    if (!visited[i]) {
+      areas[areas_count++] =
+          update_area(g, neighbours[i], neighbours_num, neighbours, visited);
     }
   }
   return areas_count;

@@ -37,3 +37,11 @@ elem_t* unite(elem_t* x, elem_t* y) {
   }
   return ans;
 }
+
+void aggregate_unite(size_t arr_size, elem_t* arr[], elem_t* e) {
+  elem_t* acc = e;
+  for (size_t i = 0; i < arr_size; ++i) {
+    assert(arr[i] != NULL);
+    acc = unite(acc, arr[i]);
+  }
+}

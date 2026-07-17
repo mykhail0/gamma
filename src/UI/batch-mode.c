@@ -162,8 +162,7 @@ static enum Command checkCommand(char* line) {
   enum Command ans = INVALID_COMMAND;
   char* firstWord = strtok(line, WHITE_SPACE);
   if (firstWord != NULL) {
-    // Sprawdzanie pierwszego znaku jest potrzebne dlatego, że nie może być
-    // białych znaków na początku polecenia.
+    // No white spaces at the beginning of the line allowed.
     if (strcmp(firstWord, "m") == EQUAL && line[0] == 'm') ans = GAMMA_MOVE;
     if (strcmp(firstWord, "g") == EQUAL && line[0] == 'g')
       ans = GAMMA_GOLDEN_MOVE;
@@ -191,7 +190,7 @@ static bool get_uints(int uintCount, char* strings[], unsigned long numbers[],
 /** @brief Przetwarza linijkę.
  */
 static int parse_line(gamma_t* g, unsigned long long* line) {
-  (*line)++;
+  ++(*line);
   char* str = NULL;
   size_t str_size = 0;
   errno = 0;
@@ -218,9 +217,9 @@ static int parse_line(gamma_t* g, unsigned long long* line) {
   }
   int params_count = params_number[tmp];
 
-  char** params_as_strings = malloc(params_count * sizeof *params_as_strings);
-  unsigned long* params_as_ul = malloc(params_count * sizeof *params_as_ul);
-  uint32_t* params_as_uint = malloc(params_count * sizeof *params_as_uint);
+  char** params_as_strings = calloc(params_count, sizeof *params_as_strings);
+  unsigned long* params_as_ul = calloc(params_count, sizeof *params_as_ul);
+  uint32_t* params_as_uint = calloc(params_count, sizeof *params_as_uint);
   if (params_as_strings == NULL || params_as_ul == NULL ||
       params_as_uint == NULL) {
     free(params_as_strings);
@@ -236,10 +235,11 @@ static int parse_line(gamma_t* g, unsigned long long* line) {
   free(str);
   free(params_as_strings);
   free(params_as_ul);
-  if (params_are_correct)
+  if (params_are_correct) {
     process_command(tmp, g, params_as_uint);
-  else
+  } else {
     printERR(*line);
+  }
 
   free(params_as_uint);
   return errsv;

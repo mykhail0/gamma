@@ -1,22 +1,21 @@
 /** @file
- * Obsługa trybu wsadowego.
+ * Batch mode of the game.
  *
- * @author Mykhailo Shevchenko <ms420826@students.mimuw.edu.pl>
- * @copyright Uniwersytet Warszawski
+ * @author Mykhailo Shevchenko <mykhailo.shev@gmail.com>
+ * @copyright University of Warsaw
  * @date 17.05.2020
  */
 
 #ifndef BATCH_MODE_H
 #define BATCH_MODE_H
 
-#include <stdint.h>
 #include <stdbool.h>
+#include <stdint.h>
 
-/** @brief Puszcza tryb wsadowy dla zadanych parametrów.
- * @return `true` wtw gdy gra zostałą przeprowadzona.
+/** @brief Launch the game in the batch mode with given parameters.
+ * @return @p true iff game was played successfully.
  */
-extern bool batch_mode(unsigned long long *line,
-                       uint32_t width, uint32_t height,
-                       uint32_t players, uint32_t areas);
+extern bool batch_mode(unsigned long long* line, uint32_t width,
+                       uint32_t height, uint32_t players, uint32_t areas);
 
 #endif /* BATCH_MODE_H */

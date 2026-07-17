@@ -12,19 +12,17 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/** @brief Constant for a result of `strcmp`.
- */
+/// Constant for a result of `strcmp`.
 extern const int EQUAL;
 
-/** @brief Definition of white spaces.
- */
+/// Definition of white spaces.
 extern const char WHITE_SPACE[7];
 
 /** @brief Count number of digits in a given number.
  * @param[in] x - number whose digits need counting.
  * @return Number of digits in the given number.
  */
-extern unsigned count_digits(unsigned long x);
+extern unsigned count_digits(uint32_t x);
 
 /** @brief Kopiuje napis `src` do `dest` zaczynając od indeksu o numerze
  * `start_point`.

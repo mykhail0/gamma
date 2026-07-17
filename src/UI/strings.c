@@ -10,12 +10,12 @@
 const int EQUAL = 0;
 const char WHITE_SPACE[7] = {' ', '\t', '\n', '\v', '\f', '\r', '\0'};
 
-unsigned count_digits(unsigned long x) {
-  int digits = 0;
+unsigned count_digits(uint32_t x) {
+  unsigned digits = 0;
   if (x == 0) return 1;
   while (x != 0) {
     x /= 10;
-    digits++;
+    ++digits;
   }
   return digits;
 }
@@ -46,6 +46,7 @@ bool string_to_ul(char* string, unsigned long* dest) {
   *dest = strtoul(string, NULL, 10);
 
   size_t string_length = strlen(string);
+  // TODO cast
   if (count_digits(*dest) != string_length) return false;
 
   char* converted = malloc((string_length + 1) * sizeof *converted);

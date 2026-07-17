@@ -9,13 +9,23 @@
 #include "gamma.h"
 
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "../UI/strings.h"
 #include "find-union.h"
 #include "gamma-move.h"
 #include "gamma-struct.h"
+
+/** @brief Macro @ref gamma_new.
+ */
+#define GAMMA_DELETE(g) \
+  do {                  \
+    gamma_delete(g);    \
+    return NULL;        \
+  } while (false);
 
 /** @brief Initial memory allocation and initialization of variables.
  * @param[in] g       - pointer to the board to be allocated,
@@ -48,6 +58,7 @@ static bool initial_init(gamma_t** g, uint32_t width, uint32_t height,
   (*g)->board = NULL;
   (*g)->visited = NULL;
   (*g)->stack = NULL;
+  (*g)->top = 0;
 
   return true;
 }
@@ -87,14 +98,14 @@ static bool init_board(gamma_t* g) {
       g->board[i][j] = malloc(sizeof *(g->board[i][j]));
       if (g->board[i][j] == NULL) return false;
 
-      make_set(g->board[i][j], 0);
+      make_set(g->board[i][j], NOPLAYER);
     }
   }
   return true;
 }
 
 /** Allocate and initialize auxilary DS for DFS in @ref gamma_golden_move.
- * Allocate and initialize `visited` array and `stack` for DFS in
+ * Allocate upfront and initialize `visited` array and `stack` for DFS in
  * @ref gamma_golden_move.
  * @return @p true on success and @p false if no memory.
  */
@@ -116,18 +127,11 @@ static bool init_dfs_aux(gamma_t* g) {
 gamma_t* gamma_new(uint32_t width, uint32_t height, uint32_t players,
                    uint32_t areas) {
   gamma_t* g = NULL;
-  if (!initial_init(&g, width, height, players, areas)) {
-    gamma_delete(g);
-  } else if (!init_players(g)) {
-    gamma_delete(g);
-  } else if (!init_board(g)) {
-    gamma_delete(g);
-  } else if (!init_dfs_aux(g)) {
-    gamma_delete(g);
-  } else {
-    return g;
-  }
-  return NULL;
+  if (!initial_init(&g, width, height, players, areas)) GAMMA_DELETE(g);
+  if (!init_players(g)) GAMMA_DELETE(g);
+  if (!init_board(g)) GAMMA_DELETE(g);
+  if (!init_dfs_aux(g)) GAMMA_DELETE(g);
+  return g;
 }
 
 void gamma_delete(gamma_t* g) {
@@ -173,9 +177,10 @@ bool gamma_move(gamma_t* g, uint32_t player, uint32_t col, uint32_t line) {
   make_set(g->board[line][col], player);
 
   if (neighbour_exists) {
-    elem_t* neighbours[NEIGHBOURS_COUNT];
-    set_neighbours(g, player, col, line, neighbours);
-    unite_with_neighbours(g, neighbours, g->board[line][col]);
+    elem_t *neighbours[NEIGHBOURS_COUNT], *united = g->board[line][col];
+    size_t neighbours_num = set_neighbours(g, player, col, line, neighbours);
+    aggregate_unite(neighbours_num, neighbours, united);
+    g->areas[united->player - 1] -= neighbours_num - 1;
   }
   return true;
 }
@@ -188,7 +193,7 @@ bool gamma_golden_move(gamma_t* g, uint32_t player, uint32_t col,
   if (!coords_are_ok(g, col, line)) return false;
 
   elem_t former = *(g->board[line][col]);
-  make_set(g->board[line][col], 0);
+  make_set(g->board[line][col], NOPLAYER);
 
   if (!gamma_move_possible(g, player, col, line) ||
       !g->golden_not_used[player - 1] || former.player == NOPLAYER ||
@@ -197,26 +202,26 @@ bool gamma_golden_move(gamma_t* g, uint32_t player, uint32_t col,
     return false;
   }
 
-  elem_t* subsets[NEIGHBOURS_COUNT];
-  size_t areas = make_subsets(g, former.player, col, line, subsets);
+  elem_t* areas[NEIGHBOURS_COUNT];
+  uint32_t areas_count = make_areas(g, former.player, col, line, areas);
 
-  // małoprawdopodobne wyjście poza zakres
-  // TODO underflow
-  if (g->areas[former.player - 1] + areas - 1 > g->areas_number) {
-    *(g->board[line][col]) = former;
+  if ((uint64_t)g->areas[former.player - 1] - UINT64_C(1) + areas_count >
+      g->areas_number) {
     elem_t* root = g->board[line][col];
-    make_set(root, g->board[line][col]->player);
-    for (size_t i = 0; i < areas; ++i) root = unite(root, subsets[i]);
+    make_set(root, former.player);
+    aggregate_unite((size_t)areas_count, areas, root);
     return false;
   }
 
-  g->areas[former.player - 1] += areas - 1;
+  --(g->areas[former.player - 1]);
+  g->areas[former.player - 1] += areas_count;
+
   --(g->busy_fields[former.player - 1]);
   g->golden_not_used[player - 1] = false;
+  ++(g->free_fields);
   update_free_neighbours(g, former.player, col, line, true);
 
   line = g->height - line - 1;
-  ++(g->free_fields);
   bool success = gamma_move(g, player, col, line);
   assert(success);
   return success;
@@ -251,7 +256,7 @@ bool gamma_golden_possible(gamma_t* g, uint32_t player) {
 
   if (g->areas[player - 1] == g->areas_number) {
     uint32_t x, y, former_player;
-    for (y = g->height; (y--) > 0 && !is_possible; --y) {
+    for (y = g->height; (y--) > 0 && !is_possible;) {
       for (x = 0; x < g->width && !is_possible; ++x) {
         former_player = g->board[y][x]->player;
         is_possible = gamma_golden_move(g, player, x, y);
@@ -273,23 +278,26 @@ bool gamma_golden_possible(gamma_t* g, uint32_t player) {
 char* gamma_board(gamma_t* g) {
   if (g == NULL) return NULL;
 
-  int column_width = count_digits((unsigned long)g->players_number);
-  if (column_width > 1) column_width += 1;
-  char* str =
-      malloc((g->height * (g->width * column_width + 1) + 1) * sizeof *str);
+  unsigned column_width = count_digits(g->players_number);
+  if (column_width > 1) ++column_width;
+  // TODO overflow, dokladnosc?
+  char* str = calloc(g->height * ((uint64_t)g->width * column_width + 1) + 1,
+                     sizeof *str);
   if (str == NULL) return NULL;
 
-  char* buffer = malloc((column_width + 1) * sizeof *buffer);
+  char* buffer = calloc(column_width + 1, sizeof *buffer);
   if (buffer == NULL) return NULL;
   buffer[column_width] = '\0';
 
-  uint64_t count = 0;
+  size_t count = 0;
   for (uint32_t i = 0; i < g->height; ++i) {
     for (uint32_t j = 0; j < g->width; ++j) {
-      sprintf(buffer, "%*" PRIu32, column_width, g->board[i][j]->player);
+      assert(sprintf(buffer, "%*" PRIu32, column_width,
+                     g->board[i][j]->player) > 0);
       if (g->board[i][j]->player == NOPLAYER) buffer[column_width - 1] = '.';
 
-      cat_strings(str, buffer, count);
+      strcpy(str + count, buffer);
+      // cat_strings(str, buffer, count);
       count += column_width;
     }
     str[count++] = '\n';

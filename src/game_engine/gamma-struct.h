@@ -11,6 +11,7 @@
 
 #include <inttypes.h>
 #include <stdbool.h>
+#include <stdlib.h>
 
 #include "find-union.h"
 
@@ -18,22 +19,27 @@
  */
 #define COORDS_COUNT 2
 
-/** Game's state.
- */
+/// Game's state.
 struct gamma {
-  uint32_t width;             ///< board's width,
-  uint32_t height;            ///< board's height,
-  uint32_t areas_number;      ///< maximum number of areas, which one player can
-                              /// possess,
-  uint32_t players_number;    ///< number of players,
-  uint64_t free_fields;       ///< number of free fields,
-  uint64_t* free_neighbours;  ///< for a given player, number of free fields
-                              /// adjacent to their fields,
-  uint64_t* busy_fields;      ///< for a given player, number of fields taken by
-                              /// them,
-  uint32_t* areas;        ///< for a given player, number of areas they have,
-  bool* golden_not_used;  ///< for a given player, information on whether
-                          /// they have used their golden move.
+  /// board's width,
+  uint32_t width;
+  /// board's height,
+  uint32_t height;
+  /// maximum number of areas, which one player can possess,
+  uint32_t areas_number;
+  /// number of players,
+  uint32_t players_number;
+  /// number of free fields,
+  uint64_t free_fields;
+  /// for a given player, number of free fields adjacent to their fields,
+  uint64_t* free_neighbours;
+  /// for a given player, number of fields taken by them,
+  uint64_t* busy_fields;
+  /// for a given player, number of areas they have,
+  uint32_t* areas;
+  /// for a given player, information on whether they have used their golden
+  /// move.
+  bool* golden_not_used;
 
   /** Find-Union object to represent fields on the board and their ownership by
    * players.
@@ -43,6 +49,8 @@ struct gamma {
   bool** visited;
   /// Auxilary stack for checking area changes during golden move DFS.
   uint32_t (*stack)[COORDS_COUNT];
+  /// Index of the first empty spot on the stack.
+  size_t top;
 };
 
 /** @brief Game's state object.

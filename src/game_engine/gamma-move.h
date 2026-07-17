@@ -55,9 +55,10 @@ bool exists_neighbour(gamma_t* g, uint32_t player, uint32_t field[]);
  * @param[in] line        - line of a field of interest,
  * @param[out] neighbours - unique representatives of fields belonging to the
  *                          @p player, which neighbour field (@p col, @p line).
+ * @return The number of elements in the array @p neighbours.
  */
-void set_neighbours(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
-                    elem_t* neighbours[NEIGHBOURS_COUNT]);
+size_t set_neighbours(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
+                      elem_t* neighbours[NEIGHBOURS_COUNT]);
 
 /** @brief Checks where @ref gamma_move succeeds.
  * @param[in] g      - game's state,
@@ -68,16 +69,6 @@ void set_neighbours(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
  */
 bool gamma_move_possible(gamma_t* g, uint32_t player, uint32_t col,
                          uint32_t line);
-
-/** @brief Unites a given field with its neighbouring areas.
- * @param[in] g          - game's state,
- * @param[in] neighbours - array of unique representatives of neighbouring to
- *                         @p e areas, which belong to the same player. Some
- *                         elements can be `NULL`,
- * @param[in] e          - field that unites.
- */
-void unite_with_neighbours(gamma_t* g, elem_t* neighbours[NEIGHBOURS_COUNT],
-                           elem_t* e);
 
 /** @brief Update the number of free neighbours for every player.
  * Update the number of free neighbours for every player as if @p player
@@ -97,12 +88,12 @@ void update_free_neighbours(gamma_t* g, uint32_t player, uint32_t col,
  * Auxilary function for @ref gamma_golden_move. After removing a piece of the
  * @p player from the field (@p col, @p line), update representatives of areas
  * surrounding the field and add them to @p subsets array.
- * @param[in] g        - game's state,
- * @param[in] player   - index of a player, whose piece was removed,
- * @param[in] col      - field's column,
- * @param[in] line     - field's line,
- * @param[out] subsets - representatives of surrounding areas.
+ * @param[in] g      - game's state,
+ * @param[in] player - index of a player, whose piece was removed,
+ * @param[in] col    - field's column,
+ * @param[in] line   - field's line,
+ * @param[out] areas - representatives of surrounding areas.
  * @return The number of surrounding areas.
  */
-size_t make_subsets(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
-                    elem_t* subsets[NEIGHBOURS_COUNT]);
+uint32_t make_areas(gamma_t* g, uint32_t player, uint32_t col, uint32_t line,
+                    elem_t* areas[NEIGHBOURS_COUNT]);

@@ -10,6 +10,7 @@
 #define FIND_UNION_H
 
 #include <stdint.h>
+#include <stdlib.h>
 
 /** A field on the board.
  */
@@ -52,5 +53,12 @@ extern elem_t* find(elem_t* e);
  * @return The representative of the united area.
  */
 extern elem_t* unite(elem_t* x, elem_t* y);
+
+/** @brief Merges @p e with representatives in the given array.
+ * @param[in] arr_size - number of elements in the array,
+ * @param[in] arr      - array of unique representatives,
+ * @param[in] e        - additional field to unite with.
+ */
+extern void aggregate_unite(size_t arr_size, elem_t* arr[], elem_t* e);
 
 #endif /* FIND_UNION_H */

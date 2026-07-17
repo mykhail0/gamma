@@ -57,10 +57,15 @@ static const bool test_errno = true;
 
 #define MANY_GAMES 42
 
+/// Bundle of parameters for @ref gamma_new.
 typedef struct {
+  /// board's width,
   uint32_t width;
+  /// board's height,
   uint32_t height;
+  /// number of players,
   uint32_t players;
+  /// maximum number of areas per player.
   uint32_t areas;
 } gamma_param_t;
 
@@ -755,8 +760,11 @@ static int middle_board(void) {
 
 /** TEST RUNNING **/
 
+/// Struct for a test with its name.
 typedef struct {
+  /// test's name,
   char const* name;
+  /// testing function.
   int (*function)(void);
 } test_list_t;
 
