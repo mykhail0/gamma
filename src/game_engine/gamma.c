@@ -8,41 +8,36 @@
 
 #include "gamma.h"
 
-#include <errno.h>
-#include <inttypes.h>
-#include <stdbool.h>
-#include <stdint.h>
+#include <assert.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "../UI/strings.h"
 #include "find-union.h"
-#include "gamma-moves-assistant-functions.h"
+#include "gamma-move.h"
 #include "gamma-struct.h"
 
-/** @brief Wstępnie alokuje pamięć i ustawia wartości.
- * @param[in] g       - wskaźnik na planszę jaką alokuje funkcja.
- * @param[in] width   - szerokość planszy, liczba dodatnia,
- * @param[in] height  - wysokość planszy, liczba dodatnia,
- * @param[in] players - liczba graczy, liczba dodatnia,
- * @param[in] areas   - maksymalna liczba obszarów,
- *                      jakie może zająć jeden gracz.
- * @return 1 jeśli się powiodło i 0 jeśli zabrakło pamięci
- * albo dane są niepoprawne.
+/** @brief Initial memory allocation and initialization of variables.
+ * @param[in] g       - pointer to the board to be allocated,
+ * @param[in] width   - board's width, positive integer,
+ * @param[in] height  - board's height, positive integer,
+ * @param[in] players - number of players, positive integer,
+ * @param[in] areas   – maximum number of areas, which one player can possess.
+ * @return @p true if operation succeeded and @p false if not enough memory or
+ * incorrect arguments.
  */
 static bool initial_init(gamma_t** g, uint32_t width, uint32_t height,
                          uint32_t players, uint32_t areas) {
-  if (width <= 0 || height <= 0 || players <= 0 || areas <= 0) return false;
+  if (width == 0 || height == 0 || players == 0 || areas == 0) return false;
 
-  *g = malloc(sizeof **g);
-  if (*g == NULL) return false;
+  if (NULL == (*g = malloc(sizeof **g))) return false;
 
   (*g)->width = width;
   (*g)->height = height;
   (*g)->areas_number = areas;
   (*g)->players_number = players;
 
-  // żeby właściwie pomnożyć w razie wyjścia poza zakres.
+  // Multiply it like this so there is no overflow.
   (*g)->free_fields = (*g)->width;
   (*g)->free_fields *= (*g)->height;
 
@@ -53,75 +48,44 @@ static bool initial_init(gamma_t** g, uint32_t width, uint32_t height,
   (*g)->board = NULL;
   (*g)->visited = NULL;
   (*g)->stack = NULL;
+
   return true;
 }
 
-/** @brief Alokuje pamięć dla informacji o graczach i ustawia początkowe
- * wartości.
- * @param[in] g - stan gry.
- * @return 1 jeśli się udało i 0 jeśli zabrakło pamięci.
+/** @brief Allocate memory for player specific fields and initialize them.
+ * @param[in] g - game's state.
+ * @return @p true on success and @p false if no memory.
  */
 static bool init_players(gamma_t* g) {
-  g->free_neighbours = malloc(g->players_number * sizeof *(g->free_neighbours));
-  if (g->free_neighbours == NULL) {
-    gamma_delete(g);
-    return false;
-  }
+  g->free_neighbours = calloc(g->players_number, sizeof *(g->free_neighbours));
+  if (g->free_neighbours == NULL) return false;
 
-  g->busy_fields = malloc(g->players_number * sizeof *(g->busy_fields));
-  if (g->busy_fields == NULL) {
-    gamma_delete(g);
-    return false;
-  }
+  g->busy_fields = calloc(g->players_number, sizeof *(g->busy_fields));
+  if (g->busy_fields == NULL) return false;
 
-  g->areas = malloc(g->players_number * sizeof *(g->areas));
-  if (g->areas == NULL) {
-    gamma_delete(g);
-    return false;
-  }
+  g->areas = calloc(g->players_number, sizeof *(g->areas));
+  if (g->areas == NULL) return false;
 
-  g->golden_not_used = malloc(g->players_number * sizeof *(g->golden_not_used));
-  if (g->golden_not_used == NULL) {
-    gamma_delete(g);
-    return false;
-  }
+  g->golden_not_used = calloc(g->players_number, sizeof *(g->golden_not_used));
+  if (g->golden_not_used == NULL) return false;
 
-  for (uint32_t i = 0; i < g->players_number; ++i) {
-    g->free_neighbours[i] = 0;
-    g->busy_fields[i] = 0;
-    g->areas[i] = 0;
-    g->golden_not_used[i] = true;
-  }
+  for (uint32_t i = 0; i < g->players_number; ++i) g->golden_not_used[i] = true;
   return true;
 }
 
-/** @brief Alokuje planszę i ustawia wszystkie pola na puste.
- * @return 1 jeśli się powiodło i 0 jeśli zabrakło pamięci.
+/** @brief Allocate the board and set every field to empty.
+ * @return @p true on success and @p false if no memory.
  */
 static bool init_board(gamma_t* g) {
-  g->board = malloc(g->height * sizeof *(g->board));
-  if (g->board == NULL) {
-    gamma_delete(g);
-    return false;
-  }
-
-  for (uint32_t i = 0; i < g->height; ++i) g->board[i] = NULL;
+  if (NULL == (g->board = calloc(g->height, sizeof *(g->board)))) return false;
 
   for (uint32_t i = 0; i < g->height; ++i) {
-    g->board[i] = malloc(g->width * sizeof *(g->board[i]));
-    if (g->board[i] == NULL) {
-      gamma_delete(g);
-      return false;
-    }
-
-    for (uint32_t j = 0; j < g->width; ++j) g->board[i][j] = NULL;
+    g->board[i] = calloc(g->width, sizeof *(g->board[i]));
+    if (g->board[i] == NULL) return false;
 
     for (uint32_t j = 0; j < g->width; ++j) {
       g->board[i][j] = malloc(sizeof *(g->board[i][j]));
-      if (g->board[i][j] == NULL) {
-        gamma_delete(g);
-        return false;
-      }
+      if (g->board[i][j] == NULL) return false;
 
       make_set(g->board[i][j], 0);
     }
@@ -129,58 +93,45 @@ static bool init_board(gamma_t* g) {
   return true;
 }
 
-/** @brief Alokacja i inicjalizacja 'visited'.
- * Alokuje i inicjuje tablicę,
- * która przechowuje informacje o przetworzonych komórkach planszy
- * podczas wykonywania algorytmu DFS.
- * @return 1 jeśli się powiodło i 0 jeśli zabrakło pamięci.
+/** Allocate and initialize auxilary DS for DFS in @ref gamma_golden_move.
+ * Allocate and initialize `visited` array and `stack` for DFS in
+ * @ref gamma_golden_move.
+ * @return @p true on success and @p false if no memory.
  */
-static bool init_visited(gamma_t* g) {
-  g->visited = malloc(g->height * sizeof *(g->visited));
-  if (g->visited == NULL) {
-    gamma_delete(g);
-    return false;
-  }
-
-  for (uint32_t i = 0; i < g->height; ++i) g->visited[i] = NULL;
+static bool init_dfs_aux(gamma_t* g) {
+  g->visited = calloc(g->height, sizeof *(g->visited));
+  if (g->visited == NULL) return false;
 
   for (uint32_t i = 0; i < g->height; ++i) {
-    g->visited[i] = malloc(g->width * sizeof *(g->visited[i]));
-    if (g->visited[i] == NULL) {
-      gamma_delete(g);
-      return false;
-    }
-
-    for (uint32_t j = 0; j < g->width; ++j) g->visited[i][j] = false;
+    g->visited[i] = calloc(g->width, sizeof *(g->visited[i]));
+    if (g->visited[i] == NULL) return false;
   }
-  return true;
-}
 
-/** @brief Alokuje stos na potrzeby DFS przy @ref gamma_golden_move.
- * @return 1 jeśli się powiodło i 0 jeśli zabrakło pamięci.
- */
-static bool init_stack(gamma_t* g) {
-  g->stack = malloc(g->free_fields * sizeof *(g->stack));
-  if (g->stack == NULL) {
-    gamma_delete(g);
-    return false;
-  }
+  g->stack = calloc(g->free_fields, sizeof *(g->stack));
+  if (g->stack == NULL) return false;
+
   return true;
 }
 
 gamma_t* gamma_new(uint32_t width, uint32_t height, uint32_t players,
                    uint32_t areas) {
-  gamma_t* g;
-  if (!initial_init(&g, width, height, players, areas)) return NULL;
-  if (!init_players(g)) return NULL;
-  if (!init_board(g)) return NULL;
-  if (!init_visited(g)) return NULL;
-  if (!init_stack(g)) return NULL;
-  return g;
+  gamma_t* g = NULL;
+  if (!initial_init(&g, width, height, players, areas)) {
+    gamma_delete(g);
+  } else if (!init_players(g)) {
+    gamma_delete(g);
+  } else if (!init_board(g)) {
+    gamma_delete(g);
+  } else if (!init_dfs_aux(g)) {
+    gamma_delete(g);
+  } else {
+    return g;
+  }
+  return NULL;
 }
 
 void gamma_delete(gamma_t* g) {
-  if (g) {
+  if (g != NULL) {
     if (g->board != NULL) {
       for (uint32_t i = 0; i < g->height; ++i) {
         if (g->board[i] != NULL) {
@@ -211,15 +162,17 @@ bool gamma_move(gamma_t* g, uint32_t player, uint32_t col, uint32_t line) {
   line = g->height - line - 1;
   if (!gamma_move_possible(g, player, col, line)) return false;
 
-  bool no_neighbours = !exists_neighbour(g, player, col, line);
-  if (no_neighbours) g->areas[player - 1]++;
+  uint32_t field[COORDS_COUNT];
+  init_field(field, col, line);
+  bool neighbour_exists = exists_neighbour(g, player, field);
+  if (!neighbour_exists) ++(g->areas[player - 1]);
 
-  g->busy_fields[player - 1]++;
-  g->free_fields--;
-  update_free_neighbours(g, player, col, line);
+  ++(g->busy_fields[player - 1]);
+  --(g->free_fields);
+  update_free_neighbours(g, player, col, line, false);
   make_set(g->board[line][col], player);
 
-  if (!no_neighbours) {
+  if (neighbour_exists) {
     elem_t* neighbours[NEIGHBOURS_COUNT];
     set_neighbours(g, player, col, line, neighbours);
     unite_with_neighbours(g, neighbours, g->board[line][col]);
@@ -238,33 +191,35 @@ bool gamma_golden_move(gamma_t* g, uint32_t player, uint32_t col,
   make_set(g->board[line][col], 0);
 
   if (!gamma_move_possible(g, player, col, line) ||
-      !g->golden_not_used[player - 1] || former.player == 0 ||
+      !g->golden_not_used[player - 1] || former.player == NOPLAYER ||
       former.player == player) {
     *(g->board[line][col]) = former;
     return false;
   }
 
   elem_t* subsets[NEIGHBOURS_COUNT];
-  int areas = make_subsets(g, former.player, col, line, subsets);
+  size_t areas = make_subsets(g, former.player, col, line, subsets);
 
   // małoprawdopodobne wyjście poza zakres
+  // TODO underflow
   if (g->areas[former.player - 1] + areas - 1 > g->areas_number) {
     *(g->board[line][col]) = former;
     elem_t* root = g->board[line][col];
     make_set(root, g->board[line][col]->player);
-    for (int i = 0; i < NEIGHBOURS_COUNT; ++i) root = unite(root, subsets[i]);
+    for (size_t i = 0; i < areas; ++i) root = unite(root, subsets[i]);
     return false;
   }
 
   g->areas[former.player - 1] += areas - 1;
-  g->busy_fields[former.player - 1]--;
+  --(g->busy_fields[former.player - 1]);
   g->golden_not_used[player - 1] = false;
-  update_free_neighbours_golden(g, former.player, col, line);
+  update_free_neighbours(g, former.player, col, line, true);
 
   line = g->height - line - 1;
-  g->free_fields++;
-  gamma_move(g, player, col, line);
-  return true;
+  ++(g->free_fields);
+  bool success = gamma_move(g, player, col, line);
+  assert(success);
+  return success;
 }
 
 uint64_t gamma_busy_fields(gamma_t* g, uint32_t player) {
@@ -290,30 +245,29 @@ static void reverse_gamma_move(gamma_t* g, uint32_t player, uint32_t x,
 }
 
 bool gamma_golden_possible(gamma_t* g, uint32_t player) {
-  bool ans = false;
-  if (!player_is_ok(g, player)) return ans;
-  if (g->golden_not_used[player - 1] == false) return ans;
+  bool is_possible = false;
+  if (!player_is_ok(g, player)) return is_possible;
+  if (g->golden_not_used[player - 1] == false) return is_possible;
 
-  if (g->areas[player - 1] != g->areas_number) {
-    for (uint32_t i = 0; i < g->players_number; ++i) {
-      if (i + 1 != player && g->busy_fields[i] != 0) return true;
-    }
-  } else {
+  if (g->areas[player - 1] == g->areas_number) {
     uint32_t x, y, former_player;
-    for (uint32_t i = 0; i < g->height && !ans; ++i) {
-      for (uint32_t j = 0; j < g->width && !ans; ++j) {
-        former_player = g->board[i][j]->player;
-        x = j;
-        y = g->height - i - 1;
-        ans = gamma_golden_move(g, player, x, y);
+    for (y = g->height; (y--) > 0 && !is_possible; --y) {
+      for (x = 0; x < g->width && !is_possible; ++x) {
+        former_player = g->board[y][x]->player;
+        is_possible = gamma_golden_move(g, player, x, y);
       }
     }
-    if (ans) {
+    if (is_possible) {
       g->golden_not_used[player - 1] = true;
       reverse_gamma_move(g, former_player, x, y);
     }
+  } else {
+    for (uint32_t i = 0; i < g->players_number; ++i) {
+      if (i + 1 != player && g->busy_fields[i] != 0) return true;
+    }
   }
-  return ans;
+
+  return is_possible;
 }
 
 char* gamma_board(gamma_t* g) {
@@ -323,31 +277,24 @@ char* gamma_board(gamma_t* g) {
   if (column_width > 1) column_width += 1;
   char* str =
       malloc((g->height * (g->width * column_width + 1) + 1) * sizeof *str);
-  if (str == NULL) {
-    errno = ENOMEM;
-    return NULL;
-  }
+  if (str == NULL) return NULL;
 
   char* buffer = malloc((column_width + 1) * sizeof *buffer);
-  if (buffer == NULL) {
-    free(str);
-    errno = ENOMEM;
-    return NULL;
-  }
+  if (buffer == NULL) return NULL;
   buffer[column_width] = '\0';
 
   uint64_t count = 0;
   for (uint32_t i = 0; i < g->height; ++i) {
     for (uint32_t j = 0; j < g->width; ++j) {
       sprintf(buffer, "%*" PRIu32, column_width, g->board[i][j]->player);
-      if (g->board[i][j]->player == 0) buffer[column_width - 1] = '.';
+      if (g->board[i][j]->player == NOPLAYER) buffer[column_width - 1] = '.';
 
       cat_strings(str, buffer, count);
       count += column_width;
     }
-    str[count] = '\n';
-    count++;
+    str[count++] = '\n';
   }
+
   str[count] = '\0';
   free(buffer);
   return str;

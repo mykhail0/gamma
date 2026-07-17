@@ -71,7 +71,7 @@ static bool load_game(enum Mode mode, unsigned long long* line) {
   return ans;
 }
 
-void launch_game() {
+int launch_game() {
   bool game_played = false;
   unsigned long long line_number = 1;
   char* line = NULL;
@@ -100,13 +100,14 @@ void launch_game() {
       game_played = load_game(mode, &line_number);
       if (errno) {
         free(line);
-        exit(1);
+        return EXIT_FAILURE;
       }
     }
 
     if (!game_played) errsv = getline(&line, &line_size, stdin);
-    line_number++;
+    ++line_number;
   }
 
   free(line);
+  return EXIT_SUCCESS;
 }

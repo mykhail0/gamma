@@ -1,8 +1,3 @@
-#include <stdlib.h>
-
 #include "gamma-launch.h"
 
-int main() {
-  launch_game();
-  return EXIT_SUCCESS;
-}
+int main() { return launch_game(); }

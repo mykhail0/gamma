@@ -6,26 +6,23 @@ if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Release")
 endif ()
 
-# Nie chcemy oglądać komunikatów o procentowym postępie kompilacji.
+# No messages about percent of compilation progress.
 set_property(GLOBAL PROPERTY RULE_MESSAGES OFF)
 
-# Chcemy zobaczyć polecenia wywołane przez make.
+# Show commands that make uses.
 set(CMAKE_VERBOSE_MAKEFILE ON)
 
-# Ustawiamy wspólne opcje kompilowania dla wszystkich wariantów projektu.
 set(CMAKE_C_FLAGS "-std=c11 -Wall -Wextra")
-# Domyślne opcje dla wariantów Release i Debug są sensowne.
-# Jeśli to konieczne, ustawiamy tu inne.
-# set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
-# set(CMAKE_C_FLAGS_DEBUG "-pedantic -Werror -fstack-protector-strong -g")
+set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
+#set(CMAKE_C_FLAGS_DEBUG "-pedantic -Werror -fstack-protector-strong -g")
+set(CMAKE_C_FLAGS_DEBUG "-pedantic -fstack-protector-strong -g")
 
-# Wskazujemy pliki źródłowe.
 set(SOURCE_FILES
     src/game_engine/find-union.h
     src/game_engine/find-union.c
     src/game_engine/gamma-struct.h
-    src/game_engine/gamma-moves-assistant-functions.h
-    src/game_engine/gamma-moves-assistant-functions.c
+    src/game_engine/gamma-move.h
+    src/game_engine/gamma-move.c
     src/game_engine/gamma.h
     src/game_engine/gamma.c
     src/UI/error-handling.h
@@ -40,33 +37,32 @@ set(SOURCE_FILES
     src/gamma-launch.c
     src/gamma_main.c)
 
-# Wskazujemy plik wykonywalny.
 add_executable(gamma ${SOURCE_FILES})
 
-# Wskazujemy pliki źródłowe.
 set(TEST_SOURCE_FILES
     src/game_engine/find-union.h
     src/game_engine/find-union.c
     src/game_engine/gamma-struct.h
-    src/game_engine/gamma-moves-assistant-functions.h
-    src/game_engine/gamma-moves-assistant-functions.c
+    src/game_engine/gamma-move.h
+    src/game_engine/gamma-move.c
     src/game_engine/gamma.h
     src/game_engine/gamma.c
     src/UI/strings.h
     src/UI/strings.c
     src/gamma_test.c)
 
-# Wskazujemy plik wykonywalny dla testów silnika.
+# Don't include `test` target in the `all` target for make.
 add_executable(test EXCLUDE_FROM_ALL ${TEST_SOURCE_FILES})
 set_target_properties(test PROPERTIES OUTPUT_NAME gamma_test)
 
-# Dodajemy obsługę Doxygena: sprawdzamy, czy jest zainstalowany i jeśli tak to:
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
-    # Wskazujemy lokalizacją pliku konfiguracyjnego i podajemy jego docelową lokalizację w folderze, gdzie następuje kompilacja.
+    # Set location of configuration file and target location in the compilation
+    # directory.
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
     # Dodajemy cel doc: użycie make doc spowoduje wywołanie doxygena z odpowiednim plikiem konfiguracyjnym w folderze kompilacji.
-    # Na wyjście zostanie wypisany odpowiedni komentarz.
+    # Add doc target: using make doc executes doxygen with a relevant
+    # configuration file in the compilation directory.
     add_custom_target(doc
         ${DOXYGEN_EXECUTABLE} ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile
         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}

@@ -11,6 +11,6 @@
 
 /** @brief Launch the game.
  */
-extern void launch_game();
+extern int launch_game();
 
 #endif /* GAMMA_LAUNCH_H */

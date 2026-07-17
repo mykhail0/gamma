@@ -16,7 +16,7 @@
  * @param[in] width   - board's width,
  * @param[in] height  - board's height,
  * @param[in] players - number of players,
- * @param[in] areas   – maximal number of areas, which one player can possess.
+ * @param[in] areas   – maximum number of areas, which one player can possess.
  * @return @p true iff launched successfully, if returned @p false, `errno`
  * informs about the error.
  */

@@ -1,4 +1,4 @@
-#include "gamma.h"
+#include "game_engine/gamma.h"
 
 /* CMake turns off NDEBUG for release. */
 #ifdef NDEBUG
@@ -13,27 +13,25 @@
 
 /** HELPFUL FUNCTIONS FOR DEBUGGING TESTS  **/
 
-#if 0
-
 #include <inttypes.h>
 #include <stdio.h>
 
-static inline void print_board(gamma_t *g) {
-  char *board = gamma_board(g);
+#if 0
+
+static inline void print_board(gamma_t* g) {
+  char* board = gamma_board(g);
   assert(board);
-  printf(board);
+  printf("%s", board);
   free(board);
 }
 
-static inline void print_players(gamma_t *g,
-                                 uint32_t from_player, uint32_t to_player) {
+static inline void print_players(gamma_t* g, uint32_t from_player,
+                                 uint32_t to_player) {
   assert(from_player >= 1);
   for (uint32_t player = from_player - 1; player++ < to_player;)
     printf("player = %" PRIu32 ", busy = %" PRIu64 ", free = %" PRIu64
            ", golden = %d\n",
-           player,
-           gamma_busy_fields(g, player),
-           gamma_free_fields(g, player),
+           player, gamma_busy_fields(g, player), gamma_free_fields(g, player),
            gamma_golden_possible(g, player));
 }
 

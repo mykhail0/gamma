@@ -23,7 +23,7 @@
 struct gamma {
   uint32_t width;             ///< board's width,
   uint32_t height;            ///< board's height,
-  uint32_t areas_number;      ///< maximal number of areas, which one player can
+  uint32_t areas_number;      ///< maximum number of areas, which one player can
                               /// possess,
   uint32_t players_number;    ///< number of players,
   uint64_t free_fields;       ///< number of free fields,

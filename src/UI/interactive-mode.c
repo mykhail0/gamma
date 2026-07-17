@@ -15,6 +15,7 @@
 #include <termios.h>
 #include <unistd.h>
 
+#include "../game_engine/gamma-move.h"
 #include "../game_engine/gamma.h"
 #include "strings.h"
 
@@ -159,7 +160,7 @@ static void print_board(gamma_t* g, uint32_t player) {
   for (uint32_t i = 0; i < g->height; ++i) {
     for (uint32_t j = 0; j < g->width; ++j) {
       sprintf(buffer, "%*" PRIu32, COLUMN_WIDTH, g->board[i][j]->player);
-      if (g->board[i][j]->player == 0) buffer[COLUMN_WIDTH - 1] = '.';
+      if (g->board[i][j]->player == NOPLAYER) buffer[COLUMN_WIDTH - 1] = '.';
 
       if (g->height - i - 1 == cursorY && j == cursorX)
         printf("\033[7m");  // jeśli tam jest kursor to reverse video

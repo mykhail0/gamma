@@ -41,7 +41,7 @@ extern elem_t* make_set(elem_t* e, uint32_t player);
 /** @brief Return the representative of the area which contains the field.
  * Return the representative of the area which contains the field @p e. Uses
  * path compression in the implementation.
- * @param[in] e - non-NULL field on the board.
+ * @param[in] e - non-`NULL` field on the board.
  * @return The representative of the area which contains the given field.
  */
 extern elem_t* find(elem_t* e);

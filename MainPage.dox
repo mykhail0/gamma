@@ -1,7 +1,31 @@
 /**
-@mainpage Dokumentacja zadania gamma
+@mainpage Gamma project's documentation
 
-### Opis programu
-Grę rozgrywa się na prostokątnej planszy, która składa się z jednakowych kwadratowych pól. Pola sąsiadujące na planszy to takie, które stykają się bokami. Pól stykających się tylko rogami nie uważamy za sąsiadujące. Pola tworzą obszar, jeśli z każdego z nich można dojść do innego, przechodząc jedynie przez pola sąsiadujące. Pojedyncze pole też jest obszarem. Grać może jedna lub więcej osób. Na początku gry plansza jest pusta. Gracze kolejno zajmują po jednym polu, stawiając na nim swój pionek. Gracz może zająć dowolne niezajęte pole, przestrzegając jedynie zasady, że zbiór pól zajętych przez tego samego gracza nie może w żadnej fazie gry składać się z więcej niż, będącej parametrem gry, maksymalnej liczby obszarów. Każdy gracz jeden raz w całej rozgrywce może wykonać złoty ruch, który polega na zabraniu z planszy pionka innego gracza i postawieniu w jego miejsce swojego pionka, ale ten ruch nadal nie może naruszać zasady maksymalnej liczby zajętych obszarów przez żadnego z graczy. Gracz, który nie jest w stanie wykonać ruchu zgodnego z powyższą zasadą, wypada z gry, ale może wrócić do gry po jakimś złotym ruchu innego gracza. Gra kończy się, gdy już żaden gracz nie może wykonać ruchu. Wygrywa gracz, który zajmie największą liczbę pól.
+# Introduction
+This project implements in the terminal a board game called gamma.
+
+TODO compilation, modes, system requirements
+
+## Initial setting
+The game is played on a rectangular board consisting of identical square fields.
+Fields are adjacent if they share an edge. Fields that share only a corner are
+not considered adjacent. Fields form an area if each field can be reached from
+another one by passing through adjacent fields. A single field is also an area.
+One or more players can play. At the beginning of the game, the board is empty.
+
+## Moves
+Players take turns occupying fields, one at a time, by placing a piece on a
+field. A player may occupy any free field, subject only to the rule that the
+number of areas occupied by the player cannot, at any stage, be greater than the
+maximum number of areas, which is a game parameter. Each player may make a
+golden move once during the entire game, which involves removing another
+player's piece from the board and placing their own piece in its place. However,
+this move must not violate the rule of the maximum number of areas occupied by
+any player. A player unable to make a move consistent with the above rules skips
+their turn.
+
+## Game finish
+The game ends when no player can make a move. The player who
+occupies the most fields wins.
 
 */
