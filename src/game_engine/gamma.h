@@ -19,6 +19,7 @@
 /** @brief Create an object for the game's state.
  * Allocate memory for the game's state object.
  * Initialize the object such that it represents the state of a new game.
+ * Sets errno to ENOMEM when failing.
  * @param[in] width   – board's width, positive number,
  * @param[in] height  – board's height, positive number,
  * @param[in] players – number of players, positive number,
@@ -102,8 +103,8 @@ extern bool gamma_golden_possible(gamma_t* g, uint32_t player);
 /** @brief Return a string description of the board.
  * Allocate a buffer in memory and put a text description of the current board's
  * state there. gamma_test.c file contains an example. Caller function
- * must free the buffer.
- * @param[in] g       – a pointer to the game's state.
+ * must free the buffer. Sets errno at ENOMEM when failing.
+ * @param[in] g – a pointer to the game's state.
  * @return Pointer to the allocated buffer with a string of board's text
  * description or `NULL` if memory allocation did not succeed.
  */

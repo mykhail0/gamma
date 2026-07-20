@@ -6,12 +6,12 @@
  * @date 17.05.2020
  */
 
-/** @brief To dla getline.
- */
+/// To use `getline`.
 #define _GNU_SOURCE
 
 #include "batch-mode.h"
 
+#include <assert.h>
 #include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -21,9 +21,40 @@
 #include "error-handling.h"
 #include "strings.h"
 
-/** @brief Możliwe polecenia w trybie wsadowym.
+/// Position of `player` parameter in an arguments array.
+#define PLAYER 0
+/// Position of `x` parameter in an arguments array.
+#define X 1
+/// Position of `y` parameter in an arguments array.
+#define Y 2
+
+/// Number of commands in the batch moode.
+#define POSSIBLE_COMMANDS 8
+
+/// Number of parameters for command NO_COMMAND.
+#define NO_COMMAND_PARAMS 0
+/// Number of parameters for command INVALID_COMMAND.
+#define INVALID_COMMAND_PARAMS 0
+/// Number of parameters for command GAMMA_MOVE.
+#define GAMMA_MOVE_PARAMS 3
+/// Number of parameters for command GAMMA_GOLDEN_MOVE.
+#define GAMMA_GOLDEN_MOVE_PARAMS 3
+/// Number of parameters for command GAMMA_BUSY_FIELDS.
+#define GAMMA_BUSY_FIELDS_PARAMS 1
+/// Number of parameters for command GAMMA_FREE_FIELDS.
+#define GAMMA_FREE_FIELDS_PARAMS 1
+/// Number of parameters for command GAMMA_GOLDEN_POSSIBLE.
+#define GAMMA_GOLDEN_POSSIBLE_PARAMS 1
+/// Number of parameters for command GAMMA_BOARD.
+#define GAMMA_BOARD_PARAMS 0
+
+/// Maximum number of parameters for a command.
+#define MAX_PARAMS_NUM 3
+
+/** Possible commands in the batch mode.
+ * Used to index into @ref COMMAND_CHARACTERS and @ref params_number.
  */
-enum Command {
+typedef enum {
   NO_COMMAND,
   INVALID_COMMAND,
   GAMMA_MOVE,
@@ -32,50 +63,13 @@ enum Command {
   GAMMA_FREE_FIELDS,
   GAMMA_GOLDEN_POSSIBLE,
   GAMMA_BOARD
-};
+} command_t;
 
-/** @brief Liczba poleceń dla trybu wsadowego.
- */
-#define POSSIBLE_COMMANDS 8
+/// Characters for each command.
+static const char COMMAND_CHARACTERS[] = "mgbfqp";
 
-/** @brief Liczba parametrów dla polecenia NO_COMMAND.
- */
-#define NO_COMMAND_PARAMS 0
-/** @brief Liczba parametrów dla polecenia INVALID_COMMAND.
- */
-#define INVALID_COMMAND_PARAMS 0
-/** @brief Liczba parametrów dla polecenia GAMMA_MOVE.
- */
-#define GAMMA_MOVE_PARAMS 3
-/** @brief Liczba parametrów dla polecenia GAMMA_GOLDEN_MOVE.
- */
-#define GAMMA_GOLDEN_MOVE_PARAMS 3
-/** @brief Liczba parametrów dla polecenia GAMMA_BUSY_FIELDS.
- */
-#define GAMMA_BUSY_FIELDS_PARAMS 1
-/** @brief Liczba parametrów dla polecenia GAMMA_FREE_FIELDS.
- */
-#define GAMMA_FREE_FIELDS_PARAMS 1
-/** @brief Liczba parametrów dla polecenia GAMMA_GOLDEN_POSSIBLE.
- */
-#define GAMMA_GOLDEN_POSSIBLE_PARAMS 1
-/** @brief Liczba parametrów dla polecenia GAMMA_BOARD.
- */
-#define GAMMA_BOARD_PARAMS 0
-
-/** @brief Indeks odpowiedniego parametra w tablicy parametrów.
- */
-#define PLAYER 0
-/** @brief Indeks odpowiedniego parametra w tablicy parametrów.
- */
-#define X 1
-/** @brief Indeks odpowiedniego parametra w tablicy parametrów.
- */
-#define Y 2
-
-/** @brief W params_number[i] liczba parametrów dla polecenia `i`.
- */
-static const int params_number[POSSIBLE_COMMANDS] = {
+/// Number of expected parameters for each type of command.
+static const size_t params_number[POSSIBLE_COMMANDS] = {
     NO_COMMAND_PARAMS,
     INVALID_COMMAND_PARAMS,
     GAMMA_MOVE_PARAMS,
@@ -85,39 +79,33 @@ static const int params_number[POSSIBLE_COMMANDS] = {
     GAMMA_GOLDEN_POSSIBLE_PARAMS,
     GAMMA_BOARD_PARAMS};
 
-/** @brief Przetwarza polecenie 'm'.
- */
+/// Process `m` command.
 static void process_gamma_move(gamma_t* g, uint32_t params[]) {
   printf("%d\n", (int)gamma_move(g, params[PLAYER], params[X], params[Y]));
 }
 
-/** @brief Przetwarza polecenie 'g'.
- */
+/// Process `g` command.
 static void process_gamma_golden_move(gamma_t* g, uint32_t params[]) {
   printf("%d\n",
          (int)gamma_golden_move(g, params[PLAYER], params[X], params[Y]));
 }
 
-/** @brief Przetwarza polecenie 'b'.
- */
+/// Process `b` command.
 static void process_gamma_busy_fields(gamma_t* g, uint32_t params[]) {
   printf("%" PRIu64 "\n", gamma_busy_fields(g, params[PLAYER]));
 }
 
-/** @brief Przetwarza polecenie 'f'.
- */
+/// Process `f` command.
 static void process_gamma_free_fields(gamma_t* g, uint32_t params[]) {
   printf("%" PRIu64 "\n", gamma_free_fields(g, params[PLAYER]));
 }
 
-/** @brief Przetwarza polecenie 'q'.
- */
+/// Process `q` command.
 static void process_gamma_golden_possible(gamma_t* g, uint32_t params[]) {
   printf("%d\n", (int)gamma_golden_possible(g, params[PLAYER]));
 }
 
-/** @brief Przetwarza polecenie 'p'.
- */
+/// Process `p` command.
 static void process_gamma_board(gamma_t* g) {
   char* board = gamma_board(g);
   if (board == NULL)
@@ -127,9 +115,8 @@ static void process_gamma_board(gamma_t* g) {
   free(board);
 }
 
-/** @brief Przetwarza polecenie `com` z zadanymi parametrami.
- */
-static void process_command(enum Command com, gamma_t* g, uint32_t params[]) {
+/// Process a given command.
+static void process_command(command_t com, gamma_t* g, uint32_t params[]) {
   switch (com) {
     case GAMMA_MOVE:
       process_gamma_move(g, params);
@@ -150,120 +137,90 @@ static void process_command(enum Command com, gamma_t* g, uint32_t params[]) {
       process_gamma_board(g);
       break;
     default:
+      assert(false);
       break;
   }
 }
 
-/** @brief Dla danej linijki zwraca to, jakim jest poleceniem.
- */
-static enum Command checkCommand(char* line) {
+/// Parse a string into an appropriate command code.
+static command_t parse_command(char* line) {
   if (line == NULL || line[0] == '\n' || line[0] == '#') return NO_COMMAND;
 
-  enum Command ans = INVALID_COMMAND;
-  char* firstWord = strtok(line, WHITE_SPACE);
-  if (firstWord != NULL) {
-    // No white spaces at the beginning of the line allowed.
-    if (strcmp(firstWord, "m") == EQUAL && line[0] == 'm') ans = GAMMA_MOVE;
-    if (strcmp(firstWord, "g") == EQUAL && line[0] == 'g')
-      ans = GAMMA_GOLDEN_MOVE;
-    if (strcmp(firstWord, "b") == EQUAL && line[0] == 'b')
-      ans = GAMMA_BUSY_FIELDS;
-    if (strcmp(firstWord, "f") == EQUAL && line[0] == 'f')
-      ans = GAMMA_FREE_FIELDS;
-    if (strcmp(firstWord, "q") == EQUAL && line[0] == 'q')
-      ans = GAMMA_GOLDEN_POSSIBLE;
-    if (strcmp(firstWord, "p") == EQUAL && line[0] == 'p') ans = GAMMA_BOARD;
+  char* first_word = strtok(line, WHITE_SPACE);
+  command_t command = INVALID_COMMAND;
+  if (first_word != NULL && strlen(first_word) == 1 &&
+      // No white spaces at the beginning of the line allowed.
+      first_word[0] == line[0]) {
+    const char* command_ptr = strchr(COMMAND_CHARACTERS, first_word[0]);
+    if (command_ptr != NULL)
+      command = GAMMA_MOVE + (command_t)(command_ptr - COMMAND_CHARACTERS);
   }
-  return ans;
+  return command;
 }
 
-/** @brief Łączy parę funkcji ze "string.h" dla wygody.
- */
-static bool get_uints(int uintCount, char* strings[], unsigned long numbers[],
-                      uint32_t uints[]) {
-  bool ans = get_strings(uintCount, strings);
-  if (ans) ans = stringArr_to_ulArr(uintCount, strings, numbers);
-  if (ans) ans = ulArr_to_uintArr(uintCount, numbers, uints);
-  return ans;
-}
-
-/** @brief Przetwarza linijkę.
- */
-static int parse_line(gamma_t* g, unsigned long long* line) {
+// TODO getline handling more graceful
+/// Process a single line.
+static int process_line(gamma_t* g, unsigned long long* line) {
   ++(*line);
   char* str = NULL;
   size_t str_size = 0;
   errno = 0;
-  ssize_t errsv = getline(&str, &str_size, stdin);
-  int error = errno;
-  if (errsv == -1) {
+  ssize_t getline_result = getline(&str, &str_size, stdin);
+  if (getline_result == -1) {
     free(str);
-    errno = error;
-    return errsv;
+    return getline_result;
   }
 
   // Mogę zrzutować ponieważ nie jest równe - 1
-  if ((size_t)errsv != strlen(str)) {
+  if ((size_t)getline_result != strlen(str)) {
     free(str);
     printERR(*line);
-    return errsv;
+    return getline_result;
   }
 
-  enum Command tmp = checkCommand(str);
-  if (tmp == NO_COMMAND || tmp == INVALID_COMMAND) {
-    if (tmp == INVALID_COMMAND) printERR(*line);
+  command_t command = parse_command(str);
+  if (command == NO_COMMAND || command == INVALID_COMMAND) {
+    if (command == INVALID_COMMAND) printERR(*line);
     free(str);
-    return errsv;
-  }
-  int params_count = params_number[tmp];
-
-  char** params_as_strings = calloc(params_count, sizeof *params_as_strings);
-  unsigned long* params_as_ul = calloc(params_count, sizeof *params_as_ul);
-  uint32_t* params_as_uint = calloc(params_count, sizeof *params_as_uint);
-  if (params_as_strings == NULL || params_as_ul == NULL ||
-      params_as_uint == NULL) {
-    free(params_as_strings);
-    free(params_as_ul);
-    free(params_as_uint);
-    printERR(*line);
-    errno = ENOMEM;
-    return errsv;
+    return getline_result;
   }
 
-  bool params_are_correct =
-      get_uints(params_count, params_as_strings, params_as_ul, params_as_uint);
+  uint32_t params[MAX_PARAMS_NUM];
+  size_t params_count = params_number[command];
+
+  bool params_are_correct = get_uints(params_count, params);
   free(str);
-  free(params_as_strings);
-  free(params_as_ul);
+
   if (params_are_correct) {
-    process_command(tmp, g, params_as_uint);
+    process_command(command, g, params);
   } else {
     printERR(*line);
   }
 
-  free(params_as_uint);
-  return errsv;
+  return getline_result;
 }
 
-/** @brief Przetwarza całość.
- */
-static void parse(gamma_t* g, unsigned long long* line) {
-  bool all_is_fine = true, EOF_not_reached = true;
-  while (all_is_fine && EOF_not_reached) {
+/// Process inputs line by line.
+static void process(gamma_t* g, unsigned long long* line) {
+  bool reached_EOF = false;
+  errno = 0;
+  while (errno != ENOMEM && !reached_EOF) {
     errno = 0;
-    EOF_not_reached = parse_line(g, line) != -1;
-    all_is_fine = errno != ENOMEM;
+    reached_EOF = process_line(g, line) == -1;
   }
 }
 
 bool batch_mode(unsigned long long* line, uint32_t width, uint32_t height,
                 uint32_t players, uint32_t areas) {
   gamma_t* g = gamma_new(width, height, players, areas);
-  if (!g) return false;
-  printf("OK %llu\n", *line);
-
-  parse(g, line);
-
-  gamma_delete(g);
-  return true;
+  bool success = false;
+  if (g) {
+    printf("OK %llu\n", *line);
+    process(g, line);
+    gamma_delete(g);
+    success = true;
+  } else {
+    printERR(*line);
+  }
+  return success;
 }

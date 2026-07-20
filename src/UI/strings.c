@@ -1,13 +1,14 @@
 #include "strings.h"
 
+#include <assert.h>
 #include <errno.h>
+#include <limits.h>
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-const int EQUAL = 0;
 const char WHITE_SPACE[7] = {' ', '\t', '\n', '\v', '\f', '\r', '\0'};
 
 unsigned count_digits(uint32_t x) {
@@ -20,73 +21,53 @@ unsigned count_digits(uint32_t x) {
   return digits;
 }
 
-void cat_strings(char* dest, char* src, uint64_t start_point) {
-  uint32_t i = start_point;
-  int j = 0;
-  bool null_not_found = src[0] != '\0';
-  while (null_not_found) {
-    dest[i++] = src[j++];
-    null_not_found = src[j] != '\0';
-  }
-}
+/** @brief Convert a string to `unsigned long`.
+ * Can fail. In that case check errno for ENOMEM or ERANGE.
+ * @param[in] string - a null-terminated string to convert,
+ * @param[out] dest  - pointer to value where result will be stored.
+ * @return @p true iff converted successfully.
+ */
+static bool string_to_ul(char* string, unsigned long* dest) {
+  // Try to convert.
+  errno = 0;
+  if (string == NULL || dest == NULL ||
+      (ULONG_MAX == (*dest = strtoul(string, NULL, 10)) && errno == ERANGE))
+    return false;
 
-bool get_strings(int strings_count, char* strings[]) {
-  int i = 0;
-
-  while (i < strings_count) {
-    strings[i] = strtok(NULL, WHITE_SPACE);
-    i++;
-  }
-
-  return (i == strings_count) && (strtok(NULL, WHITE_SPACE) == NULL);
-}
-
-bool string_to_ul(char* string, unsigned long* dest) {
-  if (string == NULL || dest == NULL) return false;
-  *dest = strtoul(string, NULL, 10);
-
+  // Check for success.
   size_t string_length = strlen(string);
-  // TODO cast
-  if (count_digits(*dest) != string_length) return false;
-
-  char* converted = malloc((string_length + 1) * sizeof *converted);
+  if (string_length != count_digits(*dest)) return false;
+  char* converted = calloc(string_length + 1, sizeof *converted);
   if (converted == NULL) {
-    errno = ENOMEM;
     return false;
   }
-  sprintf(converted, "%lu", *dest);
-  bool ans = strcmp(converted, string) == EQUAL;
+
+  int sprintf_ret = sprintf(converted, "%lu", *dest);
+  assert(sprintf_ret >= 0);
+  assert((size_t)sprintf_ret == string_length);
+  bool success = strcmp(converted, string) == 0;
   free(converted);
 
-  return ans;
+  return success;
 }
 
-bool stringArr_to_ulArr(int strings_count, char* strings[],
-                        unsigned long numbers[]) {
-  bool ans = true;
+/** @brief Convert `unsigned long` to `uint32_t`.
+ * @param[in] from  - number to convert,
+ * @param[out] dest - pointer to value where result will be stored.
+ * @return @p true iff converted successfully.
+ */
+static bool ul_to_uint32_t(unsigned long from, uint32_t* dest) {
+  *dest = from;
+  return from <= UINT32_MAX;
+}
 
-  for (int i = 0; i < strings_count; ++i) {
-    errno = 0;
-    bool tmp = string_to_ul(strings[i], &(numbers[i]));
-    if (errno == ENOMEM) return false;
-    ans = ans ? tmp : ans;
+bool get_uints(size_t strings_count, uint32_t numbers[]) {
+  bool success = true;
+  for (size_t i = 0; success && i < strings_count; ++i) {
+    char* s = strtok(NULL, WHITE_SPACE);
+    unsigned long intermediate;
+    success = string_to_ul(s, &intermediate) &&
+              ul_to_uint32_t(intermediate, &(numbers[i]));
   }
-
-  return ans;
-}
-
-bool ul_to_uint32_t(unsigned long x, uint32_t* dest) {
-  *dest = x;
-  return x <= UINT32_MAX;
-}
-
-bool ulArr_to_uintArr(int size, unsigned long x[], uint32_t dest[]) {
-  bool ans = true;
-
-  for (int i = 0; i < size; ++i) {
-    bool tmp = ul_to_uint32_t(x[i], &(dest[i]));
-    ans = ans ? tmp : ans;
-  }
-
-  return ans;
+  return success && strtok(NULL, WHITE_SPACE) == NULL;
 }

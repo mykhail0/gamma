@@ -366,7 +366,7 @@ bool interactive_mode(uint32_t width, uint32_t height, uint32_t players,
   }
 
   errno = 0;
-  interact(g);
+  bool success = interact(g);
   int errsv = errno;
 
   if (errsv) {
@@ -376,5 +376,5 @@ bool interactive_mode(uint32_t width, uint32_t height, uint32_t players,
   }
 
   if (tcsetattr(STDIN_FILENO, TCSANOW, &oldt) == -1) return false;
-  return true;
+  return success;
 }

@@ -14,8 +14,7 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 
 set(CMAKE_C_FLAGS "-std=c11 -Wall -Wextra")
 set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
-#set(CMAKE_C_FLAGS_DEBUG "-pedantic -Werror -fstack-protector-strong -g")
-set(CMAKE_C_FLAGS_DEBUG "-pedantic -fstack-protector-strong -g")
+set(CMAKE_C_FLAGS_DEBUG "-pedantic -Werror -fstack-protector-strong -g")
 
 set(SOURCE_FILES
     src/game_engine/find-union.h

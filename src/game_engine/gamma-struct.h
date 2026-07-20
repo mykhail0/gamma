@@ -15,9 +15,13 @@
 
 #include "find-union.h"
 
-/** @brief Board's dimensionality.
- */
-#define COORDS_COUNT 2
+/// A field's coordinates.
+typedef struct {
+  /// field's line,
+  uint32_t line;
+  /// field's column.
+  uint32_t col;
+} field_t;
 
 /// Game's state.
 struct gamma {
@@ -48,13 +52,12 @@ struct gamma {
   /// Auxilary array for checking area changes during golden move DFS.
   bool** visited;
   /// Auxilary stack for checking area changes during golden move DFS.
-  uint32_t (*stack)[COORDS_COUNT];
+  field_t* stack;
   /// Index of the first empty spot on the stack.
   size_t top;
 };
 
-/** @brief Game's state object.
- */
+/// Game's state object.
 typedef struct gamma gamma_t;
 
 #endif /* GAMMA_STRUCT_H */

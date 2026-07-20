@@ -164,10 +164,9 @@ bool gamma_move(gamma_t* g, uint32_t player, uint32_t col, uint32_t line) {
   if (g == NULL) return false;
 
   line = g->height - line - 1;
-  if (!gamma_move_possible(g, player, col, line)) return false;
+  field_t field = {.col = col, .line = line};
+  if (!gamma_move_possible(g, player, field)) return false;
 
-  uint32_t field[COORDS_COUNT];
-  init_field(field, col, line);
   bool neighbour_exists = exists_neighbour(g, player, field);
   if (!neighbour_exists) ++(g->areas[player - 1]);
 
@@ -178,7 +177,7 @@ bool gamma_move(gamma_t* g, uint32_t player, uint32_t col, uint32_t line) {
 
   if (neighbour_exists) {
     elem_t *neighbours[NEIGHBOURS_COUNT], *united = g->board[line][col];
-    size_t neighbours_num = set_neighbours(g, player, col, line, neighbours);
+    size_t neighbours_num = set_neighbours(g, player, field, neighbours);
     aggregate_unite(neighbours_num, neighbours, united);
     g->areas[united->player - 1] -= neighbours_num - 1;
   }
@@ -190,12 +189,13 @@ bool gamma_golden_move(gamma_t* g, uint32_t player, uint32_t col,
   if (!player_is_ok(g, player)) return false;
 
   line = g->height - line - 1;
-  if (!coords_are_ok(g, col, line)) return false;
+  field_t field = {.col = col, .line = line};
+  if (!coords_are_ok(g, field)) return false;
 
   elem_t former = *(g->board[line][col]);
   make_set(g->board[line][col], NOPLAYER);
 
-  if (!gamma_move_possible(g, player, col, line) ||
+  if (!gamma_move_possible(g, player, field) ||
       !g->golden_not_used[player - 1] || former.player == NOPLAYER ||
       former.player == player) {
     *(g->board[line][col]) = former;
@@ -203,7 +203,7 @@ bool gamma_golden_move(gamma_t* g, uint32_t player, uint32_t col,
   }
 
   elem_t* areas[NEIGHBOURS_COUNT];
-  uint32_t areas_count = make_areas(g, former.player, col, line, areas);
+  uint32_t areas_count = make_areas(g, former.player, field, areas);
 
   if ((uint64_t)g->areas[former.player - 1] - UINT64_C(1) + areas_count >
       g->areas_number) {
@@ -281,8 +281,11 @@ char* gamma_board(gamma_t* g) {
   unsigned column_width = count_digits(g->players_number);
   if (column_width > 1) ++column_width;
   // TODO overflow, dokladnosc?
-  char* str = calloc(g->height * ((uint64_t)g->width * column_width + 1) + 1,
-                     sizeof *str);
+  char* str =
+      calloc(g->height /* number of lines */ *
+                     ((uint64_t)g->width * column_width + 1 /* newline */) +
+                 1 /* null-termination */,
+             sizeof *str);
   if (str == NULL) return NULL;
 
   char* buffer = calloc(column_width + 1, sizeof *buffer);
@@ -297,7 +300,6 @@ char* gamma_board(gamma_t* g) {
       if (g->board[i][j]->player == NOPLAYER) buffer[column_width - 1] = '.';
 
       strcpy(str + count, buffer);
-      // cat_strings(str, buffer, count);
       count += column_width;
     }
     str[count++] = '\n';
