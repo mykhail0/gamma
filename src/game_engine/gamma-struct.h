@@ -15,13 +15,17 @@
 
 #include "find-union.h"
 
-/// A field's coordinates.
+/// Player's numbers are uint32_t, highest can have at most 10 digits.
+/// This is +2 for null-termination byte and a space.
+#define MAX_COLUMN_WIDTH 11
+
+/// A point, holds @p line and @p col.
 typedef struct {
-  /// field's line,
+  /// a line coordinate,
   uint32_t line;
-  /// field's column.
+  /// a column coordinate.
   uint32_t col;
-} field_t;
+} point_t;
 
 /// Game's state.
 struct gamma {
@@ -52,7 +56,7 @@ struct gamma {
   /// Auxilary array for checking area changes during golden move DFS.
   bool** visited;
   /// Auxilary stack for checking area changes during golden move DFS.
-  field_t* stack;
+  point_t* stack;
   /// Index of the first empty spot on the stack.
   size_t top;
 };

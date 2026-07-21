@@ -469,6 +469,24 @@ static int golden_possible(void) {
   assert(!gamma_golden_possible(g, 2));
 
   gamma_delete(g);
+
+  g = gamma_new(2, 2, 2, 1);
+  assert(g != NULL);
+  assert(gamma_move(g, 1, 0, 1));
+  assert(gamma_move(g, 2, 1, 1));
+  assert(gamma_move(g, 1, 0, 0));
+  assert(gamma_golden_move(g, 2, 0, 1));
+  assert(gamma_move(g, 1, 1, 0));
+  assert(gamma_golden_possible(g, 1));
+  static const char board[] =
+      "22\n"
+      "11\n";
+  char* p = gamma_board(g);
+  assert(strcmp(p, board) == 0);
+  free(p);
+
+  gamma_delete(g);
+
   return PASS;
 }
 

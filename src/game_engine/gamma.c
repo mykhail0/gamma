@@ -164,7 +164,7 @@ bool gamma_move(gamma_t* g, uint32_t player, uint32_t col, uint32_t line) {
   if (g == NULL) return false;
 
   line = g->height - line - 1;
-  field_t field = {.col = col, .line = line};
+  point_t field = {.col = col, .line = line};
   if (!gamma_move_possible(g, player, field)) return false;
 
   bool neighbour_exists = exists_neighbour(g, player, field);
@@ -189,7 +189,7 @@ bool gamma_golden_move(gamma_t* g, uint32_t player, uint32_t col,
   if (!player_is_ok(g, player)) return false;
 
   line = g->height - line - 1;
-  field_t field = {.col = col, .line = line};
+  point_t field = {.col = col, .line = line};
   if (!coords_are_ok(g, field)) return false;
 
   elem_t former = *(g->board[line][col]);
@@ -238,8 +238,8 @@ uint64_t gamma_free_fields(gamma_t* g, uint32_t player) {
              : g->free_fields;
 }
 
-/** @brief Odwraca skutki wykonania ruchu innego gracza na pole
- * (`x`, `y`), zajęte przez gracza o numerze `player`.
+/** @brief Reverse someone's golden move on (@p x, @p y) which is owned by @p
+ * player.
  */
 static void reverse_gamma_move(gamma_t* g, uint32_t player, uint32_t x,
                                uint32_t y) {
@@ -250,21 +250,21 @@ static void reverse_gamma_move(gamma_t* g, uint32_t player, uint32_t x,
 }
 
 bool gamma_golden_possible(gamma_t* g, uint32_t player) {
-  bool is_possible = false;
-  if (!player_is_ok(g, player)) return is_possible;
-  if (g->golden_not_used[player - 1] == false) return is_possible;
+  if (!player_is_ok(g, player)) return false;
+  if (g->golden_not_used[player - 1] == false) return false;
 
+  bool is_possible = false;
   if (g->areas[player - 1] == g->areas_number) {
     uint32_t x, y, former_player;
-    for (y = g->height; (y--) > 0 && !is_possible;) {
+    for (y = 0; y < g->height && !is_possible; ++y) {
       for (x = 0; x < g->width && !is_possible; ++x) {
-        former_player = g->board[y][x]->player;
+        former_player = g->board[g->height - 1 - y][x]->player;
         is_possible = gamma_golden_move(g, player, x, y);
       }
     }
     if (is_possible) {
       g->golden_not_used[player - 1] = true;
-      reverse_gamma_move(g, former_player, x, y);
+      reverse_gamma_move(g, former_player, x - 1, y - 1);
     }
   } else {
     for (uint32_t i = 0; i < g->players_number; ++i) {
@@ -280,23 +280,20 @@ char* gamma_board(gamma_t* g) {
 
   unsigned column_width = count_digits(g->players_number);
   if (column_width > 1) ++column_width;
-  // TODO overflow, dokladnosc?
+  // Prevent overflow.
+  uint64_t drawn_width = (uint64_t)g->width * column_width + 1 /* newline */;
+  if (drawn_width > UINT64_MAX / g->height) return NULL;
   char* str =
-      calloc(g->height /* number of lines */ *
-                     ((uint64_t)g->width * column_width + 1 /* newline */) +
-                 1 /* null-termination */,
-             sizeof *str);
+      calloc(g->height * drawn_width + 1 /* null-termination */, sizeof *str);
   if (str == NULL) return NULL;
 
-  char* buffer = calloc(column_width + 1, sizeof *buffer);
-  if (buffer == NULL) return NULL;
+  char buffer[MAX_COLUMN_WIDTH];
   buffer[column_width] = '\0';
 
   size_t count = 0;
   for (uint32_t i = 0; i < g->height; ++i) {
     for (uint32_t j = 0; j < g->width; ++j) {
-      assert(sprintf(buffer, "%*" PRIu32, column_width,
-                     g->board[i][j]->player) > 0);
+      sprintf(buffer, "%*" PRIu32, column_width, g->board[i][j]->player);
       if (g->board[i][j]->player == NOPLAYER) buffer[column_width - 1] = '.';
 
       strcpy(str + count, buffer);
@@ -306,6 +303,5 @@ char* gamma_board(gamma_t* g) {
   }
 
   str[count] = '\0';
-  free(buffer);
   return str;
 }

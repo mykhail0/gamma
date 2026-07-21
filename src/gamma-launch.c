@@ -11,6 +11,7 @@
 
 #include "gamma-launch.h"
 
+#include <errno.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -67,7 +68,6 @@ static bool load_game(game_mode_t mode, unsigned long long* line) {
   return success;
 }
 
-// TODO more graceful getline handling
 int launch_game() {
   bool successful_interactive = false, finished_on_failed_interactive = false;
   unsigned long long line_number = 1;
@@ -101,5 +101,6 @@ int launch_game() {
   }
 
   free(line);
+  if (ferror(stdin) || errno == EINVAL || errno == ENOMEM) return EXIT_FAILURE;
   return finished_on_failed_interactive ? EXIT_FAILURE : EXIT_SUCCESS;
 }

@@ -12,12 +12,13 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-/** A field on the board.
- */
+/// A field on the board.
 struct elem {
-  uint32_t player;  ///< a player's index, who owns the piece on this field,
-  uint64_t rank;    ///< upper limit on height of the area's tree. Meaningful
-                    /// only if parent is equal to the address of this field.
+  /// a player's index, who owns the piece on this field,
+  uint32_t player;
+  /// upper limit on height of the area's tree. Meaningful only if parent is
+  /// equal to the address of this field.
+  uint64_t rank;
 
   /** Address of the field parental to this one.
    * If the address is equal to the address of this field then it is the root of

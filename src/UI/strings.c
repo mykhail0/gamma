@@ -27,7 +27,7 @@ unsigned count_digits(uint32_t x) {
  * @param[out] dest  - pointer to value where result will be stored.
  * @return @p true iff converted successfully.
  */
-static bool string_to_ul(char* string, unsigned long* dest) {
+static bool string_to_ul(const char* string, unsigned long* dest) {
   // Try to convert.
   errno = 0;
   if (string == NULL || dest == NULL ||
@@ -42,9 +42,7 @@ static bool string_to_ul(char* string, unsigned long* dest) {
     return false;
   }
 
-  int sprintf_ret = sprintf(converted, "%lu", *dest);
-  assert(sprintf_ret >= 0);
-  assert((size_t)sprintf_ret == string_length);
+  sprintf(converted, "%lu", *dest);
   bool success = strcmp(converted, string) == 0;
   free(converted);
 

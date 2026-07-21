@@ -91,12 +91,13 @@ extern uint64_t gamma_free_fields(gamma_t* g, uint32_t player);
 
 /** @brief Check if the player can make a golden move.
  * Check if the @p player hasn't yet made a golden move and there is at least
- * one field taken by another player.
+ * one field taken by another player that could be taking without breaking the
+ * number of areas for any player.
  * @param[in] g       – a pointer to the game's state,
  * @param[in] player  – player's index, positive number not greater than the
  *                      value of @p players from function @ref gamma_new.
- * @return Value of @p true, if the player hasn't yet made a golden move and
- * there is at least one field taken by another player and @p false otherwise.
+ * @return Value of @p true if @p player could make a golden move and @p false
+ * otherwise.
  */
 extern bool gamma_golden_possible(gamma_t* g, uint32_t player);
 

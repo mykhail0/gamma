@@ -16,18 +16,21 @@
 #include "find-union.h"
 #include "gamma-struct.h"
 
+/// Difference between field coordinates.
 typedef struct {
+  /// Difference in lines.
   int32_t dline;
+  /// Difference in columns.
   int32_t dcol;
 } field_diff_t;
 
 const uint32_t NOPLAYER = 0;
 
-bool player_is_ok(gamma_t* g, uint32_t player) {
+bool player_is_ok(const gamma_t* g, uint32_t player) {
   return g != NULL && 0 < player && player <= g->players_number;
 }
 
-bool coords_are_ok(gamma_t* g, field_t field) {
+bool coords_are_ok(const gamma_t* g, point_t field) {
   assert(g != NULL);
   return field.col < g->width && field.line < g->height;
 }
@@ -37,14 +40,14 @@ static const field_diff_t ADJACENT_DIFFS[NEIGHBOURS_COUNT] = {
     {-1, 0}, {1, 0}, {0, -1}, {0, 1}};
 
 /// Apply a given difference in field coordinates to a given field.
-static field_t apply_diff(field_t field, field_diff_t diff) {
-  field_t diffed = {.line = field.line + diff.dline,
+static point_t apply_diff(point_t field, field_diff_t diff) {
+  point_t diffed = {.line = field.line + diff.dline,
                     .col = field.col + diff.dcol};
   return diffed;
 }
 
 /// Check if the field moved by `ADJACENT_DIFFS[adj_i]` has correct coords.
-static bool move_is_valid(gamma_t* g, size_t adj_i, field_t field) {
+static bool move_is_valid(const gamma_t* g, size_t adj_i, point_t field) {
   return (ADJACENT_DIFFS[adj_i].dline >= 0 || field.line != 0) &&
          (ADJACENT_DIFFS[adj_i].dcol >= 0 || field.col != 0) &&
          coords_are_ok(g, apply_diff(field, ADJACENT_DIFFS[adj_i]));
@@ -56,8 +59,9 @@ static bool move_is_valid(gamma_t* g, size_t adj_i, field_t field) {
  * @param[in] field       - coordinates of the field whose neighbours we find.
  * @return The number of neighbours.
  */
-static size_t find_neighbours(gamma_t* g, field_t neighbours[NEIGHBOURS_COUNT],
-                              field_t field) {
+static size_t find_neighbours(const gamma_t* g,
+                              point_t neighbours[NEIGHBOURS_COUNT],
+                              point_t field) {
   size_t i = 0;
   for (size_t j = 0; j < NEIGHBOURS_COUNT; ++j) {
     if (move_is_valid(g, j, field)) {
@@ -74,9 +78,9 @@ static size_t find_neighbours(gamma_t* g, field_t neighbours[NEIGHBOURS_COUNT],
  * @param[in] player      - player we are looking for.
  * @return The number of neighbours.
  */
-static size_t find_neighbour_player(gamma_t* g,
-                                    field_t neighbours[NEIGHBOURS_COUNT],
-                                    field_t field, uint32_t player) {
+static size_t find_neighbour_player(const gamma_t* g,
+                                    point_t neighbours[NEIGHBOURS_COUNT],
+                                    point_t field, uint32_t player) {
   size_t i = 0;
   for (size_t j = 0; j < NEIGHBOURS_COUNT; ++j) {
     if (move_is_valid(g, j, field)) {
@@ -88,7 +92,7 @@ static size_t find_neighbour_player(gamma_t* g,
   return i;
 }
 
-bool exists_neighbour(gamma_t* g, uint32_t player, field_t field) {
+bool exists_neighbour(const gamma_t* g, uint32_t player, point_t field) {
   bool exists = false;
   for (size_t j = 0; !exists && j < NEIGHBOURS_COUNT; ++j) {
     if (move_is_valid(g, j, field)) {
@@ -100,7 +104,7 @@ bool exists_neighbour(gamma_t* g, uint32_t player, field_t field) {
   return exists;
 }
 
-size_t set_neighbours(gamma_t* g, uint32_t player, field_t field,
+size_t set_neighbours(gamma_t* g, uint32_t player, point_t field,
                       elem_t* neighbours[NEIGHBOURS_COUNT]) {
   for (size_t i = 0; i < NEIGHBOURS_COUNT; ++i) neighbours[i] = NULL;
 
@@ -121,7 +125,7 @@ size_t set_neighbours(gamma_t* g, uint32_t player, field_t field,
   return i;
 }
 
-bool gamma_move_possible(gamma_t* g, uint32_t player, field_t field) {
+bool gamma_move_possible(const gamma_t* g, uint32_t player, point_t field) {
   return player_is_ok(g, player) && coords_are_ok(g, field) &&
          g->board[field.line][field.col]->player == NOPLAYER &&
          (g->areas[player - 1] < g->areas_number ||
@@ -131,7 +135,7 @@ bool gamma_move_possible(gamma_t* g, uint32_t player, field_t field) {
 void update_free_neighbours(gamma_t* g, uint32_t player, uint32_t col,
                             uint32_t line, bool disappeared) {
   uint32_t player_encountered[NEIGHBOURS_COUNT];
-  field_t neighbours[NEIGHBOURS_COUNT], field = {.line = line, .col = col};
+  point_t neighbours[NEIGHBOURS_COUNT], field = {.line = line, .col = col};
   size_t neighbours_num = find_neighbours(g, neighbours, field);
 
   for (size_t i = 0; i < neighbours_num; ++i) {
@@ -160,7 +164,7 @@ void update_free_neighbours(gamma_t* g, uint32_t player, uint32_t col,
  * @param[in] g - game's state,
  * @param[in] x - field's coordinates.
  */
-static void push(gamma_t* g, field_t x) {
+static void push(gamma_t* g, point_t x) {
   g->stack[g->top] = x;
   ++(g->top);
 }
@@ -169,7 +173,7 @@ static void push(gamma_t* g, field_t x) {
  * @param[in] g  - game's state,
  * @param[out] x - field's coordinates.
  */
-static void pop(gamma_t* g, field_t* x) {
+static void pop(gamma_t* g, point_t* x) {
   --(g->top);
   *x = g->stack[g->top];
 }
@@ -180,8 +184,8 @@ static void pop(gamma_t* g, field_t* x) {
  * @param[in] g     - game's state,
  * @param[in] field - field of interest.
  */
-static void push_neighbours(gamma_t* g, field_t field) {
-  field_t neighbours[NEIGHBOURS_COUNT];
+static void push_neighbours(gamma_t* g, point_t field) {
+  point_t neighbours[NEIGHBOURS_COUNT];
   size_t neighbours_num = find_neighbour_player(
       g, neighbours, field, g->board[field.line][field.col]->player);
 
@@ -197,8 +201,8 @@ static void push_neighbours(gamma_t* g, field_t field) {
  * @param[in] g     - game's state,
  * @param[in] field - field of interest.
  */
-static void push_neighbours_clear(gamma_t* g, field_t field) {
-  field_t neighbours[NEIGHBOURS_COUNT];
+static void push_neighbours_clear(gamma_t* g, point_t field) {
+  point_t neighbours[NEIGHBOURS_COUNT];
   size_t neighbours_num = find_neighbours(g, neighbours, field);
 
   for (size_t i = 0; i < neighbours_num; ++i) {
@@ -213,12 +217,12 @@ static void push_neighbours_clear(gamma_t* g, field_t field) {
  * @param[in] g     - game's state,
  * @param[in] start - starting field's coordinates.
  */
-static void clear_visited(gamma_t* g, field_t start) {
+static void clear_visited(gamma_t* g, point_t start) {
   g->top = 0;
   g->visited[start.line][start.col] = false;
   push(g, start);
   while (g->top != 0) {
-    field_t current;
+    point_t current;
     pop(g, &current);
     push_neighbours_clear(g, current);
   }
@@ -234,8 +238,8 @@ static void clear_visited(gamma_t* g, field_t start) {
  * @param[out] visited       - if a given neighbour was visited during this DFS.
  * @return Representative of a newly created/updated area.
  */
-static elem_t* update_area(gamma_t* g, field_t start, size_t neighbours_num,
-                           field_t neighbours[NEIGHBOURS_COUNT],
+static elem_t* update_area(gamma_t* g, point_t start, size_t neighbours_num,
+                           point_t neighbours[NEIGHBOURS_COUNT],
                            bool visited[NEIGHBOURS_COUNT]) {
   elem_t* updated_area_rep = make_set(g->board[start.line][start.col],
                                       g->board[start.line][start.col]->player);
@@ -243,7 +247,7 @@ static elem_t* update_area(gamma_t* g, field_t start, size_t neighbours_num,
   push(g, start);
   g->visited[start.line][start.col] = true;
   while (g->top != 0) {
-    field_t current;
+    point_t current;
     pop(g, &current);
 
     updated_area_rep =
@@ -263,9 +267,9 @@ static elem_t* update_area(gamma_t* g, field_t start, size_t neighbours_num,
   return updated_area_rep;
 }
 
-uint32_t make_areas(gamma_t* g, uint32_t player, field_t field,
+uint32_t make_areas(gamma_t* g, uint32_t player, point_t field,
                     elem_t* areas[NEIGHBOURS_COUNT]) {
-  field_t neighbours[NEIGHBOURS_COUNT];
+  point_t neighbours[NEIGHBOURS_COUNT];
   size_t neighbours_num = find_neighbour_player(g, neighbours, field, player);
   bool visited[NEIGHBOURS_COUNT];
   for (size_t i = 0; i < neighbours_num; ++i) visited[i] = false;

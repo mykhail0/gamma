@@ -158,7 +158,6 @@ static command_t parse_command(char* line) {
   return command;
 }
 
-// TODO getline handling more graceful
 /// Process a single line.
 static int process_line(gamma_t* g, unsigned long long* line) {
   ++(*line);
@@ -171,7 +170,7 @@ static int process_line(gamma_t* g, unsigned long long* line) {
     return getline_result;
   }
 
-  // Mogę zrzutować ponieważ nie jest równe - 1
+  assert(getline_result >= 0);
   if ((size_t)getline_result != strlen(str)) {
     free(str);
     printERR(*line);
@@ -204,7 +203,7 @@ static int process_line(gamma_t* g, unsigned long long* line) {
 static void process(gamma_t* g, unsigned long long* line) {
   bool reached_EOF = false;
   errno = 0;
-  while (errno != ENOMEM && !reached_EOF) {
+  while (!ferror(stdin) && errno != ENOMEM && errno != EINVAL && !reached_EOF) {
     errno = 0;
     reached_EOF = process_line(g, line) == -1;
   }
