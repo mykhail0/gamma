@@ -16,7 +16,7 @@ set(CMAKE_C_FLAGS "-std=c11 -Wall -Wextra")
 set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(CMAKE_C_FLAGS_DEBUG "-pedantic -Werror -fstack-protector-strong -g")
 
-set(SOURCE_FILES
+set(GAME_ENGINE_SOURCE_FILES
     src/game_engine/find-union.h
     src/game_engine/find-union.c
     src/game_engine/gamma-struct.h
@@ -24,10 +24,13 @@ set(SOURCE_FILES
     src/game_engine/gamma-move.c
     src/game_engine/gamma.h
     src/game_engine/gamma.c
+    src/UI/strings.h
+    src/UI/strings.c)
+
+set(SOURCE_FILES
+    ${GAME_ENGINE_SOURCE_FILES}
     src/UI/error-handling.h
     src/UI/error-handling.c
-    src/UI/strings.h
-    src/UI/strings.c
     src/UI/batch-mode.h
     src/UI/batch-mode.c
     src/UI/interactive-mode.h
@@ -38,28 +41,23 @@ set(SOURCE_FILES
 
 add_executable(gamma ${SOURCE_FILES})
 
-set(TEST_SOURCE_FILES
-    src/game_engine/find-union.h
-    src/game_engine/find-union.c
-    src/game_engine/gamma-struct.h
-    src/game_engine/gamma-move.h
-    src/game_engine/gamma-move.c
-    src/game_engine/gamma.h
-    src/game_engine/gamma.c
-    src/UI/strings.h
-    src/UI/strings.c
-    src/gamma_test.c)
-
 # Don't include `test` target in the `all` target for make.
-add_executable(test EXCLUDE_FROM_ALL ${TEST_SOURCE_FILES})
+add_executable(test EXCLUDE_FROM_ALL ${GAME_ENGINE_SOURCE_FILES} src/gamma_test.c)
 set_target_properties(test PROPERTIES OUTPUT_NAME gamma_test)
+
+add_executable(gamma_malloc EXCLUDE_FROM_ALL ${SOURCE_FILES} src/gamma_malloc_test.c)
+if (NOT DEFINED N)
+    set(N 1)
+endif ()
+set_target_properties(gamma_malloc PROPERTIES
+    COMPILE_DEFINITIONS N=${N}
+    LINK_OPTIONS -Wl,--wrap,malloc,--wrap,calloc)
 
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
     # Set location of configuration file and target location in the compilation
     # directory.
     configure_file(${CMAKE_CURRENT_SOURCE_DIR}/Doxyfile.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile @ONLY)
-    # Dodajemy cel doc: użycie make doc spowoduje wywołanie doxygena z odpowiednim plikiem konfiguracyjnym w folderze kompilacji.
     # Add doc target: using make doc executes doxygen with a relevant
     # configuration file in the compilation directory.
     add_custom_target(doc
