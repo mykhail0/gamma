@@ -198,8 +198,6 @@ static bool make_move(gamma_t* g, uint32_t* player, int* c,
     } else {
       *need_to_getchar = false;
     }
-  } else {
-    *need_to_getchar = false;
   }
 
   return false;
