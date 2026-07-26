@@ -121,7 +121,7 @@ static void print_player_stats(gamma_t* g, uint32_t player) {
   bool use_red = g->areas[player - 1] == g->areas_number;
   if (use_red) printf("\033[31m");
   printf(" %" PRIu32 "/%" PRIu32, g->areas[player - 1], g->areas_number);
-  if (use_red) printf("\033[m");
+  if (use_red) reset_attributes();
   // Use yellow color for golden move ability.
   if (g->golden_not_used[player - 1]) printf(" \033[33mG\033[m");
 }
@@ -149,8 +149,8 @@ static void print_board(gamma_t* g, uint32_t player) {
 
       printf("%s", buffer);
 
-      if (use_green) printf("\033[m");
-      if (use_reverse_video) printf("\033[m");
+      if (use_green) reset_attributes();
+      if (use_reverse_video) reset_attributes();
     }
     printf("\n");
   }
