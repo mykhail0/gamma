@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-const char WHITE_SPACE[7] = {' ', '\t', '\n', '\v', '\f', '\r', '\0'};
+const char WHITE_SPACE[] = " \t\n\v\f\r";
 
 unsigned count_digits(uint32_t x) {
   unsigned digits = 0;
